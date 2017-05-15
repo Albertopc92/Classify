@@ -2,8 +2,6 @@ package classify.jerarquia;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import classify.enumeraciones.Genero;
@@ -58,9 +56,8 @@ public abstract class Multimedia implements Serializable{
 		setID(incID++);
 	}
 	
-	public Multimedia(int iD, String titulo) throws TituloNoValidoException {
+	public Multimedia(String titulo) throws TituloNoValidoException {
 		setTitulo(titulo);
-		setID(iD);
 	}
 	
 	
@@ -306,13 +303,14 @@ public abstract class Multimedia implements Serializable{
 
 	@Override
 	public String toString() {
-		return getClass().getSimpleName() + "[ ID=" + ID + " titulo=" + titulo + ", tituloOriginal=" + tituloOriginal + ", anyo=" + anyo + ", duracion="
-				+ duracion + ", pais=" + pais + ", director=" + director + ", guion=" + guion + ", musica=" + musica
-				+ ", fotografía=" + fotografía + ", reparto=" + Arrays.toString(reparto) + ", productora=" + productora
-				+ ", genero=" + genero + ", sinopsis=" + sinopsis + ", notaUsuario=" + notaUsuario + ", visualizado="
-				+ visualizado + ", ultimaVisualizacion=" + ultimaVisualizacion + " puntuacion =" + puntuable() + "]";
+//		return getClass().getSimpleName() + "[ ID=" + ID + " titulo=" + titulo + ", tituloOriginal=" + tituloOriginal + ", anyo=" + anyo + ", duracion="
+//				+ duracion + ", pais=" + pais + ", director=" + director + ", guion=" + guion + ", musica=" + musica
+//				+ ", fotografía=" + fotografía + ", reparto=" + Arrays.toString(reparto) + ", productora=" + productora
+//				+ ", genero=" + genero + ", sinopsis=" + sinopsis + ", notaUsuario=" + notaUsuario + ", visualizado="
+//				+ visualizado + ", ultimaVisualizacion=" + ultimaVisualizacion + " puntuacion =" + puntuable() + "]";
+		return getTitulo();
 	}
-
+/*
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -329,8 +327,34 @@ public abstract class Multimedia implements Serializable{
 		if (obj == null)
 			return false;
 		Multimedia other = (Multimedia) obj;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
+			return false;
 		if (ID != other.ID)
 			return false;
+		return true;
+	}
+	*/
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Multimedia other = (Multimedia) obj;
 		if (titulo == null) {
 			if (other.titulo != null)
 				return false;
@@ -338,5 +362,4 @@ public abstract class Multimedia implements Serializable{
 			return false;
 		return true;
 	}
-	
 }

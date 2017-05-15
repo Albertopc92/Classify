@@ -106,9 +106,9 @@ public class Videoteca {
 	 * @throws ListaVaciaException 
 	 * @throws TituloNoValidoException 
 	 */
-	public boolean borrar(int ID, String titulo) throws NoExisteException, ListaVaciaException, TituloNoValidoException{
+	public boolean borrar(String titulo) throws NoExisteException, ListaVaciaException, TituloNoValidoException{
 		isEmpty();
-		if(videoteca.remove(new Pelicula(ID, titulo))) {
+		if(videoteca.remove(new Pelicula(titulo))) {
 			return true;
 		}
 		

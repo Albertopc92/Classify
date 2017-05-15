@@ -212,6 +212,7 @@ public class PlantillaAnnadir extends JDialog {
 		btnAccion = new JButton("Acci\u00f3n");
 		btnAccion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 			}
 		});
 		btnAccion.setBounds(421, 684, 89, 23);
@@ -230,5 +231,9 @@ public class PlantillaAnnadir extends JDialog {
 		checkbox.setBounds(439, 51, 95, 22);
 		getContentPane().add(checkbox);
 
+	}
+	
+	void reset() {
+		//TODO
 	}
 }

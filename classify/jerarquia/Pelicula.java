@@ -24,8 +24,8 @@ public class Pelicula extends Multimedia implements Serializable{
 		setPremios(premios);
 	}
 	
-	public Pelicula(int ID, String titulo) throws TituloNoValidoException {
-		super(ID, titulo);
+	public Pelicula(String titulo) throws TituloNoValidoException {
+		super(titulo);
 	}
 	
 	public int getNumVisualizaciones() {
