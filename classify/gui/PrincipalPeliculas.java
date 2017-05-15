@@ -25,10 +25,10 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 	 * Create the dialog.
 	 */
 	public PrincipalPeliculas() {
-		btnVerFichaTecnica.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		setTitle("Pel\u00edculas");
+		setModal(true);
+		setBounds(100, 100, 720, 788);
+	
 		/*jlist = new JList(videoteca.listarPeliculas().toArray());
 		jlist.setBounds(287, 71, 380, 579);
 		getContentPane().add(jlist);*/
@@ -48,9 +48,7 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 				annadirPelicula.setVisible(true);
 			}
 		});
-		setTitle("Pel\u00edculas");
-		setModal(true);
-		setBounds(100, 100, 720, 788);
+
 		
 		
 		

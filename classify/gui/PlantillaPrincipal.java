@@ -26,6 +26,7 @@ public class PlantillaPrincipal extends JDialog {
 	protected JButton btnListarPorGenero;
 	protected JButton btnListarPorPuntuacion;
 	protected JButton btnListarPorNumeroVisualizaciones;
+	private FichaTecnica fichaTecnica;
 	
 	Videoteca videoteca = Classify.videoteca;
 	JList<Multimedia> jlist;
@@ -61,7 +62,9 @@ public class PlantillaPrincipal extends JDialog {
 		btnVerFichaTecnica = new JButton("Ver ficha t\u00e9cnica");
 		btnVerFichaTecnica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
+				fichaTecnica = new FichaTecnica(multimedia);
+				fichaTecnica.setVisible(true);
 			}
 		});
 		btnVerFichaTecnica.setBounds(34, 192, 183, 23);
