@@ -14,6 +14,18 @@ public class FichaTecnica extends PlantillaAnnadir {
 		textField_titulo.setEnabled(false);
 		textField_titulo.setText(multimedia.getTitulo());
 		
+		textField_tituloOriginal.setEnabled(false);
+		textField_tituloOriginal.setText(multimedia.getTituloOriginal());
+		
+		comboBox_anno.setEnabled(false);
+		comboBox_anno.setSelectedItem(multimedia.getAnyo());
+		
+		textField_duracion.setEnabled(false);
+		textField_duracion.setText(Integer.toString(multimedia.getDuracion()));
+		
+		
+		
+		
 	}
 
 }

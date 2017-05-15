@@ -78,7 +78,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected String getTituloOriginal() {
+	public String getTituloOriginal() {
 		return tituloOriginal;
 	}
 
@@ -95,7 +95,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected int getAnyo() {
+	public int getAnyo() {
 		return anyo;
 	}
 
@@ -107,7 +107,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected int getDuracion() {
+	public int getDuracion() {
 		return duracion;
 	}
 
@@ -121,7 +121,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected String getPais() {
+	public String getPais() {
 		return pais;
 	}
 
@@ -137,7 +137,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected String getDirector() {
+	public String getDirector() {
 		return director;
 	}
 
@@ -153,7 +153,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected String getGuion() {
+	public String getGuion() {
 		return guion;
 	}
 
@@ -165,7 +165,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected String getMusica() {
+	public String getMusica() {
 		return musica;
 	}
 
@@ -181,7 +181,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected String getFotografía() {
+	public String getFotografía() {
 		return fotografía;
 	}
 
@@ -197,7 +197,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected String[][] getReparto() {
+	public String[][] getReparto() {
 		return reparto;
 	}
 
@@ -209,7 +209,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected String getProductora() {
+	public String getProductora() {
 		return productora;
 	}
 
@@ -237,7 +237,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected String getSinopsis() {
+	public String getSinopsis() {
 		return sinopsis;
 	}
 
@@ -249,7 +249,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected float getNotaUsuario() {
+	public float getNotaUsuario() {
 		return notaUsuario;
 	}
 
@@ -263,7 +263,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected boolean isVisualizado() {
+	public boolean isVisualizado() {
 		return visualizado;
 	}
 
