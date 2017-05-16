@@ -1,6 +1,7 @@
 package classify.gui;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import classify.enumeraciones.Genero;
 import classify.enumeraciones.PremioPelicula;

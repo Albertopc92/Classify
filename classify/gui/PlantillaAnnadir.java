@@ -213,8 +213,6 @@ public class PlantillaAnnadir extends JDialog {
 		btnAccion = new JButton("Acci\u00f3n");
 		btnAccion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//TODO
-				
 			}
 		});
 		btnAccion.setBounds(421, 684, 89, 23);
