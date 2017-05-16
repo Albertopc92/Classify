@@ -10,10 +10,14 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import classify.envoltorios.Videoteca;
+import classify.excepciones.ListaVaciaException;
+import classify.jerarquia.Multimedia;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -25,6 +29,7 @@ public class Classify {
 	private PrincipalPeliculas principalPeliculas;
 	private PrincipalSeries principalSeries;
 	static Videoteca videoteca = new Videoteca();
+	private FichaTecnica fichaTecnica;
 
 	/**
 	 * Launch the application.
@@ -98,8 +103,20 @@ public class Classify {
 		textField_Buscar.setBounds(139, 210, 138, 20);
 		frmClassify.getContentPane().add(textField_Buscar);
 		textField_Buscar.setColumns(10);
-
+		
+		// BUSCAR
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String titulo = textField_Buscar.getText();
+				try {
+					mostrarFichaTecnica(videoteca.buscar(titulo));
+				} catch (ListaVaciaException exception) {
+					JOptionPane.showMessageDialog(null, "No se ha podido encontrar el elemento: " + exception.getMessage(),"No se ha podido encontrar", JOptionPane.ERROR_MESSAGE);
+				}
+				
+			}
+		});
 		btnBuscar.setBounds(291, 209, 89, 23);
 		frmClassify.getContentPane().add(btnBuscar);
 		
@@ -118,5 +135,13 @@ public class Classify {
 		
 		JMenuItem mntmSobreClassify = new JMenuItem("Sobre Classify...");
 		mnAyuda.add(mntmSobreClassify);
+	}
+	
+	/**
+	 * Muestra la ficha tecnica del elemento seleccionado
+	 */
+	private void mostrarFichaTecnica(Multimedia multimedia) {
+		fichaTecnica = new FichaTecnica(multimedia);
+		fichaTecnica.setVisible(true);
 	}
 }
