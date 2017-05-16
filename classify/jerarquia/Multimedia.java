@@ -32,7 +32,7 @@ public abstract class Multimedia implements Serializable{
 	protected LocalDate ultimaVisualizacion;
 	protected int ID;
 	private static int incID = 1;
-	private static final Pattern PATRON_TITULO = Pattern.compile("^[^\\!\\\"\\$\\%\\&\\/\\\\\\(\\)\\=\\;\\:\\-\\_\\*][A-z\\s].+");
+	private static final Pattern PATRON_TITULO = Pattern.compile("^[^\\!\\\"\\$\\%\\&\\/\\\\\\(\\)\\=\\;\\:\\-\\_\\*][0-9A-z\\s].+");
 	private static final Pattern PATRON_NO_BLANCO = Pattern.compile("[A-z\\s]+");
 	
 	public Multimedia(String titulo,String tituloOriginal, int anyo, int duracion, 
@@ -67,7 +67,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setTitulo(String titulo) throws TituloNoValidoException {
+	public void setTitulo(String titulo) throws TituloNoValidoException {
 		Matcher matcherTitulo = PATRON_TITULO.matcher(titulo);
 		
 		if(!matcherTitulo.matches()) 
@@ -84,7 +84,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setTituloOriginal(String tituloOriginal) throws TituloNoValidoException {
+	public void setTituloOriginal(String tituloOriginal) throws TituloNoValidoException {
 		Matcher matcherTituloOriginal = PATRON_TITULO.matcher(tituloOriginal);
 		
 		if(!matcherTituloOriginal.matches()) 
@@ -101,7 +101,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setAnyo(int anyo) {
+	public void setAnyo(int anyo) {
 		this.anyo = anyo;
 	}
 
@@ -113,7 +113,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setDuracion(int duracion) throws DuracionNoValidaException {
+	public void setDuracion(int duracion) throws DuracionNoValidaException {
 		if(duracion < 1)
 			throw new DuracionNoValidaException("Duracion no valida.");
 		this.duracion = duracion;
@@ -127,7 +127,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setPais(String pais) throws ValorNoValidoException {
+	public void setPais(String pais) throws ValorNoValidoException {
 		Matcher matcherPais = PATRON_NO_BLANCO.matcher(pais);
 		
 		if(!matcherPais.matches()) 
@@ -143,7 +143,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setDirector(String director) throws ValorNoValidoException {
+	public void setDirector(String director) throws ValorNoValidoException {
 		Matcher matcherDirector = PATRON_NO_BLANCO.matcher(director);
 		
 		if(!matcherDirector.matches()) 
@@ -159,7 +159,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setGuion(String guion) {
+	public void setGuion(String guion) {
 		this.guion = guion.trim();
 	}
 
@@ -171,7 +171,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setMusica(String musica) throws ValorNoValidoException {
+	public void setMusica(String musica) throws ValorNoValidoException {
 		Matcher matcherMusica = PATRON_NO_BLANCO.matcher(musica);
 		
 		if(!matcherMusica.matches()) 
@@ -187,7 +187,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setFotografia(String fotografia) throws ValorNoValidoException {
+	public void setFotografia(String fotografia) throws ValorNoValidoException {
 		Matcher matcherFotografia = PATRON_NO_BLANCO.matcher(fotografia);
 		
 		if(!matcherFotografia.matches()) 
@@ -203,7 +203,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setReparto(String[][] reparto) {
+	public void setReparto(String[][] reparto) {
 		this.reparto = reparto;
 	}
 
@@ -215,7 +215,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setProductora(String productora) throws ValorNoValidoException {
+	public void setProductora(String productora) throws ValorNoValidoException {
 		Matcher matcherProductora = PATRON_NO_BLANCO.matcher(productora);
 		
 		if(!matcherProductora.matches()) 
@@ -231,7 +231,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setGenero(Genero genero) {
+	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
 
@@ -243,7 +243,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setSinopsis(String sinopsis) {
+	public void setSinopsis(String sinopsis) {
 		this.sinopsis = sinopsis.trim();
 	}
 
@@ -255,7 +255,7 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected void setNotaUsuario(float notaUsuario) throws NotaNoValidaException {
+	public void setNotaUsuario(float notaUsuario) throws NotaNoValidaException {
 		if(notaUsuario < 0 || notaUsuario > 10)
 			throw new NotaNoValidaException("La nota no puede ser menor a 0 ni mayor a 10");
 		this.notaUsuario = notaUsuario;

@@ -10,6 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
 import classify.enumeraciones.Genero;
+import classify.enumeraciones.PremioPelicula;
 import classify.envoltorios.Videoteca;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -39,6 +40,7 @@ public class PlantillaAnnadir extends JDialog {
 	JComboBox<Genero> comboBox_genero;
 	JTextArea textArea_sinopsis;
 	JComboBox comboBox_premio;
+	Checkbox checkbox;
 
 
 	/**
@@ -78,6 +80,7 @@ public class PlantillaAnnadir extends JDialog {
 		for(int i = 1895; i <= anyo; i++)
 			anyos.add(i);
 		comboBox_anno.setModel(new DefaultComboBoxModel<Integer>(anyos));
+		comboBox_anno.setSelectedIndex(-1);
 		comboBox_anno.setBounds(131, 118, 76, 20);
 		getContentPane().add(comboBox_anno);
 		
@@ -150,6 +153,7 @@ public class PlantillaAnnadir extends JDialog {
 		
 		comboBox_genero = new JComboBox<Genero>();
 		comboBox_genero.setModel(new DefaultComboBoxModel<Genero>(Genero.values()));
+		comboBox_genero.setSelectedIndex(-1);
 		comboBox_genero.setBounds(439, 82, 121, 20);
 		getContentPane().add(comboBox_genero);
 		
@@ -167,6 +171,7 @@ public class PlantillaAnnadir extends JDialog {
 		
 		comboBox_premio = new JComboBox<Object>();
 		comboBox_premio.setBounds(439, 118, 121, 20);
+		comboBox_premio.setSelectedIndex(-1);
 		getContentPane().add(comboBox_premio);
 		
 		textField_notaUsuario = new JTextField();
@@ -211,10 +216,6 @@ public class PlantillaAnnadir extends JDialog {
 		getContentPane().add(lblSecundarios);
 		
 		btnAccion = new JButton("Acci\u00f3n");
-		btnAccion.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnAccion.setBounds(421, 684, 89, 23);
 		getContentPane().add(btnAccion);
 		
@@ -227,13 +228,32 @@ public class PlantillaAnnadir extends JDialog {
 		btnSalir.setBounds(532, 684, 89, 23);
 		getContentPane().add(btnSalir);
 		
-		Checkbox checkbox = new Checkbox("Emitiendo");
+		checkbox = new Checkbox("Emitiendo");
 		checkbox.setBounds(439, 51, 95, 22);
 		getContentPane().add(checkbox);
 
 	}
 	
+	/**
+	 * Resetea los campos
+	 */
 	void reset() {
-		//TODO
+		textField_titulo.setText("");
+		textField_tituloOriginal.setText(""); 
+		comboBox_anno.setSelectedIndex(-1);
+		textField_duracion.setText("");
+		textField_pais.setText("");
+		textField_director.setText(""); 
+		textField_guion.setText("");
+		textField_musica.setText(""); 
+		textField_fotografia.setText(""); 
+		textField_principales.setText("");
+		textField_secundarios.setText("");
+		textField_productora.setText(""); 
+		comboBox_genero.setSelectedIndex(-1);
+		comboBox_premio.setSelectedIndex(-1);
+		textArea_sinopsis.setText(""); 
+		textField_notaUsuario.setText("");
+		comboBox_premio.setSelectedItem(-1);
 	}
 }

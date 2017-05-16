@@ -40,7 +40,7 @@ public class Pelicula extends Multimedia implements Serializable{
 		return premios;
 	}
 
-	private void setPremios(PremioPelicula premios) {
+	public void setPremios(PremioPelicula premios) {
 		this.premios = premios;
 	}
 	

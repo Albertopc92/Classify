@@ -85,16 +85,17 @@ public class Videoteca {
 	 * @throws ValorNoValidoException 
 	 * @throws PeliculaYaExisteException
 	 */
-	public void altaPelicula(String titulo, String tituloOriginal, int anyo, int duracion, String pais, String director,
+	public boolean altaPelicula(String titulo, String tituloOriginal, int anyo, int duracion, String pais, String director,
 			String guion, String musica, String fotografia, String[][] reparto, String productora, Genero genero,
 			String sinopsis, float notaUsuario, PremioPelicula premios) throws YaExisteException, TituloNoValidoException, DuracionNoValidaException, NotaNoValidaException, ValorNoValidoException {
 		
 		Pelicula pelicula = new Pelicula(titulo, tituloOriginal, anyo, duracion, pais, director, guion, musica, fotografia, reparto, productora, genero, sinopsis, notaUsuario, premios);
-		if(!videoteca.contains(pelicula))
+		if(!videoteca.contains(pelicula)) {
 			videoteca.add(pelicula);
-		else
+			return true;
+		}else {
 			throw new YaExisteException("La pelicula ya existe.");
-		
+		}
 	}
 	
 	/**
