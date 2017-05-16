@@ -1,6 +1,5 @@
 package classify;
 
-import java.time.LocalDate;
 
 /*
 videoteca.altaSerie("serie", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 10f, 6, 6, false, PremioSerie.BLOBO_DE_ORO);
@@ -9,16 +8,9 @@ videoteca.altaPelicula("pelicula", "Peliculaoriginal", 2000, 200, "Spain", "dire
 
 import classify.enumeraciones.Genero;
 import classify.enumeraciones.PremioPelicula;
-import classify.enumeraciones.PremioSerie;
-import classify.envoltorios.Temporada;
 import classify.envoltorios.Videoteca;
 import classify.excepciones.YaExisteException;
-import classify.jerarquia.Serie;
-import classify.excepciones.DuracionNoValidaException;
 import classify.excepciones.ListaVaciaException;
-import classify.excepciones.NotaNoValidaException;
-import classify.excepciones.TituloNoValidoException;
-import classify.excepciones.ValorNoValidoException;
 
 //videoteca.altaPelicula("pelicula", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
 public class Test {
@@ -34,7 +26,7 @@ public class Test {
 			System.err.println(e.getMessage());
 		}
 		
-		System.out.println("ok");
+		System.out.println("-----");
 	}
 
 }

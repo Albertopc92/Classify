@@ -16,9 +16,9 @@ public class Pelicula extends Multimedia implements Serializable{
 	private PremioPelicula premios;
 	
 	public Pelicula(String titulo, String tituloOriginal, int anyo, int duracion, String pais, String director,
-			String guion, String musica, String fotografía, String[][] reparto, String productora, Genero genero,
+			String guion, String musica, String fotografia, String[][] reparto, String productora, Genero genero,
 			String sinopsis, float notaUsuario, PremioPelicula premios) throws TituloNoValidoException, DuracionNoValidaException, NotaNoValidaException, ValorNoValidoException {
-		super(titulo, tituloOriginal, anyo, duracion, pais, director, guion, musica, fotografía, reparto, productora, genero,
+		super(titulo, tituloOriginal, anyo, duracion, pais, director, guion, musica, fotografia, reparto, productora, genero,
 				sinopsis, notaUsuario);
 		setNumVisualizaciones(numVisualizaciones);
 		setPremios(premios);
@@ -36,7 +36,7 @@ public class Pelicula extends Multimedia implements Serializable{
 		this.numVisualizaciones = numVisualizaciones;
 	}
 
-	private PremioPelicula getPremios() {
+	public PremioPelicula getPremios() {
 		return premios;
 	}
 

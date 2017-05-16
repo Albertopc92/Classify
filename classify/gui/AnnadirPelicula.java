@@ -43,6 +43,7 @@ public class AnnadirPelicula extends PlantillaAnnadir {
 				}
 			}
 		});
+		
 	}
 
 }

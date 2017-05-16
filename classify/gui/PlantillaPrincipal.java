@@ -2,14 +2,11 @@ package classify.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-
 import classify.envoltorios.Videoteca;
 import classify.jerarquia.Multimedia;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -27,7 +24,6 @@ public class PlantillaPrincipal extends JDialog {
 	protected JButton btnListarPorPuntuacion;
 	protected JButton btnListarPorNumeroVisualizaciones;
 	private FichaTecnica fichaTecnica;
-	
 	Videoteca videoteca = Classify.videoteca;
 	JList<Multimedia> jlist;
 	DefaultListModel<Multimedia> modelo;

@@ -5,11 +5,6 @@ import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
-
-import classify.excepciones.ListaVaciaException;
-import classify.excepciones.NoExisteException;
-import classify.excepciones.TituloNoValidoException;
 import classify.jerarquia.Multimedia;
 
 import java.awt.event.ActionEvent;
@@ -34,13 +29,17 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 		getContentPane().add(jlist);*/
 		
 		//TODO actualizacion automatica del jlist
+		//actualizarModeloJlist(peliculas);
+		
 		modelo = new DefaultListModel<Multimedia>();
-		jlist = new JList<Multimedia>(modelo);
-		jlist.setBounds(287, 71, 380, 579);
-		getContentPane().add(jlist);
+		
 		for (Multimedia pelicula : peliculas) {
 			modelo.addElement(pelicula);
 		}
+		
+		jlist = new JList<Multimedia>(modelo);
+		jlist.setBounds(287, 71, 380, 579);
+		getContentPane().add(jlist);
 		
 		btnAnnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -48,9 +47,5 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 				annadirPelicula.setVisible(true);
 			}
 		});
-
-		
-		
-		
 	}
 }

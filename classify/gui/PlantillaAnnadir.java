@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Vector;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
@@ -30,7 +31,7 @@ public class PlantillaAnnadir extends JDialog {
 	JTextField textField_productora;
 	JTextField textField_notaUsuario;
 	JTextField textField_puntuacion;
-	JTextField textField__principales;
+	JTextField textField_principales;
 	JTextField textField_secundarios;
 	JComboBox<Integer> comboBox_anno;
 	JButton btnAccion;
@@ -195,10 +196,10 @@ public class PlantillaAnnadir extends JDialog {
 		lblPrincipales.setBounds(362, 276, 76, 14);
 		getContentPane().add(lblPrincipales);
 		
-		textField__principales = new JTextField();
-		textField__principales.setBounds(439, 273, 121, 20);
-		getContentPane().add(textField__principales);
-		textField__principales.setColumns(10);
+		textField_principales = new JTextField();
+		textField_principales.setBounds(439, 273, 121, 20);
+		getContentPane().add(textField_principales);
+		textField_principales.setColumns(10);
 		
 		textField_secundarios = new JTextField();
 		textField_secundarios.setBounds(439, 304, 121, 20);
@@ -212,6 +213,7 @@ public class PlantillaAnnadir extends JDialog {
 		btnAccion = new JButton("Acci\u00f3n");
 		btnAccion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//TODO
 				
 			}
 		});

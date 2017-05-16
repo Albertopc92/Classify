@@ -22,7 +22,7 @@ public abstract class Multimedia implements Serializable{
 	protected String director;
 	protected String guion;
 	protected String musica;
-	protected String fotografía;
+	protected String fotografia;
 	protected String[][] reparto;
 	protected String productora;
 	protected Genero genero;
@@ -36,7 +36,7 @@ public abstract class Multimedia implements Serializable{
 	private static final Pattern PATRON_NO_BLANCO = Pattern.compile("[A-z\\s]+");
 	
 	public Multimedia(String titulo,String tituloOriginal, int anyo, int duracion, 
-			String pais, String director, String guion, String musica, String fotografía,
+			String pais, String director, String guion, String musica, String fotografia,
 			String[][] reparto, String productora, Genero genero, String sinopsis, float notaUsuario) throws TituloNoValidoException, DuracionNoValidaException, NotaNoValidaException, ValorNoValidoException {
 		
 		setTitulo(titulo);
@@ -47,7 +47,7 @@ public abstract class Multimedia implements Serializable{
 		setDirector(director);
 		setGuion(guion);
 		setMusica(musica);
-		setFotografía(fotografía);
+		setFotografia(fotografia);
 		setReparto(reparto);
 		setProductora(productora);
 		setGenero(genero);
@@ -181,18 +181,18 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	public String getFotografía() {
-		return fotografía;
+	public String getFotografia() {
+		return fotografia;
 	}
 
 
 
-	protected void setFotografía(String fotografía) throws ValorNoValidoException {
-		Matcher matcherFotografia = PATRON_NO_BLANCO.matcher(fotografía);
+	protected void setFotografia(String fotografia) throws ValorNoValidoException {
+		Matcher matcherFotografia = PATRON_NO_BLANCO.matcher(fotografia);
 		
 		if(!matcherFotografia.matches()) 
 			throw new ValorNoValidoException("Valor no valido.");
-		this.fotografía = fotografía.trim();
+		this.fotografia = fotografia.trim();
 	}
 
 

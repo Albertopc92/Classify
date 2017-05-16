@@ -36,7 +36,7 @@ public class Videoteca {
 	 * @param director
 	 * @param guion
 	 * @param musica
-	 * @param fotografía
+	 * @param fotografia
 	 * @param reparto
 	 * @param productora
 	 * @param genero
@@ -49,10 +49,10 @@ public class Videoteca {
 	 * @throws ValorNoValidoException 
 	 */
 	public Serie altaSerie(String titulo, String tituloOriginal, int anyo, int duracion, String pais, String director,
-			String guion, String musica, String fotografía, String[][] reparto, String productora, Genero genero,
+			String guion, String musica, String fotografia, String[][] reparto, String productora, Genero genero,
 			String sinopsis, float notaUsuario, boolean emitiendo, PremioSerie premios) throws YaExisteException, TituloNoValidoException, DuracionNoValidaException, NotaNoValidaException, ValorNoValidoException {
 		
-		Serie serie = new Serie(titulo, tituloOriginal, anyo, duracion, pais, director, guion, musica, fotografía, reparto, productora, genero, sinopsis, notaUsuario, emitiendo, premios);
+		Serie serie = new Serie(titulo, tituloOriginal, anyo, duracion, pais, director, guion, musica, fotografia, reparto, productora, genero, sinopsis, notaUsuario, emitiendo, premios);
 		if(!videoteca.contains(serie)) {
 			videoteca.add(serie);
 			return serie;
@@ -71,7 +71,7 @@ public class Videoteca {
 	 * @param director
 	 * @param guion
 	 * @param musica
-	 * @param fotografía
+	 * @param fotografia
 	 * @param reparto
 	 * @param productora
 	 * @param genero
@@ -86,10 +86,10 @@ public class Videoteca {
 	 * @throws PeliculaYaExisteException
 	 */
 	public void altaPelicula(String titulo, String tituloOriginal, int anyo, int duracion, String pais, String director,
-			String guion, String musica, String fotografía, String[][] reparto, String productora, Genero genero,
+			String guion, String musica, String fotografia, String[][] reparto, String productora, Genero genero,
 			String sinopsis, float notaUsuario, PremioPelicula premios) throws YaExisteException, TituloNoValidoException, DuracionNoValidaException, NotaNoValidaException, ValorNoValidoException {
 		
-		Pelicula pelicula = new Pelicula(titulo, tituloOriginal, anyo, duracion, pais, director, guion, musica, fotografía, reparto, productora, genero, sinopsis, notaUsuario, premios);
+		Pelicula pelicula = new Pelicula(titulo, tituloOriginal, anyo, duracion, pais, director, guion, musica, fotografia, reparto, productora, genero, sinopsis, notaUsuario, premios);
 		if(!videoteca.contains(pelicula))
 			videoteca.add(pelicula);
 		else
