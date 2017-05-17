@@ -19,8 +19,7 @@ public class ModificarPelicula extends PlantillaAnnadir {
 	 * Create the dialog.
 	 */
 	public ModificarPelicula(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo, Multimedia multimedia) {
-		setBounds(100, 100, 450, 300);
-		setTitle("Modificar Pel\u00edcula");
+		setTitle("Modificar Pel\u00edcula: " + multimedia.getTitulo());
 		setBounds(100, 100, 720, 788);
 		comboBox_premio.setModel(new DefaultComboBoxModel<PremioPelicula>(PremioPelicula.values()));
 		checkbox.setVisible(false);

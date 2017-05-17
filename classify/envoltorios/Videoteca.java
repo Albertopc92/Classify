@@ -154,7 +154,7 @@ public class Videoteca {
 	 * @return
 	 * @throws ListaVaciaException 
 	 */
-	public Multimedia buscar(String titulo) throws ListaVaciaException{
+	public Multimedia buscar(String titulo) throws ListaVaciaException, TituloNoValidoException{
 		isEmpty();
 		Multimedia resultado = null;
 		for (Multimedia multimedia : videoteca) {

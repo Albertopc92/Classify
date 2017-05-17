@@ -88,7 +88,7 @@ public class PlantillaPrincipal extends JDialog {
 					modificarPelicula = new ModificarPelicula(jlist, modelo, multimedia);
 					modificarPelicula.setVisible(true);
 				}else {
-					modificarSerie = new ModificarSerie();
+					modificarSerie = new ModificarSerie(jlist, modelo, multimedia);
 					modificarSerie.setVisible(true);
 				}
 			}

@@ -12,7 +12,9 @@ public class FichaTecnica extends PlantillaAnnadir {
 	public FichaTecnica(Multimedia multimedia) {
 		setBounds(100, 100, 720, 788);
 		btnAccion.setVisible(false);
-		checkbox.setVisible(false);
+		
+		checkbox.setEnabled(false);
+		//checkbox.setState(multimedia);
 		
 		textField_titulo.setEnabled(false);
 		textField_titulo.setText(multimedia.getTitulo());

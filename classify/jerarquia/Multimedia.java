@@ -310,33 +310,6 @@ public abstract class Multimedia implements Serializable{
 //				+ visualizado + ", ultimaVisualizacion=" + ultimaVisualizacion + " puntuacion =" + puntuable() + "]";
 		return getTitulo();
 	}
-/*
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ID;
-		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		Multimedia other = (Multimedia) obj;
-		if (titulo == null) {
-			if (other.titulo != null)
-				return false;
-		} else if (!titulo.equals(other.titulo))
-			return false;
-		if (ID != other.ID)
-			return false;
-		return true;
-	}
-	*/
 
 	@Override
 	public int hashCode() {
@@ -348,12 +321,6 @@ public abstract class Multimedia implements Serializable{
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
 		Multimedia other = (Multimedia) obj;
 		if (titulo == null) {
 			if (other.titulo != null)
