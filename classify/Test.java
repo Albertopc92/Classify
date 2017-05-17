@@ -31,17 +31,10 @@ public class Test {
 		}
 		
 		try {
-			videoteca.borrar("pelicula");
-		} catch (NoExisteException | TituloNoValidoException e) {
-			// TODO Auto-generated catch block
-			System.err.println("Pelicula" + e.getMessage());
+			videoteca.buscar("peliculaaaaa");
+		} catch (TituloNoValidoException e) {
+			System.err.println(e.getMessage());
 		}
-		try {
-			videoteca.borrar("Perdidos");
-		} catch (NoExisteException | TituloNoValidoException e) {
-			System.err.println("Serie" + e.getMessage());
-		}
-		System.out.println("-----");
 	}
 
 }

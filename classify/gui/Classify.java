@@ -12,7 +12,6 @@ import classify.enumeraciones.PremioPelicula;
 import classify.enumeraciones.PremioSerie;
 import classify.envoltorios.Videoteca;
 import classify.excepciones.DuracionNoValidaException;
-import classify.excepciones.ListaVaciaException;
 import classify.excepciones.NotaNoValidaException;
 import classify.excepciones.TituloNoValidoException;
 import classify.excepciones.ValorNoValidoException;
@@ -116,7 +115,7 @@ public class Classify {
 				String titulo = textField_Buscar.getText();
 				try {
 					mostrarFichaTecnica(videoteca.buscar(titulo));
-				} catch (ListaVaciaException | TituloNoValidoException exception) {
+				} catch (Exception exception) {
 					JOptionPane.showMessageDialog(null, "No se ha podido encontrar el elemento: " + exception.getMessage(),"No se ha podido encontrar", JOptionPane.ERROR_MESSAGE);
 				}
 				
@@ -155,9 +154,9 @@ public class Classify {
 			videoteca.altaPelicula("Titanic", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
 			videoteca.altaPelicula("Piratas del caribe", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
 			videoteca.altaPelicula("300", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("El seÃ±or de los anillos", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("El señor de los anillos", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
 			videoteca.altaPelicula("El hobbit", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("Una mente prodigiosa", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("Una mente maravillosa", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
 			videoteca.altaSerie("Juego de tronos", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 10f, false, PremioSerie.GLOBO_DE_ORO);
 			videoteca.altaSerie("Breaking bad", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 10f, false, PremioSerie.GLOBO_DE_ORO);
 			videoteca.altaSerie("Prison break", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 10f, true, PremioSerie.GLOBO_DE_ORO);

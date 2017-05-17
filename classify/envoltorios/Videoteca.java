@@ -156,13 +156,10 @@ public class Videoteca {
 	 */
 	public Multimedia buscar(String titulo) throws ListaVaciaException, TituloNoValidoException{
 		isEmpty();
-		Multimedia resultado = null;
-		for (Multimedia multimedia : videoteca) {
+		for (Multimedia multimedia : videoteca)
 			if(multimedia.getTitulo().equals(titulo))
-				resultado = multimedia;
-		}
-		
-		return resultado;
+				return multimedia;
+		throw new TituloNoValidoException("El titulo no es valido.");
 	}
 	
 	/**
