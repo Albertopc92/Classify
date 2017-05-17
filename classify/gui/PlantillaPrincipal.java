@@ -5,18 +5,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-
-import classify.enumeraciones.Genero;
-import classify.enumeraciones.PremioPelicula;
 import classify.envoltorios.Videoteca;
-import classify.excepciones.DuracionNoValidaException;
-import classify.excepciones.NotaNoValidaException;
-import classify.excepciones.TituloNoValidoException;
-import classify.excepciones.ValorNoValidoException;
-import classify.excepciones.YaExisteException;
 import classify.jerarquia.Multimedia;
 import classify.jerarquia.Pelicula;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -33,6 +24,7 @@ public class PlantillaPrincipal extends JDialog {
 	protected JButton btnListarPorGenero;
 	protected JButton btnListarPorPuntuacion;
 	protected JButton btnListarPorNumeroVisualizaciones;
+	protected JButton btnAnnadirTemporada;
 	private FichaTecnica fichaTecnica;
 	private ModificarPelicula modificarPelicula;
 	private ModificarSerie modificarSerie;
@@ -40,12 +32,12 @@ public class PlantillaPrincipal extends JDialog {
 	JList<Multimedia> jlist;
 	DefaultListModel<Multimedia> modelo;
 	
+	
 
 	/**
 	 * Create the dialog.
 	 */
 	public PlantillaPrincipal() {
-		generarPeliculas(); //TODO
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaPrincipal.class.getResource("/classify/gui/recursos/icon.png")));
 		setBounds(100, 100, 720, 788);
 		getContentPane().setLayout(null);
@@ -119,6 +111,10 @@ public class PlantillaPrincipal extends JDialog {
 		btnListarPorNumeroVisualizaciones = new JButton("Listar por visualizaciones");
 		btnListarPorNumeroVisualizaciones.setBounds(34, 430, 183, 23);
 		getContentPane().add(btnListarPorNumeroVisualizaciones);
+		
+		btnAnnadirTemporada = new JButton("A\u00F1adir Temporada");
+		btnAnnadirTemporada.setBounds(34, 464, 183, 23);
+		getContentPane().add(btnAnnadirTemporada);
 
 	}
 	
@@ -142,24 +138,5 @@ public class PlantillaPrincipal extends JDialog {
 		Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
 		fichaTecnica = new FichaTecnica(multimedia);
 		fichaTecnica.setVisible(true);
-	}
-	
-	
-	
-	
-	
-	private void generarPeliculas() {
-		try {
-			videoteca.altaPelicula("Titanic", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("Piratas del caribe", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("300", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("El señor de los anillos", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("El hobbit", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("Una mente prodigiosa", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
-		} catch (YaExisteException | TituloNoValidoException | DuracionNoValidaException | NotaNoValidaException
-				| ValorNoValidoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }

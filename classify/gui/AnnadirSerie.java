@@ -1,37 +1,33 @@
 package classify.gui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import classify.enumeraciones.Genero;
-import classify.enumeraciones.PremioPelicula;
+import classify.enumeraciones.PremioSerie;
 import classify.jerarquia.Multimedia;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class AnnadirPelicula extends PlantillaAnnadir {
+public class AnnadirSerie extends PlantillaAnnadir {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create the dialog.
-	 * @param modelo 
-	 * @param jlist 
-	 * @param jlist 
 	 */
-	public AnnadirPelicula(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo) {
-		setTitle("A\u00f1adir Pel\u00edcula");
+	public AnnadirSerie(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo) {
+		setTitle("A\u00f1adir Serie");
 		setBounds(100, 100, 720, 788);
-		comboBox_premio.setModel(new DefaultComboBoxModel<PremioPelicula>(PremioPelicula.values()));
+		comboBox_premio.setModel(new DefaultComboBoxModel<PremioSerie>(PremioSerie.values()));
 		comboBox_premio.setSelectedIndex(-1);
 		textField_puntuacion.setVisible(false);
-		checkbox.setVisible(false);
 		btnAccion.setText("A\u00f1adir");
 		btnAccion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-				if(videoteca.altaPelicula(textField_titulo.getText(),
+				if(videoteca.altaSerie(textField_titulo.getText(),
 										textField_tituloOriginal.getText(),
 										(int)comboBox_anno.getSelectedItem(),
 										(int)(Integer.parseInt(textField_duracion.getText())),
@@ -45,17 +41,21 @@ public class AnnadirPelicula extends PlantillaAnnadir {
 										(Genero)comboBox_genero.getSelectedItem(), 
 										textArea_sinopsis.getText(),
 										(float)(Float.parseFloat(textField_notaUsuario.getText())),
-										(PremioPelicula)comboBox_premio.getSelectedItem())) {
+										checkbox.getState(),
+										(PremioSerie)comboBox_premio.getSelectedItem()));
+										
+				{
 					
-					JOptionPane.showMessageDialog(getContentPane(), "La pel\u00edcula se a\u00f1adio correctamente.","Pelicula a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(getContentPane(), "La Serie se a\u00f1adio correctamente.","Serie a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
 					jlist.setModel(modelo);
 					reset();
 				}
 				}catch (Exception exception) {
-					JOptionPane.showMessageDialog(getContentPane(), "La pel\u00edcula no se ha podido a\u00f1adir: " + exception.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(getContentPane(), "La Serie no se ha podido a\u00f1adir: " + exception.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
-		
+
 	}
+
 }

@@ -9,8 +9,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import classify.enumeraciones.Genero;
+import classify.enumeraciones.PremioPelicula;
 import classify.envoltorios.Videoteca;
+import classify.excepciones.DuracionNoValidaException;
 import classify.excepciones.ListaVaciaException;
+import classify.excepciones.NotaNoValidaException;
+import classify.excepciones.TituloNoValidoException;
+import classify.excepciones.ValorNoValidoException;
+import classify.excepciones.YaExisteException;
 import classify.jerarquia.Multimedia;
 
 import javax.swing.JMenuBar;
@@ -58,6 +65,7 @@ public class Classify {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		generarPeliculas();
 		frmClassify = new JFrame();
 		frmClassify.setIconImage(Toolkit.getDefaultToolkit().getImage(Classify.class.getResource("/classify/gui/recursos/icon.png")));
 		frmClassify.setTitle("Classify");
@@ -143,5 +151,20 @@ public class Classify {
 	private void mostrarFichaTecnica(Multimedia multimedia) {
 		fichaTecnica = new FichaTecnica(multimedia);
 		fichaTecnica.setVisible(true);
+	}
+	
+	private void generarPeliculas() {
+		try {
+			videoteca.altaPelicula("Titanic", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("Piratas del caribe", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("300", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("El señor de los anillos", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("El hobbit", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("Una mente prodigiosa", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
+		} catch (YaExisteException | TituloNoValidoException | DuracionNoValidaException | NotaNoValidaException
+				| ValorNoValidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -20,6 +20,7 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 	 */
 	public PrincipalPeliculas() {
 		setTitle("Pel\u00edculas");
+		btnAnnadirTemporada.setVisible(false);
 		setModal(true);
 		setBounds(100, 100, 720, 788);
 

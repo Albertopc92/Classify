@@ -1,27 +1,19 @@
 package classify.gui;
 
-import java.awt.EventQueue;
+import java.util.ArrayList;
 
-import javax.swing.JDialog;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+
+import classify.jerarquia.Multimedia;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PrincipalSeries extends PlantillaPrincipal {
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PrincipalSeries dialog = new PrincipalSeries();
-					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-					dialog.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private static final long serialVersionUID = 1L;
+	private ArrayList<Multimedia> series;
+	private AnnadirSerie annadirSerie;
 
 	/**
 	 * Create the dialog.
@@ -30,7 +22,24 @@ public class PrincipalSeries extends PlantillaPrincipal {
 		setTitle("Series");
 		setModal(true);
 		setBounds(100, 100, 720, 788);
-
+		
+		series = videoteca.listarSeries();
+		modelo = new DefaultListModel<Multimedia>();
+		for (Multimedia multimedia : series) {
+			modelo.addElement(multimedia);
+		}
+		
+		jlist = new JList<Multimedia>(modelo);
+		jlist.setBounds(287, 71, 380, 579);
+		getContentPane().add(jlist);
+		
+		btnAnnadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				annadirSerie = new AnnadirSerie(jlist, modelo);
+				annadirSerie.setVisible(true);
+			}
+		});
+		
 	}
 
 }

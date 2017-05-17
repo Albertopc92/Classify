@@ -17,7 +17,6 @@ public class Serie extends Multimedia implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Temporada> serie;
-	private int numTemporadas;
 	private PremioSerie premios;
 	private boolean emitiendo;
 	

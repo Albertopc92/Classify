@@ -48,14 +48,15 @@ public class Videoteca {
 	 * @throws NotaNoValidaException 
 	 * @throws ValorNoValidoException 
 	 */
-	public Serie altaSerie(String titulo, String tituloOriginal, int anyo, int duracion, String pais, String director,
+	public boolean altaSerie(String titulo, String tituloOriginal, int anyo, int duracion, String pais, String director,
 			String guion, String musica, String fotografia, String[][] reparto, String productora, Genero genero,
 			String sinopsis, float notaUsuario, boolean emitiendo, PremioSerie premios) throws YaExisteException, TituloNoValidoException, DuracionNoValidaException, NotaNoValidaException, ValorNoValidoException {
 		
 		Serie serie = new Serie(titulo, tituloOriginal, anyo, duracion, pais, director, guion, musica, fotografia, reparto, productora, genero, sinopsis, notaUsuario, emitiendo, premios);
 		if(!videoteca.contains(serie)) {
 			videoteca.add(serie);
-			return serie;
+			//return serie;
+			return true;
 		}
 		else
 			throw new YaExisteException("La serie ya existe.");
@@ -122,8 +123,8 @@ public class Videoteca {
 	 * @throws ListaVaciaException
 	 * 					Salta la excepcion si videoteca esta vacia
 	 */
-	public ArrayList<Serie> listarSeries(){
-		ArrayList<Serie> series = new ArrayList<Serie>();
+	public ArrayList<Multimedia> listarSeries(){
+		ArrayList<Multimedia> series = new ArrayList<Multimedia>();
 		for (Multimedia multimedia : videoteca) {
 			if(multimedia instanceof Serie)
 				series.add((Serie) multimedia);
