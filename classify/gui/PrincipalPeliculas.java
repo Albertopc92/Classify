@@ -6,6 +6,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import classify.jerarquia.Multimedia;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 
 public class PrincipalPeliculas extends PlantillaPrincipal {
@@ -33,6 +35,11 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 		jlist = new JList<Multimedia>(modelo);
 		jlist.setBounds(287, 71, 380, 579);
 		getContentPane().add(jlist);
+		
+		JLabel icono = new JLabel("");
+		icono.setIcon(new ImageIcon(PrincipalPeliculas.class.getResource("/classify/gui/recursos/principalPelicula.png")));
+		icono.setBounds(87, 68, 64, 64);
+		getContentPane().add(icono);
 
 		// AÑADIR
 		btnAnnadir.addActionListener(new ActionListener() {

@@ -6,11 +6,15 @@ import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import classify.envoltorios.Videoteca;
+import classify.excepciones.TituloNoValidoException;
 import classify.jerarquia.Multimedia;
 import classify.jerarquia.Pelicula;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Toolkit;
 
 public class PlantillaPrincipal extends JDialog {
@@ -82,21 +86,25 @@ public class PlantillaPrincipal extends JDialog {
 		btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO 
-				Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
-				if(multimedia instanceof Pelicula) {
-					modificarPelicula = new ModificarPelicula(jlist, modelo, multimedia);
-					modificarPelicula.setVisible(true);
-				}else {
-					modificarSerie = new ModificarSerie(jlist, modelo, multimedia);
-					modificarSerie.setVisible(true);
-				}
+				modificar();
 			}
 		});
 		btnModificar.setBounds(34, 294, 183, 23);
 		getContentPane().add(btnModificar);
 		
 		btnMarcaComoVisualizado = new JButton("Marca como visualizado");
+		btnMarcaComoVisualizado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//TODO
+				Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
+				try {
+					videoteca.marcarVisualizado(multimedia.getTitulo());
+					
+				} catch (TituloNoValidoException e) {
+					
+				}
+			}
+		});
 		btnMarcaComoVisualizado.setBounds(34, 328, 183, 23);
 		getContentPane().add(btnMarcaComoVisualizado);
 		
@@ -115,6 +123,10 @@ public class PlantillaPrincipal extends JDialog {
 		btnAnnadirTemporada = new JButton("A\u00F1adir Temporada");
 		btnAnnadirTemporada.setBounds(34, 464, 183, 23);
 		getContentPane().add(btnAnnadirTemporada);
+		
+		JLabel icono = new JLabel("");
+		icono.setBounds(87, 68, 64, 64);
+		getContentPane().add(icono);
 
 	}
 	
@@ -138,5 +150,19 @@ public class PlantillaPrincipal extends JDialog {
 		Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
 		fichaTecnica = new FichaTecnica(multimedia);
 		fichaTecnica.setVisible(true);
+	}
+	
+	/**
+	 * Modifica un elemento de la videoteca
+	 */
+	private void modificar() {
+		Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
+		if(multimedia instanceof Pelicula) {
+			modificarPelicula = new ModificarPelicula(jlist, modelo, multimedia);
+			modificarPelicula.setVisible(true);
+		}else {
+			modificarSerie = new ModificarSerie(jlist, modelo, multimedia);
+			modificarSerie.setVisible(true);
+		}
 	}
 }

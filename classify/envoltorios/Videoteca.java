@@ -237,6 +237,12 @@ public class Videoteca {
 		}
 	}
 	
+	//TODO
+	public void marcarVisualizado(String titulo) throws TituloNoValidoException{
+		Pelicula pelicula = new Pelicula(titulo);
+		pelicula.marcarVisualizado();
+	}
+	
 	/**
 	 * Comprueba si la lista esta vacia
 	 * @throws ListaVaciaException
