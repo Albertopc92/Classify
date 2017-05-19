@@ -4,7 +4,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+
 import classify.jerarquia.Multimedia;
+
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -26,15 +31,13 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 		setModal(true);
 		setBounds(100, 100, 720, 788);
 
-		peliculas = videoteca.listarPeliculas();
-		modelo = new DefaultListModel<Multimedia>();
-		for (Multimedia multimedia : peliculas) {
-			modelo.addElement(multimedia);
-		}
+		rellenarJlist();
 		
-		jlist = new JList<Multimedia>(modelo);
-		jlist.setBounds(287, 71, 380, 579);
-		getContentPane().add(jlist);
+//		jlist = new JList<Multimedia>(modelo);
+//		jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+//		//scroll = new JScrollPane(jlist);
+//		jlist.setBounds(287, 71, 380, 579);
+//		getContentPane().add(jlist);
 		
 		JLabel icono = new JLabel("");
 		icono.setIcon(new ImageIcon(PrincipalPeliculas.class.getResource("/classify/gui/recursos/principalPelicula.png")));
@@ -49,4 +52,14 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 			}
 		});
 	}
+
+	public void rellenarJlist() {
+		peliculas = videoteca.listarPeliculas();
+		//modelo = new DefaultListModel<Multimedia>();
+		for (Multimedia multimedia : peliculas) {
+			modelo.addElement(multimedia);
+		}
+	}
+	
+	
 }

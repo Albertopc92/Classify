@@ -195,14 +195,17 @@ public class Videoteca {
 	 * @param genero
 	 * @throws ListaVaciaException 
 	 */
-	public void listarPeliculasGenero(Genero genero) throws ListaVaciaException {
+	public ArrayList<Multimedia> listarPeliculasGenero(Genero genero) throws ListaVaciaException {
 		isEmpty();
+		ArrayList<Multimedia> peliculas = new ArrayList<Multimedia>();
 		for (Multimedia pelicula : videoteca) {
 			if(pelicula instanceof Pelicula) {
 				if(pelicula.getGenero() == genero)
-					System.out.println(pelicula);
+					peliculas.add(pelicula);
 			}
 		}
+		
+		return peliculas;
 	}
 	
 	/**
@@ -247,7 +250,7 @@ public class Videoteca {
 	 * Comprueba si la lista esta vacia
 	 * @throws ListaVaciaException
 	 */
-	private void isEmpty() throws ListaVaciaException {
+	public void isEmpty() throws ListaVaciaException {
 		if(videoteca.isEmpty())
 			throw new ListaVaciaException("La videoteca esta vac�a.");
 	}

@@ -5,6 +5,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
+
 import classify.envoltorios.Videoteca;
 import classify.excepciones.TituloNoValidoException;
 import classify.jerarquia.Multimedia;
@@ -15,6 +18,7 @@ import javax.swing.JLabel;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.ScrollPane;
 import java.awt.Toolkit;
 
 public class PlantillaPrincipal extends JDialog {
@@ -32,10 +36,11 @@ public class PlantillaPrincipal extends JDialog {
 	private FichaTecnica fichaTecnica;
 	private ModificarPelicula modificarPelicula;
 	private ModificarSerie modificarSerie;
+	private ListarPorGenero listarPorGenero;
 	Videoteca videoteca = Classify.videoteca;
 	JList<Multimedia> jlist;
 	DefaultListModel<Multimedia> modelo;
-	
+	//JScrollPane scroll;
 	
 
 	/**
@@ -45,6 +50,14 @@ public class PlantillaPrincipal extends JDialog {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaPrincipal.class.getResource("/classify/gui/recursos/icon.png")));
 		setBounds(100, 100, 720, 788);
 		getContentPane().setLayout(null);
+		
+		modelo = new DefaultListModel<Multimedia>();
+		jlist = new JList<Multimedia>(modelo);
+		jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		//scroll = new JScrollPane(jlist);
+		jlist.setBounds(287, 71, 380, 579);
+		getContentPane().add(jlist);
+		
 
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addActionListener(new ActionListener() {
@@ -108,7 +121,14 @@ public class PlantillaPrincipal extends JDialog {
 		btnMarcaComoVisualizado.setBounds(34, 328, 183, 23);
 		getContentPane().add(btnMarcaComoVisualizado);
 		
+		//LISTAR POR GENERO
 		btnListarPorGenero = new JButton("Listar por g\u00e9nero");
+		btnListarPorGenero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				listarPorGenero = new ListarPorGenero(videoteca);
+				listarPorGenero.setVisible(true);
+			}
+		});
 		btnListarPorGenero.setBounds(34, 362, 183, 23);
 		getContentPane().add(btnListarPorGenero);
 		
