@@ -47,7 +47,12 @@ public class AnnadirSerie extends PlantillaAnnadir {
 				{
 					
 					JOptionPane.showMessageDialog(getContentPane(), "La Serie se a\u00f1adio correctamente.","Serie a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
+					// CHAPUZA?
+					modelo.clear();
 					jlist.setModel(modelo);
+					for (Multimedia multimedia : videoteca.listarSeries()) {
+						modelo.addElement(multimedia);
+					}
 					reset();
 				}
 				}catch (Exception exception) {

@@ -1,19 +1,9 @@
 package classify.gui;
 
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
-
-import classify.jerarquia.Multimedia;
-
-import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-
 
 public class PrincipalPeliculas extends PlantillaPrincipal {
 

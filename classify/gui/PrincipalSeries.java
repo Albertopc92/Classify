@@ -1,11 +1,5 @@
 package classify.gui;
 
-import java.util.ArrayList;
-
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-
-import classify.jerarquia.Multimedia;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
