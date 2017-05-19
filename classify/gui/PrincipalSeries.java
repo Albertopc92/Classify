@@ -14,7 +14,6 @@ import javax.swing.ImageIcon;
 public class PrincipalSeries extends PlantillaPrincipal {
 
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Multimedia> series;
 	private AnnadirSerie annadirSerie;
 
 	/**
@@ -25,21 +24,14 @@ public class PrincipalSeries extends PlantillaPrincipal {
 		setModal(true);
 		setBounds(100, 100, 720, 788);
 		
-		series = videoteca.listarSeries();
-		modelo = new DefaultListModel<Multimedia>();
-		for (Multimedia multimedia : series) {
-			modelo.addElement(multimedia);
-		}
-		
-		jlist = new JList<Multimedia>(modelo);
-		jlist.setBounds(287, 71, 380, 579);
-		getContentPane().add(jlist);
+		rellenarJlist(videoteca.listarSeries());
 		
 		JLabel icono = new JLabel("");
 		icono.setIcon(new ImageIcon(PrincipalSeries.class.getResource("/classify/gui/recursos/principalSerie.png")));
 		icono.setBounds(87, 68, 64, 64);
 		getContentPane().add(icono);
 		
+		// AÑADIR
 		btnAnnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				annadirSerie = new AnnadirSerie(jlist, modelo);

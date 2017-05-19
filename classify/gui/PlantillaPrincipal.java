@@ -2,6 +2,8 @@ package classify.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -39,8 +41,7 @@ public class PlantillaPrincipal extends JDialog {
 	private ListarPorGenero listarPorGenero;
 	Videoteca videoteca = Classify.videoteca;
 	JList<Multimedia> jlist;
-	DefaultListModel<Multimedia> modelo;
-	//JScrollPane scroll;
+	DefaultListModel<Multimedia> modelo = new DefaultListModel<Multimedia>();
 	
 
 	/**
@@ -51,10 +52,9 @@ public class PlantillaPrincipal extends JDialog {
 		setBounds(100, 100, 720, 788);
 		getContentPane().setLayout(null);
 		
-		modelo = new DefaultListModel<Multimedia>();
-		jlist = new JList<Multimedia>(modelo);
+		jlist = new JList<Multimedia>();
+		jlist.setModel(modelo);
 		jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		//scroll = new JScrollPane(jlist);
 		jlist.setBounds(287, 71, 380, 579);
 		getContentPane().add(jlist);
 		
@@ -183,6 +183,15 @@ public class PlantillaPrincipal extends JDialog {
 		}else {
 			modificarSerie = new ModificarSerie(jlist, modelo, multimedia);
 			modificarSerie.setVisible(true);
+		}
+	}
+	
+	/**
+	 * Rellena el jlist de peliculas
+	 */
+	public void rellenarJlist(ArrayList<Multimedia> elementos) {
+		for (Multimedia multimedia : elementos) {
+			modelo.addElement(multimedia);
 		}
 	}
 }
