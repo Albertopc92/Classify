@@ -36,7 +36,7 @@ public class AnnadirSerie extends PlantillaAnnadir {
 										textField_guion.getText(),
 										textField_musica.getText(),
 										textField_fotografia.getText(),
-										new String[][] {{"principales"},{"secundarios"}},
+										new String[][] {{textField_principales.getText()},{textField_secundarios.getText()}},
 										textField_productora.getText(),
 										(Genero)comboBox_genero.getSelectedItem(), 
 										textArea_sinopsis.getText(),

@@ -5,6 +5,7 @@ import java.util.Vector;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
@@ -16,6 +17,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import java.awt.BorderLayout;
 import java.awt.Checkbox;
 
 public class PlantillaAnnadir extends JDialog {
@@ -34,6 +36,7 @@ public class PlantillaAnnadir extends JDialog {
 	JTextField textField_puntuacion;
 	JTextField textField_principales;
 	JTextField textField_secundarios;
+	JScrollPane scroll; //TODO
 	JComboBox<Integer> comboBox_anno;
 	JButton btnAccion;
 	Videoteca videoteca = Classify.videoteca;
@@ -41,6 +44,7 @@ public class PlantillaAnnadir extends JDialog {
 	JTextArea textArea_sinopsis;
 	JComboBox comboBox_premio;
 	Checkbox checkbox;
+	
 
 
 	/**
@@ -157,9 +161,14 @@ public class PlantillaAnnadir extends JDialog {
 		comboBox_genero.setBounds(439, 82, 121, 20);
 		getContentPane().add(comboBox_genero);
 		
+		// TODO
+		
 		textArea_sinopsis = new JTextArea();
+		//scroll = new JScrollPane(textArea_sinopsis, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		textArea_sinopsis.setBounds(128, 395, 486, 230);
 		getContentPane().add(textArea_sinopsis);
+		//getContentPane().add(scroll);
+
 		
 		JLabel lblSinopsis = new JLabel("Sinopsis");
 		lblSinopsis.setBounds(53, 395, 65, 14);
