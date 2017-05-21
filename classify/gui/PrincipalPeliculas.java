@@ -10,6 +10,8 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 	private static final long serialVersionUID = 1L;
 	private AnnadirPelicula annadirPelicula;
 	private ListarPorGeneroPeliculas listarPorGeneroPeliculas;
+	private ListarPorPuntuacionPeliculas listarPorPuntuacionPeliculas;
+	private ListarPorVisualizacionesPeliculas listarPorVisualizacionesPeliculas;
 	
 
 	/**
@@ -20,6 +22,7 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 		btnAnnadirTemporada.setVisible(false);
 		setModal(true);
 		setBounds(100, 100, 720, 788);
+		btnAnnadirTemporada.setVisible(false);
 
 		rellenarJlist(videoteca.listarPeliculas());
 		
@@ -41,6 +44,22 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 			public void actionPerformed(ActionEvent e) {
 				listarPorGeneroPeliculas = new ListarPorGeneroPeliculas(videoteca);
 				listarPorGeneroPeliculas.setVisible(true);
+			}
+		});
+		
+		// LISTAR POR PUNTUACION
+		btnListarPorPuntuacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listarPorPuntuacionPeliculas = new ListarPorPuntuacionPeliculas(videoteca);
+				listarPorPuntuacionPeliculas.setVisible(true);
+			}
+		});
+		
+		// LISTAR POR VISUALIZACIONES
+		btnListarPorNumeroVisualizaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listarPorVisualizacionesPeliculas = new ListarPorVisualizacionesPeliculas(videoteca);
+				listarPorVisualizacionesPeliculas.setVisible(true);
 			}
 		});
 	}

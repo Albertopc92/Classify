@@ -10,6 +10,7 @@ public class PrincipalSeries extends PlantillaPrincipal {
 	private static final long serialVersionUID = 1L;
 	private AnnadirSerie annadirSerie;
 	private ListarPorGeneroSeries listarPorGeneroSeries;
+	private ListarPorPuntuacionSeries listarPorPuntuacionSeries;
 
 	/**
 	 * Create the dialog.
@@ -18,6 +19,7 @@ public class PrincipalSeries extends PlantillaPrincipal {
 		setTitle("Series");
 		setModal(true);
 		setBounds(100, 100, 720, 788);
+		btnListarPorNumeroVisualizaciones.setVisible(false);
 		
 		rellenarJlist(videoteca.listarSeries());
 		
@@ -39,6 +41,14 @@ public class PrincipalSeries extends PlantillaPrincipal {
 			public void actionPerformed(ActionEvent e) {
 				listarPorGeneroSeries = new ListarPorGeneroSeries(videoteca);
 				listarPorGeneroSeries.setVisible(true);
+			}
+		});
+		
+		// LISTAR POR PUNTUACION
+		btnListarPorPuntuacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listarPorPuntuacionSeries = new ListarPorPuntuacionSeries(videoteca);
+				listarPorPuntuacionSeries.setVisible(true);
 			}
 		});
 		

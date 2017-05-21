@@ -240,6 +240,10 @@ public class PlantillaAnnadir extends JDialog {
 		checkbox = new Checkbox("Emitiendo");
 		checkbox.setBounds(439, 51, 95, 22);
 		getContentPane().add(checkbox);
+		
+		JLabel lblMinutos = new JLabel("minutos");
+		lblMinutos.setBounds(184, 152, 46, 14);
+		getContentPane().add(lblMinutos);
 
 	}
 	

@@ -24,6 +24,7 @@ public class PlantillaListarPorGenero extends JDialog {
 	private static final long serialVersionUID = 1L;
 	JList<Multimedia> jlist;
 	JComboBox<Multimedia> comboBox_genero;
+	JLabel lblGenero;
 
 	
 	/**
@@ -36,7 +37,7 @@ public class PlantillaListarPorGenero extends JDialog {
 		setBounds(100, 100, 564, 370);
 		getContentPane().setLayout(null);
 		
-		JLabel lblGenero = new JLabel("Genero");
+		lblGenero = new JLabel("Genero");
 		lblGenero.setBounds(59, 42, 46, 14);
 		getContentPane().add(lblGenero);
 		

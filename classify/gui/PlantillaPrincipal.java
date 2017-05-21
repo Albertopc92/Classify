@@ -3,13 +3,10 @@ package classify.gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-
 import classify.envoltorios.Videoteca;
 import classify.excepciones.TituloNoValidoException;
 import classify.jerarquia.Multimedia;
@@ -17,10 +14,6 @@ import classify.jerarquia.Pelicula;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.ScrollPane;
 import java.awt.Toolkit;
 
 public class PlantillaPrincipal extends JDialog {
@@ -149,11 +142,25 @@ public class PlantillaPrincipal extends JDialog {
 		Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
 		comprobarSiSeleccionado(multimedia);
 		try {
-			videoteca.borrar(multimedia.getTitulo());
+			String[] opciones = {"Si", "No"};
+			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + multimedia.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
+			case 0:
+				videoteca.borrar(multimedia.getTitulo());
+				break;
+			default:
+				return;
+			}
 			JOptionPane.showMessageDialog(null, "Se ha borrado: " + multimedia.getTitulo());
+			jlist.setModel(modelo);
 		} catch (Exception exception) {
 			JOptionPane.showMessageDialog(null, "No se ha podido borrar: " + exception.getMessage());
 		}
+		
+		modelo.clear();
+		for (Multimedia elemento : videoteca.listarPeliculas()) {
+			modelo.addElement(elemento);
+		}
+		
 	}
 
 	

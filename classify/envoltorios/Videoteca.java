@@ -184,13 +184,16 @@ public class Videoteca {
 	 * Lista las series por puntuacion
 	 * @throws ListaVaciaException 
 	 */
-	public void listarSeriesPuntuacion() throws ListaVaciaException{
+	public ArrayList<Multimedia> listarSeriesPuntuacion() throws ListaVaciaException{
 		isEmpty();
+		ArrayList<Multimedia> series = new ArrayList<Multimedia>();
 		Collections.sort(videoteca, new OrdenarPuntuacion());
 		for (Multimedia serie : videoteca) {
 			if(serie instanceof Serie)
-				System.out.println(serie);
+				series.add(serie);
 		}
+		
+		return series;
 	}
 	
 	/**
@@ -215,20 +218,23 @@ public class Videoteca {
 	 * Lista las peliculas por puntuacion
 	 * @throws ListaVaciaException 
 	 */
-	public void listarPeliculasPuntuacion() throws ListaVaciaException{
+	public ArrayList<Multimedia> listarPeliculasPuntuacion() throws ListaVaciaException{
 		isEmpty();
+		ArrayList<Multimedia> peliculas = new ArrayList<Multimedia>();
 		Collections.sort(videoteca, new OrdenarPuntuacion());
 		for (Multimedia pelicula : videoteca) {
 			if(pelicula instanceof Pelicula)
-				System.out.println(pelicula);
+				peliculas.add(pelicula);
 		}
+		
+		return peliculas;
 	}
 	
 	/**
 	 * Lista las peliculas por numero de visualizaciones
 	 * @throws ListaVaciaException 
 	 */
-	public void listarPeliculasVisualizaciones() throws ListaVaciaException{
+	public ArrayList<Pelicula> listarPeliculasVisualizaciones() throws ListaVaciaException{
 		isEmpty();
 		ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
 		for (Multimedia multimedia : videoteca) {
@@ -237,10 +243,8 @@ public class Videoteca {
 		}
 		
 		Collections.sort(peliculas, new OrdenarVisualizaciones());
-		for (Multimedia pelicula : videoteca) {
-			if(pelicula instanceof Pelicula)
-				System.out.println(pelicula);
-		}
+		
+		return peliculas;
 	}
 	
 	//TODO
