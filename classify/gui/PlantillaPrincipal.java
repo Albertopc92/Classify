@@ -147,6 +147,7 @@ public class PlantillaPrincipal extends JDialog {
 	 */
 	private void borrar() {
 		Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
+		comprobarSiSeleccionado(multimedia);
 		try {
 			videoteca.borrar(multimedia.getTitulo());
 			JOptionPane.showMessageDialog(null, "Se ha borrado: " + multimedia.getTitulo());
@@ -154,12 +155,15 @@ public class PlantillaPrincipal extends JDialog {
 			JOptionPane.showMessageDialog(null, "No se ha podido borrar: " + exception.getMessage());
 		}
 	}
+
 	
 	/**
 	 * Muestra la ficha tecnica del elemento seleccionado
 	 */
 	private void mostrarFichaTecnica() {
 		Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
+		comprobarSiSeleccionado(multimedia);
+			
 		fichaTecnica = new FichaTecnica(multimedia);
 		fichaTecnica.setVisible(true);
 	}
@@ -169,6 +173,7 @@ public class PlantillaPrincipal extends JDialog {
 	 */
 	private void modificar() {
 		Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
+		comprobarSiSeleccionado(multimedia);
 		if(multimedia instanceof Pelicula) {
 			modificarPelicula = new ModificarPelicula(jlist, modelo, multimedia);
 			modificarPelicula.setVisible(true);
@@ -184,6 +189,17 @@ public class PlantillaPrincipal extends JDialog {
 	public void rellenarJlist(ArrayList<Multimedia> elementos) {
 		for (Multimedia multimedia : elementos) {
 			modelo.addElement(multimedia);
+		}
+	}
+	
+	/**
+	 * Compueba si antes de realizar una accion el usurio ha saleccionado un elemento de la lista
+	 * @param multimedia
+	 */
+	private void comprobarSiSeleccionado(Multimedia multimedia) {
+		if(multimedia == null) {
+			JOptionPane.showMessageDialog(getContentPane(), "Seleccione un elemento de la lista.");
+			return;
 		}
 	}
 }
