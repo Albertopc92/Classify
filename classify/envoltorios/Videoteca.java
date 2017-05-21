@@ -167,14 +167,17 @@ public class Videoteca {
 	 * @param genero
 	 * @throws ListaVaciaException 
 	 */
-	public void listarSeriesGenero(Genero genero) throws ListaVaciaException {
+	public ArrayList<Multimedia> listarSeriesGenero(Genero genero) throws ListaVaciaException {
 		isEmpty();
+		ArrayList<Multimedia> series = new ArrayList<Multimedia>();
 		for (Multimedia serie : videoteca) {
 			if(serie instanceof Serie) {
 				if(serie.getGenero() == genero)
-					System.out.println(serie);
+					series.add(serie);
 			}
 		}
+		
+		return series;
 	}
 	
 	/**

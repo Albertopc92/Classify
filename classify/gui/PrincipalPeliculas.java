@@ -9,6 +9,7 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 
 	private static final long serialVersionUID = 1L;
 	private AnnadirPelicula annadirPelicula;
+	private ListarPorGeneroPeliculas listarPorGeneroPeliculas;
 	
 
 	/**
@@ -32,6 +33,14 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 			public void actionPerformed(ActionEvent arg0) {
 				annadirPelicula = new AnnadirPelicula(jlist, modelo);
 				annadirPelicula.setVisible(true);
+			}
+		});
+		
+		// LISTAR POR GENERO
+		btnListarPorGenero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listarPorGeneroPeliculas = new ListarPorGeneroPeliculas(videoteca);
+				listarPorGeneroPeliculas.setVisible(true);
 			}
 		});
 	}

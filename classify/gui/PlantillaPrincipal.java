@@ -38,8 +38,7 @@ public class PlantillaPrincipal extends JDialog {
 	private FichaTecnica fichaTecnica;
 	private ModificarPelicula modificarPelicula;
 	private ModificarSerie modificarSerie;
-	private ListarPorGenero listarPorGenero;
-	Videoteca videoteca = Classify.videoteca;
+	static Videoteca videoteca = Classify.videoteca;
 	JList<Multimedia> jlist;
 	DefaultListModel<Multimedia> modelo = new DefaultListModel<Multimedia>();
 	
@@ -122,12 +121,6 @@ public class PlantillaPrincipal extends JDialog {
 		
 		//LISTAR POR GENERO
 		btnListarPorGenero = new JButton("Listar por g\u00e9nero");
-		btnListarPorGenero.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				listarPorGenero = new ListarPorGenero(videoteca);
-				listarPorGenero.setVisible(true);
-			}
-		});
 		btnListarPorGenero.setBounds(34, 362, 183, 23);
 		getContentPane().add(btnListarPorGenero);
 		

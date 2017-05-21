@@ -9,6 +9,7 @@ public class PrincipalSeries extends PlantillaPrincipal {
 
 	private static final long serialVersionUID = 1L;
 	private AnnadirSerie annadirSerie;
+	private ListarPorGeneroSeries listarPorGeneroSeries;
 
 	/**
 	 * Create the dialog.
@@ -30,6 +31,14 @@ public class PrincipalSeries extends PlantillaPrincipal {
 			public void actionPerformed(ActionEvent arg0) {
 				annadirSerie = new AnnadirSerie(jlist, modelo);
 				annadirSerie.setVisible(true);
+			}
+		});
+		
+		// LISTAR SERIES POR GENERO
+		btnListarPorGenero.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listarPorGeneroSeries = new ListarPorGeneroSeries(videoteca);
+				listarPorGeneroSeries.setVisible(true);
 			}
 		});
 		
