@@ -112,7 +112,6 @@ public class PlantillaPrincipal extends JDialog {
 				Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
 				try {
 					videoteca.marcarVisualizado(multimedia.getTitulo());
-					
 				} catch (TituloNoValidoException e) {
 					
 				}
