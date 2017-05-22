@@ -1,6 +1,8 @@
 package classify.gui;
 
 import classify.jerarquia.Multimedia;
+import classify.jerarquia.Pelicula;
+import classify.jerarquia.Serie;
 
 public class FichaTecnica extends PlantillaAnnadir {
 
@@ -14,8 +16,13 @@ public class FichaTecnica extends PlantillaAnnadir {
 		btnAccion.setVisible(false);
 		
 		checkbox.setEnabled(false);
-		//checkbox.setState(multimedia);
-		
+		if(multimedia instanceof Serie) {
+			Serie serie = (Serie) multimedia;
+			checkbox.setState(serie.isEmitiendo());
+		}else if(multimedia instanceof Pelicula) {
+			checkbox.setVisible(false);
+		}
+
 		textField_titulo.setEnabled(false);
 		textField_titulo.setText(multimedia.getTitulo());
 		
@@ -53,7 +60,13 @@ public class FichaTecnica extends PlantillaAnnadir {
 		comboBox_genero.setSelectedItem(multimedia.getGenero());
 		
 		comboBox_premio.setEnabled(false);
-		//comboBox_premio.setSelectedItem(); TODO
+		if(multimedia instanceof Pelicula) {
+			Pelicula pelicula = (Pelicula) multimedia;
+			comboBox_premio.setSelectedItem(pelicula.getPremios());
+		}else if (multimedia instanceof Serie) {
+			Serie serie = (Serie) multimedia;
+			comboBox_premio.setSelectedItem(serie.getPremios());
+		}
 		
 		textField_notaUsuario.setEnabled(false);
 		textField_notaUsuario.setText(Float.toString(multimedia.getNotaUsuario()));

@@ -34,23 +34,19 @@ public class Serie extends Multimedia implements Serializable{
 		return serie.size();
 	}
 
-	private PremioSerie getPremios() {
+	public PremioSerie getPremios() {
 		return premios;
 	}
 
-	private void setPremios(PremioSerie premios) {
+	public void setPremios(PremioSerie premios) {
 		this.premios = premios;
 	}
 
-
-
-	private boolean isEmitiendo() {
+	public boolean isEmitiendo() {
 		return emitiendo;
 	}
 
-
-
-	private void setEmitiendo(boolean emitiendo) {
+	public void setEmitiendo(boolean emitiendo) {
 		this.emitiendo = emitiendo;
 	}
 	
@@ -85,12 +81,15 @@ public class Serie extends Multimedia implements Serializable{
 	 * Lista las temporadas
 	 * @throws ListaVaciaException
 	 */
-	public void listarTemporadas() throws ListaVaciaException {
+	public ArrayList<Temporada> listarTemporadas() throws ListaVaciaException {
 		if(serie.isEmpty())
 			throw new ListaVaciaException("No hay temporadas que mostrar.");
+		ArrayList<Temporada> temporadas = new ArrayList<Temporada>();
 		for (Temporada temporada: serie) {
-			System.out.println(temporada);
+			temporadas.add(temporada);
 		}
+		
+		return temporadas;
 	}
 
 	@Override
@@ -103,7 +102,4 @@ public class Serie extends Multimedia implements Serializable{
 			puntuacion += getNumTemporadas() * 0.2f;
 		return puntuacion;
 	}
-
-
-
 }

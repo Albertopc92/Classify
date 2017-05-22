@@ -108,7 +108,6 @@ public class Classify {
 		frmClassify.getContentPane().add(textField_Buscar);
 		textField_Buscar.setColumns(10);
 		
-		// BUSCAR Revisar falla al buscar con un titulo que no existe //TODO
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

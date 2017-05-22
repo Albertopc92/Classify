@@ -26,6 +26,7 @@ public class AnnadirPelicula extends PlantillaAnnadir {
 		comboBox_premio.setModel(new DefaultComboBoxModel<PremioPelicula>(PremioPelicula.values()));
 		comboBox_premio.setSelectedIndex(-1);
 		textField_puntuacion.setVisible(false);
+		lblPuntuacin.setVisible(false);
 		checkbox.setVisible(false);
 		btnAccion.setText("A\u00f1adir");
 		btnAccion.addActionListener(new ActionListener() {

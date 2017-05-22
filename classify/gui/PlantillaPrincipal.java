@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
 import classify.envoltorios.Videoteca;
 import classify.excepciones.TituloNoValidoException;
@@ -27,13 +29,13 @@ public class PlantillaPrincipal extends JDialog {
 	protected JButton btnListarPorGenero;
 	protected JButton btnListarPorPuntuacion;
 	protected JButton btnListarPorNumeroVisualizaciones;
-	protected JButton btnAnnadirTemporada;
 	private FichaTecnica fichaTecnica;
 	private ModificarPelicula modificarPelicula;
 	private ModificarSerie modificarSerie;
 	static Videoteca videoteca = Classify.videoteca;
 	JList<Multimedia> jlist;
 	DefaultListModel<Multimedia> modelo = new DefaultListModel<Multimedia>();
+	JButton btnTemporadas;
 	
 
 	/**
@@ -49,7 +51,6 @@ public class PlantillaPrincipal extends JDialog {
 		jlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jlist.setBounds(287, 71, 380, 579);
 		getContentPane().add(jlist);
-		
 
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.addActionListener(new ActionListener() {
@@ -125,13 +126,13 @@ public class PlantillaPrincipal extends JDialog {
 		btnListarPorNumeroVisualizaciones.setBounds(34, 430, 183, 23);
 		getContentPane().add(btnListarPorNumeroVisualizaciones);
 		
-		btnAnnadirTemporada = new JButton("A\u00F1adir Temporada");
-		btnAnnadirTemporada.setBounds(34, 464, 183, 23);
-		getContentPane().add(btnAnnadirTemporada);
-		
 		JLabel icono = new JLabel("");
 		icono.setBounds(87, 68, 64, 64);
 		getContentPane().add(icono);
+		
+		btnTemporadas = new JButton("Temporadas");
+		btnTemporadas.setBounds(34, 498, 183, 23);
+		getContentPane().add(btnTemporadas);
 
 	}
 	
@@ -203,7 +204,7 @@ public class PlantillaPrincipal extends JDialog {
 	 * Compueba si antes de realizar una accion el usurio ha saleccionado un elemento de la lista
 	 * @param multimedia
 	 */
-	private void comprobarSiSeleccionado(Multimedia multimedia) {
+	void comprobarSiSeleccionado(Multimedia multimedia) {
 		if(multimedia == null) {
 			JOptionPane.showMessageDialog(getContentPane(), "Seleccione un elemento de la lista.");
 			return;

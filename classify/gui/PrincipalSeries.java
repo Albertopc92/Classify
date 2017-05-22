@@ -3,6 +3,11 @@ package classify.gui;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import classify.jerarquia.Multimedia;
+import classify.jerarquia.Serie;
+
 import javax.swing.ImageIcon;
 
 public class PrincipalSeries extends PlantillaPrincipal {
@@ -11,6 +16,7 @@ public class PrincipalSeries extends PlantillaPrincipal {
 	private AnnadirSerie annadirSerie;
 	private ListarPorGeneroSeries listarPorGeneroSeries;
 	private ListarPorPuntuacionSeries listarPorPuntuacionSeries;
+	private PrincipalTemporada principalTemporada;
 
 	/**
 	 * Create the dialog.
@@ -49,6 +55,20 @@ public class PrincipalSeries extends PlantillaPrincipal {
 			public void actionPerformed(ActionEvent e) {
 				listarPorPuntuacionSeries = new ListarPorPuntuacionSeries(videoteca);
 				listarPorPuntuacionSeries.setVisible(true);
+			}
+		});
+		
+		//ABRIR VENTANA TEMPORADA
+		btnTemporadas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Multimedia multimedia = (Multimedia) jlist.getSelectedValue();
+				if(multimedia == null) {
+					JOptionPane.showMessageDialog(getContentPane(), "Seleccione un elemento de la lista.");
+					return;
+				}
+				Serie serie = (Serie) multimedia;
+				principalTemporada = new PrincipalTemporada(serie);
+				principalTemporada.setVisible(true);
 			}
 		});
 		

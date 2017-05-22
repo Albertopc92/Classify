@@ -44,6 +44,7 @@ public class PlantillaAnnadir extends JDialog {
 	JTextArea textArea_sinopsis;
 	JComboBox comboBox_premio;
 	Checkbox checkbox;
+	JLabel lblPuntuacin;
 	
 
 
@@ -192,7 +193,7 @@ public class PlantillaAnnadir extends JDialog {
 		lblNotaUsuario.setBounds(362, 152, 76, 14);
 		getContentPane().add(lblNotaUsuario);
 		
-		JLabel lblPuntuacin = new JLabel("Puntuaci\u00f3n");
+		lblPuntuacin = new JLabel("Puntuaci\u00f3n");
 		lblPuntuacin.setBounds(362, 183, 76, 14);
 		getContentPane().add(lblPuntuacin);
 		

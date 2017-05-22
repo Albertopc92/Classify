@@ -23,6 +23,7 @@ public class AnnadirSerie extends PlantillaAnnadir {
 		comboBox_premio.setModel(new DefaultComboBoxModel<PremioSerie>(PremioSerie.values()));
 		comboBox_premio.setSelectedIndex(-1);
 		textField_puntuacion.setVisible(false);
+		lblPuntuacin.setVisible(false);
 		btnAccion.setText("A\u00f1adir");
 		btnAccion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
