@@ -5,14 +5,15 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class PlantillaAnnadirTemporadaCapitulo extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	JTextField textField_Temporada;
-	JButton btnAnnadir;
+	JButton btnAccion;
+	JButton btnSalir;
 
 	/**
 	 * Create the dialog.
@@ -33,18 +34,18 @@ public class PlantillaAnnadirTemporadaCapitulo extends JDialog {
 		getContentPane().add(textField_Temporada);
 		textField_Temporada.setColumns(10);
 		
-		btnAnnadir = new JButton("A\u00f1adir");
-		btnAnnadir.setBounds(159, 118, 89, 23);
-		getContentPane().add(btnAnnadir);
+		btnAccion = new JButton("Accion");
+		btnAccion.setBounds(159, 118, 89, 23);
+		getContentPane().add(btnAccion);
 		
-		JButton btnSalir = new JButton("Salir");
+		btnSalir = new JButton("Salir");
+		btnSalir.setBounds(258, 118, 89, 23);
+		getContentPane().add(btnSalir);
 		btnSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
 			}
 		});
-		btnSalir.setBounds(258, 118, 89, 23);
-		getContentPane().add(btnSalir);
 
 	}
 }

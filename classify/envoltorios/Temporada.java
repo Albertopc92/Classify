@@ -14,6 +14,7 @@ public class Temporada implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Capitulo> temporada;
 	private String titulo;
+	private boolean modificado;
 	private int IDTemporada;
 	private static int incID = 1;
 	private static final Pattern PATRON_TITULO = Pattern.compile("^[^\\!\\\"\\$\\%\\&\\/\\\\\\(\\)\\=\\;\\:\\-\\_\\*][A-z\\s].+");
@@ -22,6 +23,14 @@ public class Temporada implements Serializable{
 		setTitulo(titulo);
 		this.temporada = new ArrayList<Capitulo>();
 		setIDTemporada(incID++);
+	}
+	
+	public boolean isModificado() {
+		return modificado;
+	}
+
+	public void setModificado(boolean modificado) {
+		this.modificado = modificado;
 	}
 	
 	public Temporada(int iDTemporada) {
@@ -63,6 +72,7 @@ public class Temporada implements Serializable{
 		Capitulo capitulo = new Capitulo(titulo);
 		if(!temporada.contains(capitulo)) {
 			temporada.add(capitulo);
+			setModificado(true);
 			return capitulo;
 		}
 		
@@ -77,6 +87,7 @@ public class Temporada implements Serializable{
 		Capitulo capitulo = new Capitulo(IDCapitulo);
 		if(temporada.contains(capitulo)) {
 			temporada.remove(capitulo);
+			setModificado(true);
 		}
 	}
 	
@@ -94,7 +105,7 @@ public class Temporada implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Temporada [Titulo=" + getTitulo() + ",NumCapitulos()=" + getNumCapitulos() + "]";
+		return getTitulo();
 	}
 
 	@Override

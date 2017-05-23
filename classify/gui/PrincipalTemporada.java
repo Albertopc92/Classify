@@ -2,7 +2,6 @@ package classify.gui;
 
 import classify.envoltorios.Temporada;
 import classify.excepciones.ListaVaciaException;
-import classify.jerarquia.Multimedia;
 import classify.jerarquia.Serie;
 import java.awt.event.ActionListener;
 
@@ -18,7 +17,7 @@ public class PrincipalTemporada extends PrincipalSeries {
 	private static final long serialVersionUID = 1L;
 	private AnnadirTemporada annadirTemporada;
 	private JList<Temporada> jlistTemporadas;
-	private DefaultListModel<Temporada> modelo = new DefaultListModel<Temporada>();
+	private DefaultListModel<Temporada> modeloTemporadas = new DefaultListModel<Temporada>();
 
 	/**
 	 * Create the dialog.
@@ -28,7 +27,6 @@ public class PrincipalTemporada extends PrincipalSeries {
 		setTitle("Temporadas");
 		setModal(true);
 		btnVerFichaTecnica.setVisible(false);
-		btnAnnadir.setVisible(false);
 		btnAnnadir.setText("A\u00f1adir Temporada");
 		btnBorrar.setText("Borrar Temporada");
 		btnModificar.setText("Modificar Temporada");
@@ -37,15 +35,16 @@ public class PrincipalTemporada extends PrincipalSeries {
 		btnListarPorPuntuacion.setVisible(false);
 		btnTemporadas.setText("Capitulos");
 		
+		jlist.setVisible(false);
 		jlistTemporadas = new JList<Temporada>();
-		jlistTemporadas.setModel(modelo);
+		jlistTemporadas.setModel(modeloTemporadas);
 		jlistTemporadas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jlistTemporadas.setBounds(287, 71, 380, 579);
 		getContentPane().add(jlistTemporadas);
 		
 		try {
 			for (Temporada temporada: serie.listarTemporadas()) {
-				modelo.addElement(temporada);
+				modeloTemporadas.addElement(temporada);
 			}
 		} catch (ListaVaciaException e) {
 			JOptionPane.showMessageDialog(getContentPane(), "No hay temporadas que mostrar para esta serie. A\u00f1ada alguna.","No hay temporadas", JOptionPane.INFORMATION_MESSAGE);
@@ -54,7 +53,7 @@ public class PrincipalTemporada extends PrincipalSeries {
 		// AÑADIR TEMPORADA
 		btnAnnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				annadirTemporada = new AnnadirTemporada(serie);
+				annadirTemporada = new AnnadirTemporada(serie, jlistTemporadas, modeloTemporadas);
 				annadirTemporada.setVisible(true);
 			}
 		});

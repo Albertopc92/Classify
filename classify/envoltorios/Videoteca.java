@@ -1,5 +1,6 @@
 package classify.envoltorios;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import classify.OrdenarPuntuacion;
@@ -18,12 +19,22 @@ import classify.jerarquia.Multimedia;
 import classify.jerarquia.Pelicula;
 import classify.jerarquia.Serie;
 
-public class Videoteca {
-	
+public class Videoteca implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	public ArrayList<Multimedia> videoteca;
+	private boolean modificado;
 	
 	public Videoteca() {
 		this.videoteca = new ArrayList<Multimedia>();
+	}
+	
+	public boolean isModificado() {
+		return modificado;
+	}
+
+	public void setModificado(boolean modificado) {
+		this.modificado = modificado;
 	}
 	
 	/**
@@ -55,7 +66,7 @@ public class Videoteca {
 		Serie serie = new Serie(titulo, tituloOriginal, anyo, duracion, pais, director, guion, musica, fotografia, reparto, productora, genero, sinopsis, notaUsuario, emitiendo, premios);
 		if(!videoteca.contains(serie)) {
 			videoteca.add(serie);
-			//return serie;
+			setModificado(true);
 			return true;
 		}
 		else
@@ -93,6 +104,7 @@ public class Videoteca {
 		Pelicula pelicula = new Pelicula(titulo, tituloOriginal, anyo, duracion, pais, director, guion, musica, fotografia, reparto, productora, genero, sinopsis, notaUsuario, premios);
 		if(!videoteca.contains(pelicula)) {
 			videoteca.add(pelicula);
+			setModificado(true);
 			return true;
 		}else {
 			throw new YaExisteException("La pelicula ya existe.");
@@ -111,6 +123,7 @@ public class Videoteca {
 	public boolean borrar(String titulo) throws NoExisteException, ListaVaciaException, TituloNoValidoException{
 		isEmpty();
 		if(videoteca.remove(new Pelicula(titulo))) {
+			setModificado(true);
 			return true;
 		}
 		
@@ -251,6 +264,7 @@ public class Videoteca {
 	public void marcarVisualizado(String titulo) throws TituloNoValidoException{
 		Pelicula pelicula = new Pelicula(titulo);
 		pelicula.marcarVisualizado();
+		setModificado(true);
 	}
 	
 	/**
@@ -260,14 +274,5 @@ public class Videoteca {
 	public void isEmpty() throws ListaVaciaException {
 		if(videoteca.isEmpty())
 			throw new ListaVaciaException("La videoteca esta vac�a.");
-	}
-
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	public void listarTodo() throws ListaVaciaException {
-		isEmpty();
-		for (Multimedia multimedia : videoteca) {
-				System.out.println(multimedia);
-		}
 	}
 }
