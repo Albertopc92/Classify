@@ -43,10 +43,10 @@ public class Classify {
 	static Videoteca videoteca = new Videoteca();
 	static Temporada temporada;
 	private FichaTecnica fichaTecnica;
-	static JFileChooser fileChooser = new JFileChooser();
+	private static JFileChooser fileChooser;
 	private static Filtro filtro = new Filtro(".obj", "Objeto Videoteca");
-	
 	static {
+		fileChooser = new JFileChooser();
 		fileChooser.setAcceptAllFileFilterUsed(false); // No permito el uso del filtro Todos los archivos
 		fileChooser.addChoosableFileFilter(filtro); // Permito el uso del filtro 
 	}
@@ -79,7 +79,7 @@ public class Classify {
 	 */
 	private void initialize() {
 		//GENERA PELICULAS Y SERIES
-		//generarPeliculas();
+		//generar();
 		frmClassify = new JFrame();
 		frmClassify.setIconImage(Toolkit.getDefaultToolkit().getImage(Classify.class.getResource("/classify/gui/recursos/icon.png")));
 		frmClassify.setTitle("Classify - ");
@@ -349,7 +349,7 @@ public class Classify {
 		}
 	}
 
-	private void generarPeliculas() {
+	private void generar() {
 		try {
 			videoteca.altaPelicula("Titanic", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.DRAMA, "sinopsis", 7.0f, PremioPelicula.BAFTA);
 			videoteca.altaPelicula("Piratas del caribe", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 4.0f, PremioPelicula.BAFTA);
