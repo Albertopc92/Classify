@@ -1,4 +1,4 @@
-package ficheros;
+package classify.ficheros;
 
 import java.io.File;
 import javax.swing.filechooser.FileFilter;
