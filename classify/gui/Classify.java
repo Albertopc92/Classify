@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import classify.enumeraciones.Genero;
 import classify.enumeraciones.PremioPelicula;
 import classify.enumeraciones.PremioSerie;
-import classify.envoltorios.Temporada;
+
 import classify.envoltorios.Videoteca;
 import classify.excepciones.DuracionNoValidaException;
 import classify.excepciones.NotaNoValidaException;
@@ -41,13 +41,12 @@ public class Classify {
 	private PrincipalPeliculas principalPeliculas;
 	private PrincipalSeries principalSeries;
 	static Videoteca videoteca = new Videoteca();
-	static Temporada temporada;
 	private FichaTecnica fichaTecnica;
 	private static JFileChooser fileChooser;
 	private static Filtro filtro = new Filtro(".obj", "Objeto Videoteca");
 	static {
 		fileChooser = new JFileChooser();
-		fileChooser.setAcceptAllFileFilterUsed(false); // No permito el uso del filtro Todos los archivos
+		fileChooser.setAcceptAllFileFilterUsed(false); // No permito el uso del filtro "Todos los archivos"
 		fileChooser.addChoosableFileFilter(filtro); // Permito el uso del filtro 
 	}
 
@@ -78,8 +77,7 @@ public class Classify {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		//GENERA PELICULAS Y SERIES
-		//generar();
+		generar();
 		frmClassify = new JFrame();
 		frmClassify.setIconImage(Toolkit.getDefaultToolkit().getImage(Classify.class.getResource("/classify/gui/recursos/icon.png")));
 		frmClassify.setTitle("Classify - ");
@@ -237,7 +235,7 @@ public class Classify {
 	 * Nueva videoteca
 	 */
 	private void nuevo() {
-		if(videoteca.isModificado() || temporada.isModificado()) {
+		if(videoteca.isModificado()) {
 			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea Guardar?", "NO HAS GUARDADO",JOptionPane.YES_NO_CANCEL_OPTION)) {
 			case JOptionPane.YES_OPTION:
 				guardarComo();

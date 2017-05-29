@@ -89,6 +89,7 @@ public class PlantillaPrincipal extends JDialog {
 		btnBorrar.setBounds(34, 260, 183, 23);
 		getContentPane().add(btnBorrar);
 		
+		// MODIFICAR
 		btnModificar = new JButton("Modificar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

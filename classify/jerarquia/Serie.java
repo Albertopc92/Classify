@@ -19,6 +19,7 @@ public class Serie extends Multimedia implements Serializable{
 	private ArrayList<Temporada> serie;
 	private PremioSerie premios;
 	private boolean emitiendo;
+	private boolean modificado;
 	
 	public Serie(String titulo, String tituloOriginal, int anyo, int duracion, String pais, String director,
 			String guion, String musica, String fotografia, String[][] reparto, String productora, Genero genero,
@@ -28,6 +29,14 @@ public class Serie extends Multimedia implements Serializable{
 		setPremios(premios);
 		setEmitiendo(emitiendo);
 		this.serie = new ArrayList<Temporada>();
+	}
+	
+	public boolean isModificado() {
+		return modificado;
+	}
+
+	public void setModificado(boolean modificado) {
+		this.modificado = modificado;
 	}
 
 	private int getNumTemporadas() {

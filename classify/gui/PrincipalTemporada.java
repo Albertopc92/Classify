@@ -17,6 +17,7 @@ public class PrincipalTemporada extends PrincipalSeries {
 	private static final long serialVersionUID = 1L;
 	private AnnadirTemporada annadirTemporada;
 	private JList<Temporada> jlistTemporadas;
+	private InfoTemporada infoTemporada;
 	private DefaultListModel<Temporada> modeloTemporadas = new DefaultListModel<Temporada>();
 
 	/**
@@ -26,7 +27,7 @@ public class PrincipalTemporada extends PrincipalSeries {
 		setBounds(100, 100, 720, 788);
 		setTitle("Temporadas");
 		setModal(true);
-		btnVerFichaTecnica.setVisible(false);
+		btnVerFichaTecnica.setText("Informaci\u00f3n");
 		btnAnnadir.setText("A\u00f1adir Temporada");
 		btnBorrar.setText("Borrar Temporada");
 		btnModificar.setText("Modificar Temporada");
@@ -34,7 +35,6 @@ public class PrincipalTemporada extends PrincipalSeries {
 		btnListarPorGenero.setVisible(false);
 		btnListarPorPuntuacion.setVisible(false);
 		btnTemporadas.setText("Capitulos");
-		
 		jlist.setVisible(false);
 		jlistTemporadas = new JList<Temporada>();
 		jlistTemporadas.setModel(modeloTemporadas);
@@ -50,6 +50,16 @@ public class PrincipalTemporada extends PrincipalSeries {
 			JOptionPane.showMessageDialog(getContentPane(), "No hay temporadas que mostrar para esta serie. A\u00f1ada alguna.","No hay temporadas", JOptionPane.INFORMATION_MESSAGE);
 		}
 		
+		// INFORMACION DE LA TEMPORADA
+		btnVerFichaTecnica.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Temporada temporada = jlistTemporadas.getSelectedValue();
+				comprobarSiSeleccionado(temporada);
+				infoTemporada = new InfoTemporada(temporada);
+				infoTemporada.setVisible(true);
+			}
+		});
+		
 		// AÑADIR TEMPORADA
 		btnAnnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -57,6 +67,67 @@ public class PrincipalTemporada extends PrincipalSeries {
 				annadirTemporada.setVisible(true);
 			}
 		});
+		
+		// BORRAR TEMPORADA
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				borrarTemporada(serie);
+			}
+		});
+		
+		
+		// MODIFICAR TEMPORADA
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		
+	}
+	
+	/**
+	 * Borra una temporada
+	 * @param serie
+	 */
+	private void borrarTemporada(Serie serie) {
+		Temporada temporada = jlistTemporadas.getSelectedValue();
+		System.out.println(temporada);
+		comprobarSiSeleccionado(temporada);
+		try {
+			String[] opciones = {"Si", "No"};
+			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + temporada.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
+			case 0:
+				serie.bajaTemporada(temporada.getIDTemporada());
+				break;
+			default:
+				return;
+			}
+			JOptionPane.showMessageDialog(null, "Se ha borrado: " + temporada.getTitulo());
+			jlistTemporadas.setModel(modeloTemporadas);
+		} catch (Exception exception) {
+			JOptionPane.showMessageDialog(null, "No se ha podido borrar: " + exception.getMessage());
+		}
+		
+		modeloTemporadas.clear();
+		try {
+			for (Temporada elemento : serie.listarTemporadas()) {
+				modeloTemporadas.addElement(elemento);
+			}
+		} catch (ListaVaciaException e1) {
+
+		}
+	}
+	
+	
+	/**
+	 * Comprueba si se ha seleccionado alguna temporada de la lista
+	 * @param temporada
+	 */
+	private void comprobarSiSeleccionado(Temporada temporada) {
+		if(temporada == null) {
+			JOptionPane.showMessageDialog(getContentPane(), "Seleccione un elemento de la lista.");
+			return;
+		}
 	}
 
 }

@@ -37,7 +37,7 @@ public class Temporada implements Serializable{
 		setIDTemporada(iDTemporada);
 	}
 
-	private int getIDTemporada() {
+	public int getIDTemporada() {
 		return IDTemporada;
 	}
 
@@ -45,7 +45,7 @@ public class Temporada implements Serializable{
 		this.IDTemporada = iDTemporada;
 	}
 
-	private String getTitulo() {
+	public String getTitulo() {
 		return titulo;
 	}
 
@@ -129,5 +129,4 @@ public class Temporada implements Serializable{
 			return false;
 		return true;
 	}
-	
 }
