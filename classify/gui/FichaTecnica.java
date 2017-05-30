@@ -59,13 +59,13 @@ public class FichaTecnica extends PlantillaAnnadir {
 		comboBox_genero.setEnabled(false);
 		comboBox_genero.setSelectedItem(multimedia.getGenero());
 		
-		comboBox_premio.setEnabled(false);
+		comboBox_premioPrincipal.setEnabled(false);
 		if(multimedia instanceof Pelicula) {
 			Pelicula pelicula = (Pelicula) multimedia;
-			comboBox_premio.setSelectedItem(pelicula.getPremios());
+			comboBox_premioPrincipal.setSelectedItem(pelicula.getPremios());
 		}else if (multimedia instanceof Serie) {
 			Serie serie = (Serie) multimedia;
-			comboBox_premio.setSelectedItem(serie.getPremios());
+			comboBox_premioPrincipal.setSelectedItem(serie.getPremios());
 		}
 		
 		textField_notaUsuario.setEnabled(false);
@@ -74,11 +74,17 @@ public class FichaTecnica extends PlantillaAnnadir {
 		textField_puntuacion.setEnabled(false);
 		textField_puntuacion.setText(Float.toString(multimedia.puntuable()));
 		
-		textField_principales.setEnabled(true);
-		//textField__principales.setText(); TODO
 		
+		textField_principales.setEnabled(true);
 		textField_secundarios.setEnabled(true);
-		//textField_secundarioss.setText(); TODO
+		
+		for (int i = 0; i < multimedia.getReparto().length; i++) {
+			for (int j = 0; j < multimedia.getReparto().length; j++) {
+				textField_principales.setText(multimedia.getReparto()[i].toString());
+				textField_secundarios.setText(multimedia.getReparto()[j].toString());
+			}
+		}
+		
 	}
 
 }

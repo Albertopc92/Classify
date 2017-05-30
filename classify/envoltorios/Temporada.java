@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import classify.Capitulo;
+import classify.Patron;
 import classify.excepciones.ListaVaciaException;
 import classify.excepciones.TituloNoValidoException;
 import classify.excepciones.YaExisteException;
@@ -17,7 +18,6 @@ public class Temporada implements Serializable{
 	private boolean modificado;
 	private int IDTemporada;
 	private static int incID = 1;
-	private static final Pattern PATRON_TITULO = Pattern.compile("^[^\\!\\\"\\$\\%\\&\\/\\\\\\(\\)\\=\\;\\:\\-\\_\\*][A-z\\s].+");
 	
 	public Temporada(String titulo) throws TituloNoValidoException {
 		setTitulo(titulo);
@@ -50,7 +50,7 @@ public class Temporada implements Serializable{
 	}
 
 	public void setTitulo(String titulo) throws TituloNoValidoException {
-		Matcher matcherTitulo = PATRON_TITULO.matcher(titulo);
+		Matcher matcherTitulo = Patron.PATRON_TITULO.matcher(titulo);
 		
 		if(!matcherTitulo.matches()) 
 			throw new TituloNoValidoException("Titulo no valido.");

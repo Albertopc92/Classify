@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import classify.enumeraciones.Genero;
 import classify.enumeraciones.PremioSerie;
 import classify.jerarquia.Multimedia;
+import javax.swing.JComboBox;
 
 public class ModificarSerie extends PlantillaAnnadir {
 
@@ -23,6 +24,12 @@ public class ModificarSerie extends PlantillaAnnadir {
 	public ModificarSerie(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo, Multimedia multimedia) {
 		setTitle("Modificar Serie: " + multimedia.getTitulo());
 		setBounds(100, 100, 720, 788);
+		
+		JComboBox<PremioSerie> comboBox_premio = new JComboBox<PremioSerie>();
+		comboBox_premio.setBounds(439, 118, 121, 20);
+		getContentPane().add(comboBox_premio);
+		comboBox_premioPrincipal.setVisible(false);
+		
 		comboBox_premio.setModel(new DefaultComboBoxModel<PremioSerie>(PremioSerie.values()));
 		textField_titulo.setText(multimedia.getTitulo());
 		textField_tituloOriginal.setText(multimedia.getTituloOriginal());

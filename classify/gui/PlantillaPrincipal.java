@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
 import classify.envoltorios.Videoteca;
 import classify.excepciones.TituloNoValidoException;

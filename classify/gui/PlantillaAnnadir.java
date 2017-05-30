@@ -42,7 +42,7 @@ public class PlantillaAnnadir extends JDialog {
 	Videoteca videoteca = Classify.videoteca;
 	JComboBox<Genero> comboBox_genero;
 	JTextArea textArea_sinopsis;
-	JComboBox comboBox_premio;
+	JComboBox<Object> comboBox_premioPrincipal;
 	Checkbox checkbox;
 	JLabel lblPuntuacin;
 	
@@ -179,10 +179,10 @@ public class PlantillaAnnadir extends JDialog {
 		lblPremio.setBounds(362, 121, 46, 14);
 		getContentPane().add(lblPremio);
 		
-		comboBox_premio = new JComboBox<Object>();
-		comboBox_premio.setBounds(439, 118, 121, 20);
-		comboBox_premio.setSelectedIndex(-1);
-		getContentPane().add(comboBox_premio);
+		comboBox_premioPrincipal = new JComboBox<Object>();
+		comboBox_premioPrincipal.setBounds(439, 118, 121, 20);
+		comboBox_premioPrincipal.setSelectedIndex(-1);
+		getContentPane().add(comboBox_premioPrincipal);
 		
 		textField_notaUsuario = new JTextField();
 		textField_notaUsuario.setBounds(439, 149, 39, 20);
@@ -265,9 +265,9 @@ public class PlantillaAnnadir extends JDialog {
 		textField_secundarios.setText("");
 		textField_productora.setText(""); 
 		comboBox_genero.setSelectedIndex(-1);
-		comboBox_premio.setSelectedIndex(-1);
+		comboBox_premioPrincipal.setSelectedIndex(-1);
 		textArea_sinopsis.setText(""); 
 		textField_notaUsuario.setText("");
-		comboBox_premio.setSelectedItem(-1);
+		comboBox_premioPrincipal.setSelectedItem(-1);
 	}
 }

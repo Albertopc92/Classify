@@ -9,6 +9,7 @@ import classify.enumeraciones.PremioPelicula;
 import classify.jerarquia.Multimedia;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class AnnadirPelicula extends PlantillaAnnadir {
 
@@ -23,6 +24,11 @@ public class AnnadirPelicula extends PlantillaAnnadir {
 	public AnnadirPelicula(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo) {
 		setTitle("A\u00f1adir Pel\u00edcula");
 		setBounds(100, 100, 720, 788);
+		comboBox_premioPrincipal.setVisible(false);
+		JComboBox<PremioPelicula> comboBox_premio = new JComboBox<PremioPelicula>();
+		comboBox_premio.setSelectedIndex(-1);
+		comboBox_premio.setBounds(439, 118, 124, 20);
+		getContentPane().add(comboBox_premio);
 		comboBox_premio.setModel(new DefaultComboBoxModel<PremioPelicula>(PremioPelicula.values()));
 		comboBox_premio.setSelectedIndex(-1);
 		textField_puntuacion.setVisible(false);
@@ -48,7 +54,7 @@ public class AnnadirPelicula extends PlantillaAnnadir {
 										(float)(Float.parseFloat(textField_notaUsuario.getText())),
 										(PremioPelicula)comboBox_premio.getSelectedItem())) {
 					
-					JOptionPane.showMessageDialog(getContentPane(), "La pel\u00edcula se a\u00f1adio correctamente.","Pelicula a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(getContentPane(), "La pel\u00edcula se a\u00f1adi\u00f3 correctamente.","Pel\u00edcula a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
 					// Recargar Jlist
 					modelo.clear();
 					jlist.setModel(modelo);

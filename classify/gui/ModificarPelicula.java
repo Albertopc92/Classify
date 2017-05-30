@@ -8,8 +8,8 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import classify.enumeraciones.Genero;
 import classify.enumeraciones.PremioPelicula;
-import classify.excepciones.TituloNoValidoException;
 import classify.jerarquia.Multimedia;
+import javax.swing.JComboBox;
 
 public class ModificarPelicula extends PlantillaAnnadir {
 
@@ -21,6 +21,11 @@ public class ModificarPelicula extends PlantillaAnnadir {
 	public ModificarPelicula(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo, Multimedia multimedia) {
 		setTitle("Modificar Pel\u00edcula: " + multimedia.getTitulo());
 		setBounds(100, 100, 720, 788);
+		
+		JComboBox<PremioPelicula> comboBox_premio = new JComboBox<PremioPelicula>();
+		comboBox_premio.setBounds(439, 118, 121, 20);
+		getContentPane().add(comboBox_premio);
+		comboBox_premioPrincipal.setVisible(false);
 		comboBox_premio.setModel(new DefaultComboBoxModel<PremioPelicula>(PremioPelicula.values()));
 		checkbox.setVisible(false);
 		

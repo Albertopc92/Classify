@@ -14,7 +14,6 @@ public class Capitulo implements Serializable{
 	private boolean visualizado;
 	private int IDCapitulo;
 	private static int incID = 1;
-	private static final Pattern PATRON_TITULO = Pattern.compile("^[^\\!\\\"\\$\\%\\&\\/\\\\\\(\\)\\=\\;\\:\\-\\_\\*][A-z\\s].+");
 
 	public Capitulo(String titulo) throws TituloNoValidoException {
 		setTitulo(titulo);
@@ -38,7 +37,7 @@ public class Capitulo implements Serializable{
 	}
 
 	private void setTitulo(String titulo) throws TituloNoValidoException {
-		Matcher matcherTitulo = PATRON_TITULO.matcher(titulo);
+		Matcher matcherTitulo = Patron.PATRON_TITULO.matcher(titulo);
 		
 		if(!matcherTitulo.matches()) 
 			throw new TituloNoValidoException("Titulo no valido.");

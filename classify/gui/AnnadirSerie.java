@@ -21,7 +21,10 @@ public class AnnadirSerie extends PlantillaAnnadir {
 	public AnnadirSerie(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo) {
 		setTitle("A\u00f1adir Serie");
 		setBounds(100, 100, 720, 788);
-		// TODO combobox premio
+		comboBox_premioPrincipal.setVisible(false);
+		JComboBox<PremioSerie> comboBox_premio = new JComboBox<PremioSerie>();
+		comboBox_premio.setBounds(439, 118, 117, 20);
+		getContentPane().add(comboBox_premio);
 		comboBox_premio.setModel(new DefaultComboBoxModel<PremioSerie>(PremioSerie.values()));
 		comboBox_premio.setSelectedIndex(-1);
 		textField_puntuacion.setVisible(false);
@@ -65,5 +68,4 @@ public class AnnadirSerie extends PlantillaAnnadir {
 		});
 
 	}
-
 }

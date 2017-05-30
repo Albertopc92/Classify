@@ -11,7 +11,6 @@ import javax.swing.JTextField;
 import classify.enumeraciones.Genero;
 import classify.enumeraciones.PremioPelicula;
 import classify.enumeraciones.PremioSerie;
-
 import classify.envoltorios.Videoteca;
 import classify.excepciones.DuracionNoValidaException;
 import classify.excepciones.NotaNoValidaException;
@@ -77,8 +76,9 @@ public class Classify {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		generar();
+		//generar();
 		frmClassify = new JFrame();
+		frmClassify.setResizable(false);
 		frmClassify.setIconImage(Toolkit.getDefaultToolkit().getImage(Classify.class.getResource("/classify/gui/recursos/icon.png")));
 		frmClassify.setTitle("Classify - ");
 		frmClassify.setBounds(100, 100, 450, 300);
@@ -140,7 +140,7 @@ public class Classify {
 		frmClassify.getContentPane().add(btnBuscar);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 434, 21);
+		menuBar.setBounds(0, 0, 444, 21);
 		frmClassify.getContentPane().add(menuBar);
 		
 		JMenu mnArchivo = new JMenu("Archivo");
@@ -224,7 +224,7 @@ public class Classify {
 	 * Crea una nueva videoteca
 	 */
 	private void crearNuevaVideoteca() {
-		String titulo = JOptionPane.showInputDialog(null, "Introduce el nombre del nuevo concesionario", "Nombre del Concesionario", JOptionPane.QUESTION_MESSAGE);
+		String titulo = JOptionPane.showInputDialog(null, "Introduce el nombre de la nueva videoteca", "Nombre de la Videoteca", JOptionPane.QUESTION_MESSAGE);
 		Fichero.setFichero(titulo);
 		videoteca = new Videoteca();
 		frmClassify.setTitle(Fichero.fichero.getName());

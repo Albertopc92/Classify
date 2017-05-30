@@ -6,7 +6,7 @@ import javax.swing.ListSelectionModel;
 import classify.Capitulo;
 import classify.envoltorios.Temporada;
 
-public class PrincipalCapitulos extends PrincipalSeries {
+public class PrincipalCapitulos extends PlantillaPrincipal {
 
 	private static final long serialVersionUID = 1L;
 	private JList<Capitulo> jlistCapitulos;
@@ -27,6 +27,7 @@ public class PrincipalCapitulos extends PrincipalSeries {
 		btnListarPorGenero.setVisible(false);
 		btnListarPorPuntuacion.setVisible(false);
 		btnTemporadas.setVisible(false);
+		btnListarPorNumeroVisualizaciones.setVisible(false);
 		jlist.setVisible(false);
 		jlistCapitulos = new JList<Capitulo>();
 		jlistCapitulos.setModel(modeloCapitulos);

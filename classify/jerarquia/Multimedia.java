@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import classify.Patron;
 import classify.enumeraciones.Genero;
 import classify.excepciones.DuracionNoValidaException;
 import classify.excepciones.NotaNoValidaException;
@@ -32,8 +34,6 @@ public abstract class Multimedia implements Serializable{
 	protected LocalDate ultimaVisualizacion;
 	protected int ID;
 	private static int incID = 1;
-	private static final Pattern PATRON_TITULO = Pattern.compile("^[^\\!\\\"\\$\\%\\&\\/\\\\\\(\\)\\=\\;\\:\\-\\_\\*][0-9A-z\\s].+");
-	private static final Pattern PATRON_NO_BLANCO = Pattern.compile("[A-z\\s]+");
 	
 	public Multimedia(String titulo,String tituloOriginal, int anyo, int duracion, 
 			String pais, String director, String guion, String musica, String fotografia,
@@ -68,10 +68,9 @@ public abstract class Multimedia implements Serializable{
 
 
 	public void setTitulo(String titulo) throws TituloNoValidoException {
-		Matcher matcherTitulo = PATRON_TITULO.matcher(titulo);
-		
+		Matcher matcherTitulo = Patron.PATRON_TITULO.matcher(titulo);
 		if(!matcherTitulo.matches()) 
-			throw new TituloNoValidoException("Titulo no valido.");
+			throw new TituloNoValidoException("T\u00edtulo no v\u00e1lido.");
 		
 		this.titulo = titulo.trim();
 	}
@@ -85,10 +84,10 @@ public abstract class Multimedia implements Serializable{
 
 
 	public void setTituloOriginal(String tituloOriginal) throws TituloNoValidoException {
-		Matcher matcherTituloOriginal = PATRON_TITULO.matcher(tituloOriginal);
+		Matcher matcherTituloOriginal = Patron.PATRON_TITULO.matcher(tituloOriginal);
 		
 		if(!matcherTituloOriginal.matches()) 
-			throw new TituloNoValidoException("Titulo no valido.");
+			throw new TituloNoValidoException("T\u00edtulo Original no v\u00e1lido.");
 		
 		this.tituloOriginal = tituloOriginal.trim();
 	}
@@ -115,7 +114,7 @@ public abstract class Multimedia implements Serializable{
 
 	public void setDuracion(int duracion) throws DuracionNoValidaException {
 		if(duracion < 1)
-			throw new DuracionNoValidaException("Duracion no valida.");
+			throw new DuracionNoValidaException("Duraci\u00f3n no v\u00e1lida.");
 		this.duracion = duracion;
 	}
 
@@ -128,10 +127,10 @@ public abstract class Multimedia implements Serializable{
 
 
 	public void setPais(String pais) throws ValorNoValidoException {
-		Matcher matcherPais = PATRON_NO_BLANCO.matcher(pais);
+		Matcher matcherPais = Patron.PATRON_NO_BLANCO.matcher(pais);
 		
 		if(!matcherPais.matches()) 
-			throw new ValorNoValidoException("Valor no valido.");
+			throw new ValorNoValidoException("Pa\\u00eds no v\u00e1lido.");
 		this.pais = pais.trim();
 	}
 
@@ -144,10 +143,10 @@ public abstract class Multimedia implements Serializable{
 
 
 	public void setDirector(String director) throws ValorNoValidoException {
-		Matcher matcherDirector = PATRON_NO_BLANCO.matcher(director);
+		Matcher matcherDirector = Patron.PATRON_NO_BLANCO.matcher(director);
 		
 		if(!matcherDirector.matches()) 
-			throw new ValorNoValidoException("Valor no valido.");
+			throw new ValorNoValidoException("Director no v\u00e1lido.");
 		this.director = director.trim();
 	}
 
@@ -172,10 +171,10 @@ public abstract class Multimedia implements Serializable{
 
 
 	public void setMusica(String musica) throws ValorNoValidoException {
-		Matcher matcherMusica = PATRON_NO_BLANCO.matcher(musica);
+		Matcher matcherMusica = Patron.PATRON_NO_BLANCO.matcher(musica);
 		
 		if(!matcherMusica.matches()) 
-			throw new ValorNoValidoException("Valor no valido.");
+			throw new ValorNoValidoException("M\u00fasica no v\u00e1lido.");
 		this.musica = musica.trim();
 	}
 
@@ -188,10 +187,10 @@ public abstract class Multimedia implements Serializable{
 
 
 	public void setFotografia(String fotografia) throws ValorNoValidoException {
-		Matcher matcherFotografia = PATRON_NO_BLANCO.matcher(fotografia);
+		Matcher matcherFotografia = Patron.PATRON_NO_BLANCO.matcher(fotografia);
 		
 		if(!matcherFotografia.matches()) 
-			throw new ValorNoValidoException("Valor no valido.");
+			throw new ValorNoValidoException("Valor no v\u00e1lido.");
 		this.fotografia = fotografia.trim();
 	}
 
@@ -216,10 +215,10 @@ public abstract class Multimedia implements Serializable{
 
 
 	public void setProductora(String productora) throws ValorNoValidoException {
-		Matcher matcherProductora = PATRON_NO_BLANCO.matcher(productora);
+		Matcher matcherProductora = Patron.PATRON_NO_BLANCO.matcher(productora);
 		
 		if(!matcherProductora.matches()) 
-			throw new ValorNoValidoException("Valor no valido.");
+			throw new ValorNoValidoException("Valor no v\u00e1lido.");
 		this.productora = productora.trim();
 	}
 
@@ -325,7 +324,7 @@ public abstract class Multimedia implements Serializable{
 		if (titulo == null) {
 			if (other.titulo != null)
 				return false;
-		} else if (!titulo.equals(other.titulo))
+		} else if (!titulo.equalsIgnoreCase(other.titulo))
 			return false;
 		return true;
 	}
