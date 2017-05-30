@@ -32,6 +32,8 @@ import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.awt.event.InputEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class Classify {
 
@@ -45,8 +47,10 @@ public class Classify {
 	private static Filtro filtro = new Filtro(".obj", "Objeto Videoteca");
 	static {
 		fileChooser = new JFileChooser();
-		fileChooser.setAcceptAllFileFilterUsed(false); // No permito el uso del filtro "Todos los archivos"
-		fileChooser.addChoosableFileFilter(filtro); // Permito el uso del filtro 
+		fileChooser.setAcceptAllFileFilterUsed(false); // No permito el uso del
+														// filtro "Todos los
+														// archivos"
+		fileChooser.addChoosableFileFilter(filtro); // Permito el uso del filtro
 	}
 
 	/**
@@ -76,13 +80,20 @@ public class Classify {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		//generar();
+		// generar();
 		frmClassify = new JFrame();
+		frmClassify.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				salir();
+			}
+		});
 		frmClassify.setResizable(false);
-		frmClassify.setIconImage(Toolkit.getDefaultToolkit().getImage(Classify.class.getResource("/classify/gui/recursos/icon.png")));
+		frmClassify.setIconImage(
+				Toolkit.getDefaultToolkit().getImage(Classify.class.getResource("/classify/gui/recursos/icon.png")));
 		frmClassify.setTitle("Classify - ");
 		frmClassify.setBounds(100, 100, 450, 300);
-		frmClassify.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmClassify.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmClassify.getContentPane().setLayout(null);
 
 		JButton btnSeries = new JButton("Series");
@@ -123,7 +134,7 @@ public class Classify {
 		textField_Buscar.setBounds(139, 210, 138, 20);
 		frmClassify.getContentPane().add(textField_Buscar);
 		textField_Buscar.setColumns(10);
-		
+
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -131,22 +142,24 @@ public class Classify {
 				try {
 					mostrarFichaTecnica(videoteca.buscar(titulo));
 				} catch (Exception exception) {
-					JOptionPane.showMessageDialog(null, "No se ha podido encontrar el elemento: " + exception.getMessage(),"No se ha podido encontrar", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null,
+							"No se ha podido encontrar el elemento: " + exception.getMessage(),
+							"No se ha podido encontrar", JOptionPane.ERROR_MESSAGE);
 				}
-				
+
 			}
 		});
 		btnBuscar.setBounds(291, 209, 89, 23);
 		frmClassify.getContentPane().add(btnBuscar);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 444, 21);
 		frmClassify.getContentPane().add(menuBar);
-		
+
 		JMenu mnArchivo = new JMenu("Archivo");
 		mnArchivo.setMnemonic('A');
 		menuBar.add(mnArchivo);
-		
+
 		// NUEVO
 		JMenuItem mntmNuevo = new JMenuItem("Nuevo");
 		mntmNuevo.addActionListener(new ActionListener() {
@@ -156,23 +169,24 @@ public class Classify {
 		});
 		mntmNuevo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_MASK));
 		mnArchivo.add(mntmNuevo);
-		
+
 		JMenuItem mntmAbrir = new JMenuItem("Abrir...");
 		mntmAbrir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					abrir();
 				} catch (ClassNotFoundException | IOException e1) {
-					JOptionPane.showMessageDialog(null, "Error al abrir fichero: " + e1.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Error al abrir fichero: " + e1.getMessage(), "ERROR",
+							JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
 		mntmAbrir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));
 		mnArchivo.add(mntmAbrir);
-		
+
 		JSeparator separator = new JSeparator();
 		mnArchivo.add(separator);
-		
+
 		JMenuItem mntmGuardar = new JMenuItem("Guardar");
 		mntmGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -181,7 +195,7 @@ public class Classify {
 		});
 		mntmGuardar.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G, InputEvent.CTRL_MASK));
 		mnArchivo.add(mntmGuardar);
-		
+
 		JMenuItem mntmGuardarComo = new JMenuItem("Guardar como...");
 		mntmGuardarComo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -189,10 +203,10 @@ public class Classify {
 			}
 		});
 		mnArchivo.add(mntmGuardarComo);
-		
+
 		JSeparator separator_1 = new JSeparator();
 		mnArchivo.add(separator_1);
-		
+
 		JMenuItem mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -200,18 +214,18 @@ public class Classify {
 			}
 		});
 		mnArchivo.add(mntmSalir);
-		
+
 		JMenu mnAyuda = new JMenu("Ayuda");
 		mnAyuda.setMnemonic('H');
 		menuBar.add(mnAyuda);
-		
+
 		JMenuItem mntmAyuda = new JMenuItem("Ayuda");
 		mnAyuda.add(mntmAyuda);
-		
+
 		JMenuItem mntmSobreClassify = new JMenuItem("Sobre Classify...");
 		mnAyuda.add(mntmSobreClassify);
 	}
-	
+
 	/**
 	 * Muestra la ficha tecnica del elemento seleccionado
 	 */
@@ -219,24 +233,26 @@ public class Classify {
 		fichaTecnica = new FichaTecnica(multimedia);
 		fichaTecnica.setVisible(true);
 	}
-	
+
 	/**
 	 * Crea una nueva videoteca
 	 */
 	private void crearNuevaVideoteca() {
-		String titulo = JOptionPane.showInputDialog(null, "Introduce el nombre de la nueva videoteca", "Nombre de la Videoteca", JOptionPane.QUESTION_MESSAGE);
+		String titulo = JOptionPane.showInputDialog(null, "Introduce el nombre de la nueva videoteca",
+				"Nombre de la Videoteca", JOptionPane.QUESTION_MESSAGE);
 		Fichero.setFichero(titulo);
 		videoteca = new Videoteca();
 		frmClassify.setTitle(Fichero.fichero.getName());
 		videoteca.setModificado(false);
 	}
-	
+
 	/**
 	 * Nueva videoteca
 	 */
 	private void nuevo() {
-		if(videoteca.isModificado()) {
-			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea Guardar?", "NO HAS GUARDADO",JOptionPane.YES_NO_CANCEL_OPTION)) {
+		if (videoteca.isModificado()) {
+			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea Guardar?", "NO HAS GUARDADO",
+					JOptionPane.YES_NO_CANCEL_OPTION)) {
 			case JOptionPane.YES_OPTION:
 				guardarComo();
 				crearNuevaVideoteca();
@@ -245,41 +261,44 @@ public class Classify {
 				crearNuevaVideoteca();
 				break;
 			default:
-				return; //JOptionPane.CANCEL_OPTION
+				return; // JOptionPane.CANCEL_OPTION
 			}
-		}else {
+		} else {
 			crearNuevaVideoteca();
 		}
 	}
-	
+
 	/**
 	 * Guarda con la opcion de Guardar como...
 	 */
 	private void guardarComo() {
-		if(JFileChooser.APPROVE_OPTION == fileChooser.showDialog(fileChooser, "Guardar videoteca")) {
+		if (JFileChooser.APPROVE_OPTION == fileChooser.showDialog(fileChooser, "Guardar videoteca")) {
 			Fichero.comprobarFichero(fileChooser.getSelectedFile());
-			if(Fichero.getFichero().exists()) {
-				switch (JOptionPane.showConfirmDialog(null, "El archivo ya existe, ¿Desea Sobreescribir?", "Guardando",JOptionPane.YES_NO_CANCEL_OPTION)) {
+			if (Fichero.getFichero().exists()) {
+				switch (JOptionPane.showConfirmDialog(null, "El archivo ya existe, ¿Desea Sobreescribir?", "Guardando",
+						JOptionPane.YES_NO_CANCEL_OPTION)) {
 				case JOptionPane.YES_OPTION:
 					try {
 						Fichero.guardarComo(videoteca, Fichero.getFichero());
 					} catch (IOException e) {
-						JOptionPane.showMessageDialog(null, "Error al guardar el archivo", "ERROR", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Error al guardar el archivo", "ERROR",
+								JOptionPane.ERROR_MESSAGE);
 					}
 					break;
 				default:
-					JOptionPane.showMessageDialog(null, "El archivo no se ha guardado", "ERROR", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "El archivo no se ha guardado", "ERROR",
+							JOptionPane.ERROR_MESSAGE);
 					break;
 				}
 			} else {
 				guardar();
 			}
-			
+
 			frmClassify.setTitle(Fichero.getFichero().getName());
 			videoteca.setModificado(false);
 		}
 	}
-	
+
 	/**
 	 * Guarda un fichero
 	 */
@@ -296,20 +315,22 @@ public class Classify {
 			}
 		}
 	}
-	
+
 	/**
 	 * Permite abrir un fichero existente
+	 * 
 	 * @throws ClassNotFoundException
 	 * @throws IOException
 	 */
 	private void abrir() throws ClassNotFoundException, IOException {
-		if(videoteca.isModificado()) {
-			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea guardar?", "NO HAS GUARDADO",JOptionPane.YES_NO_CANCEL_OPTION)) {
+		if (videoteca.isModificado()) {
+			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea guardar?", "NO HAS GUARDADO",
+					JOptionPane.YES_NO_CANCEL_OPTION)) {
 			case JOptionPane.YES_OPTION:
 				guardarComo();
 				break;
 			case JOptionPane.NO_OPTION:
-				if(fileChooser.showDialog(fileChooser, "Abrir videoteca") == JFileChooser.APPROVE_OPTION) {
+				if (fileChooser.showDialog(fileChooser, "Abrir videoteca") == JFileChooser.APPROVE_OPTION) {
 					Fichero.fichero = fileChooser.getSelectedFile();
 					videoteca = (Videoteca) Fichero.abrir(fileChooser.getSelectedFile());
 					frmClassify.setTitle(Fichero.getFichero().getName());
@@ -318,8 +339,8 @@ public class Classify {
 			default:
 				return;
 			}
-		}else {
-			if(fileChooser.showDialog(fileChooser, "Abrir videoteca") == JFileChooser.APPROVE_OPTION) {
+		} else {
+			if (fileChooser.showDialog(fileChooser, "Abrir videoteca") == JFileChooser.APPROVE_OPTION) {
 				Fichero.fichero = fileChooser.getSelectedFile();
 				videoteca = (Videoteca) Fichero.abrir(fileChooser.getSelectedFile());
 				frmClassify.setTitle(Fichero.getFichero().getName());
@@ -327,13 +348,14 @@ public class Classify {
 			}
 		}
 	}
-	
+
 	/**
 	 * Opcion de salir
 	 */
 	private void salir() {
-		if(videoteca.isModificado()){
-			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea guardar?", "NO HAS GUARDADO",JOptionPane.YES_NO_CANCEL_OPTION)) {
+		if (videoteca.isModificado()) {
+			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea guardar?", "NO HAS GUARDADO",
+					JOptionPane.YES_NO_CANCEL_OPTION)) {
 			case JOptionPane.YES_OPTION:
 				guardarComo();
 				break;
@@ -349,17 +371,39 @@ public class Classify {
 
 	private void generar() {
 		try {
-			videoteca.altaPelicula("Titanic", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.DRAMA, "sinopsis", 7.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("Piratas del caribe", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 4.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("300", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.ACCION, "sinopsis", 5.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("El señor de los anillos", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.CIENCIA_FICCION, "sinopsis", 9.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("El hobbit", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.CIENCIA_FICCION, "sinopsis", 1.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("Una mente maravillosa", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.DRAMA, "sinopsis", 10.0f, PremioPelicula.BAFTA);
-			videoteca.altaSerie("Juego de tronos", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.FANTASIA, "sinopsis", 9f, false, PremioSerie.GLOBO_DE_ORO);
-			videoteca.altaSerie("Breaking bad", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.DRAMA, "sinopsis", 10f, false, PremioSerie.GLOBO_DE_ORO);
-			videoteca.altaSerie("Prison break", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.DRAMA, "sinopsis", 8f, true, PremioSerie.GLOBO_DE_ORO);
-			videoteca.altaSerie("Los Simpsons", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.COMEDIA, "sinopsis", 7f, false, PremioSerie.GLOBO_DE_ORO);
-			videoteca.altaSerie("Perdidos", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica", "fotografia", new String[][] {{"fff"},{"fff"}}, "productora", Genero.CIENCIA_FICCION, "sinopsis", 5f, false, PremioSerie.GLOBO_DE_ORO);
+			videoteca.altaPelicula("Titanic", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica",
+					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.DRAMA, "sinopsis", 7.0f,
+					PremioPelicula.BAFTA);
+			videoteca.altaPelicula("Piratas del caribe", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion",
+					"Musica", "fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.ACCION,
+					"sinopsis", 4.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("300", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica",
+					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.ACCION, "sinopsis",
+					5.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("El señor de los anillos", "Peliculaoriginal", 2000, 200, "Spain", "director",
+					"guion", "Musica", "fotografia", new String[][] { { "fff" }, { "fff" } }, "productora",
+					Genero.CIENCIA_FICCION, "sinopsis", 9.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("El hobbit", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica",
+					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.CIENCIA_FICCION,
+					"sinopsis", 1.0f, PremioPelicula.BAFTA);
+			videoteca.altaPelicula("Una mente maravillosa", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion",
+					"Musica", "fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.DRAMA,
+					"sinopsis", 10.0f, PremioPelicula.BAFTA);
+			videoteca.altaSerie("Juego de tronos", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica",
+					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.FANTASIA, "sinopsis",
+					9f, false, PremioSerie.GLOBO_DE_ORO);
+			videoteca.altaSerie("Breaking bad", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica",
+					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.DRAMA, "sinopsis", 10f,
+					false, PremioSerie.GLOBO_DE_ORO);
+			videoteca.altaSerie("Prison break", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica",
+					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.DRAMA, "sinopsis", 8f,
+					true, PremioSerie.GLOBO_DE_ORO);
+			videoteca.altaSerie("Los Simpsons", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica",
+					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.COMEDIA, "sinopsis", 7f,
+					false, PremioSerie.GLOBO_DE_ORO);
+			videoteca.altaSerie("Perdidos", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica",
+					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.CIENCIA_FICCION,
+					"sinopsis", 5f, false, PremioSerie.GLOBO_DE_ORO);
 		} catch (YaExisteException | TituloNoValidoException | DuracionNoValidaException | NotaNoValidaException
 				| ValorNoValidoException e) {
 			e.printStackTrace();
