@@ -80,7 +80,7 @@ public class Classify {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		// generar();
+		generar();
 		frmClassify = new JFrame();
 		frmClassify.addWindowListener(new WindowAdapter() {
 			@Override

@@ -24,7 +24,7 @@ public class Capitulo implements Serializable{
 		setIDCapitulo(iDCapitulo);
 	}
 
-	private int getIDCapitulo() {
+	public int getIDCapitulo() {
 		return IDCapitulo;
 	}
 
@@ -32,7 +32,7 @@ public class Capitulo implements Serializable{
 		this.IDCapitulo = IDCapitulo;
 	}
 
-	private String getTitulo() {
+	public String getTitulo() {
 		return titulo;
 	}
 
@@ -44,7 +44,7 @@ public class Capitulo implements Serializable{
 		this.titulo = titulo;
 	}
 
-	private int getNumVisualizaciones() {
+	public int getNumVisualizaciones() {
 		return numVisualizaciones;
 	}
 
@@ -78,7 +78,7 @@ public class Capitulo implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Capitulo [Titulo=" + getTitulo() + ", Visualizaciones()=" + getNumVisualizaciones() + "]";
+		return getTitulo();
 	}
 	
 	@Override

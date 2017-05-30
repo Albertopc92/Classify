@@ -143,17 +143,5 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 
 		}
 	}
-	
-	
-	/**
-	 * Comprueba si se ha seleccionado alguna temporada de la lista
-	 * @param temporada
-	 */
-	private void comprobarSiSeleccionado(Temporada temporada) {
-		if(temporada == null) {
-			JOptionPane.showMessageDialog(getContentPane(), "Seleccione un elemento de la lista.");
-			return;
-		}
-	}
 
 }

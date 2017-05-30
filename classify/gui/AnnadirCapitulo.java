@@ -2,46 +2,50 @@ package classify.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import classify.envoltorios.Temporada;
-import classify.jerarquia.Serie;
 
-public class AnnadirTemporada extends PlantillaAnnadirTemporadaCapitulo {
+import classify.Capitulo;
+import classify.envoltorios.Temporada;
+
+public class AnnadirCapitulo extends PlantillaAnnadirTemporadaCapitulo {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Create the dialog.
-	 * 
-	 * @param modeloTemporadas
-	 * @param jlistTemporadas
+	 * @param modeloCapitulos 
+	 * @param jlistCapitulos 
+	 * @param temporada 
 	 */
-	public AnnadirTemporada(Serie serie, JList<Temporada> jlistTemporadas, DefaultListModel<Temporada> modeloTemporadas) {
+	public AnnadirCapitulo(Temporada temporada, JList<Capitulo> jlistCapitulos, DefaultListModel<Capitulo> modeloCapitulos) {
 		setTitle("A\u00f1adir Temporada");
 		setBounds(100, 100, 380, 209);
 		btnAccion.setText("A\u00f1adir");
-
-		// AÑADIR TEMPORADA
+		
+		// AÑADIR CAPITULO
 		btnAccion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					serie.altaTemporada(textField_Temporada.getText());
-					JOptionPane.showMessageDialog(getContentPane(), "La temporada se a\u00f1adio correctamente.",
+					temporada.altaCapitulo(textField_Temporada.getText());
+					JOptionPane.showMessageDialog(getContentPane(), "El cap\u00edtulo se a\u00f1adio correctamente.",
 							"Temporada a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
 					// Recargar Jlist
-					modeloTemporadas.clear();
-					jlistTemporadas.setModel(modeloTemporadas);
-					for (Temporada temporada : serie.listarTemporadas()) {
-						modeloTemporadas.addElement(temporada);
+					modeloCapitulos.clear();
+					jlistCapitulos.setModel(modeloCapitulos);
+					for (Capitulo capitulo : temporada.listarCapitulos()) {
+						modeloCapitulos.addElement(capitulo);
 					}
 				} catch (Exception exception) {
 					JOptionPane.showMessageDialog(getContentPane(),
-							"La Temporada no se ha podido a\u00f1adir: " + exception.getMessage(), "Error",
+							"El cap\u00edtulo no se ha podido a\u00f1adir: " + exception.getMessage(), "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
+
 	}
+
 }

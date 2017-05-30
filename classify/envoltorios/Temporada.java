@@ -95,12 +95,15 @@ public class Temporada implements Serializable{
 	 * Lista todos los capitulos de la temporada
 	 * @throws ListaVaciaException
 	 */
-	public void listarCapitulos() throws ListaVaciaException {
+	public ArrayList<Capitulo> listarCapitulos() throws ListaVaciaException {
 		if(temporada.isEmpty())
 			throw new ListaVaciaException("La temporada no contiene capitulos.");
+		ArrayList<Capitulo> capitulos = new ArrayList<Capitulo>();
 		for (Capitulo capitulo : temporada) {
-			System.out.println(capitulo);
+			capitulos.add(capitulo);
 		}
+		
+		return capitulos;
 	}
 
 	@Override

@@ -203,8 +203,8 @@ public class PlantillaPrincipal extends JDialog {
 	 * Compueba si antes de realizar una accion el usurio ha saleccionado un elemento de la lista
 	 * @param multimedia
 	 */
-	void comprobarSiSeleccionado(Multimedia multimedia) {
-		if(multimedia == null) {
+	void comprobarSiSeleccionado(Object o) {
+		if(o == null) {
 			JOptionPane.showMessageDialog(getContentPane(), "Seleccione un elemento de la lista.");
 			return;
 		}
