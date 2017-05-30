@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import classify.enumeraciones.Genero;
@@ -20,6 +21,7 @@ public class AnnadirSerie extends PlantillaAnnadir {
 	public AnnadirSerie(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo) {
 		setTitle("A\u00f1adir Serie");
 		setBounds(100, 100, 720, 788);
+		// TODO combobox premio
 		comboBox_premio.setModel(new DefaultComboBoxModel<PremioSerie>(PremioSerie.values()));
 		comboBox_premio.setSelectedIndex(-1);
 		textField_puntuacion.setVisible(false);
@@ -48,7 +50,7 @@ public class AnnadirSerie extends PlantillaAnnadir {
 				{
 					
 					JOptionPane.showMessageDialog(getContentPane(), "La Serie se a\u00f1adio correctamente.","Serie a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
-					// CHAPUZA?
+					// Recargar Jlist
 					modelo.clear();
 					jlist.setModel(modelo);
 					for (Multimedia multimedia : videoteca.listarSeries()) {

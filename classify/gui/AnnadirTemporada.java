@@ -30,7 +30,7 @@ public class AnnadirTemporada extends PlantillaAnnadirTemporadaCapitulo {
 					serie.altaTemporada(textField_Temporada.getText());
 					JOptionPane.showMessageDialog(getContentPane(), "La temporada se a\u00f1adio correctamente.",
 							"Temporada a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
-					// CHAPUZA?
+					// Recargar Jlist
 					modeloTemporadas.clear();
 					jlistTemporadas.setModel(modeloTemporadas);
 					for (Temporada temporada : serie.listarTemporadas()) {

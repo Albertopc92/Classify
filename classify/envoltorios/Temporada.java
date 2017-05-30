@@ -49,7 +49,7 @@ public class Temporada implements Serializable{
 		return titulo;
 	}
 
-	private void setTitulo(String titulo) throws TituloNoValidoException {
+	public void setTitulo(String titulo) throws TituloNoValidoException {
 		Matcher matcherTitulo = PATRON_TITULO.matcher(titulo);
 		
 		if(!matcherTitulo.matches()) 

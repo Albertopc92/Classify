@@ -49,7 +49,7 @@ public class AnnadirPelicula extends PlantillaAnnadir {
 										(PremioPelicula)comboBox_premio.getSelectedItem())) {
 					
 					JOptionPane.showMessageDialog(getContentPane(), "La pel\u00edcula se a\u00f1adio correctamente.","Pelicula a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
-					// CHAPUZA?
+					// Recargar Jlist
 					modelo.clear();
 					jlist.setModel(modelo);
 					for (Multimedia multimedia : videoteca.listarPeliculas()) {

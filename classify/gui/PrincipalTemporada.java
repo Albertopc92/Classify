@@ -4,7 +4,6 @@ import classify.envoltorios.Temporada;
 import classify.excepciones.ListaVaciaException;
 import classify.jerarquia.Serie;
 import java.awt.event.ActionListener;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -18,6 +17,8 @@ public class PrincipalTemporada extends PrincipalSeries {
 	private AnnadirTemporada annadirTemporada;
 	private JList<Temporada> jlistTemporadas;
 	private InfoTemporada infoTemporada;
+	private PrincipalCapitulos principalCapitulos;
+	private ModificarTemporada modificarTemporada;
 	private DefaultListModel<Temporada> modeloTemporadas = new DefaultListModel<Temporada>();
 
 	/**
@@ -79,11 +80,36 @@ public class PrincipalTemporada extends PrincipalSeries {
 		// MODIFICAR TEMPORADA
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				modificar();
+			}
+		});
+		
+		// ABRIR VENTANA CAPITULOS
+		btnTemporadas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Temporada temporada = jlistTemporadas.getSelectedValue();
+				if(temporada == null) {
+					JOptionPane.showMessageDialog(getContentPane(), "Seleccione un elemento de la lista.");
+					return;
+				}
+
+				principalCapitulos = new PrincipalCapitulos(temporada);
+				principalCapitulos.setVisible(true);
 			}
 		});
 		
 	}
+	
+	/**
+	 * Modifica una temporada
+	 */
+	private void modificar(){
+		Temporada temporada = jlistTemporadas.getSelectedValue();
+		comprobarSiSeleccionado(temporada);
+		modificarTemporada = new ModificarTemporada(jlistTemporadas, modeloTemporadas, temporada);
+		modificarTemporada.setVisible(true);
+	}
+	
 	
 	/**
 	 * Borra una temporada
@@ -91,7 +117,6 @@ public class PrincipalTemporada extends PrincipalSeries {
 	 */
 	private void borrarTemporada(Serie serie) {
 		Temporada temporada = jlistTemporadas.getSelectedValue();
-		System.out.println(temporada);
 		comprobarSiSeleccionado(temporada);
 		try {
 			String[] opciones = {"Si", "No"};

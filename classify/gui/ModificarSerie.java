@@ -40,7 +40,7 @@ public class ModificarSerie extends PlantillaAnnadir {
 		//checkbox.setState(); TODO
 		textField_notaUsuario.setText(Float.toString(multimedia.getNotaUsuario()));
 		textField_puntuacion.setText(Float.toString(multimedia.puntuable()));
-		//textField__principales.setText(); TODO
+		//textField_principales.setText(); TODO
 		//textField_secundarioss.setText(); TODO
 		
 		btnAccion.setText("Modificar");
