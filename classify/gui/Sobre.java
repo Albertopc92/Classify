@@ -7,12 +7,17 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Vetana Sobre la aplicacion
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class Sobre extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana
 	 */
 	public Sobre() {
 		setResizable(false);

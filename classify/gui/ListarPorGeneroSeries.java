@@ -10,6 +10,11 @@ import classify.envoltorios.Videoteca;
 import classify.excepciones.ListaVaciaException;
 import classify.jerarquia.Multimedia;
 
+/**
+ * Clase que muestra las series ordendas por un genero indicado
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class ListarPorGeneroSeries extends PlantillaListarPorGenero {
 
 	private static final long serialVersionUID = 1L;
@@ -17,7 +22,7 @@ public class ListarPorGeneroSeries extends PlantillaListarPorGenero {
 	private DefaultListModel<Multimedia> modelo = new DefaultListModel<Multimedia>();
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana donde se mostraran las series ordenadas por genero
 	 */
 	public ListarPorGeneroSeries(Videoteca videoteca) {
 		setBounds(100, 100, 564, 370);

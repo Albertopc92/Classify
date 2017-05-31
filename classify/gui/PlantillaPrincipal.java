@@ -37,9 +37,7 @@ public class PlantillaPrincipal extends JDialog {
 	JLabel lblLista;
 	
 
-	/**
-	 * Create the dialog.
-	 */
+	
 	public PlantillaPrincipal() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaPrincipal.class.getResource("/classify/gui/recursos/icon.png")));
 		setResizable(false);

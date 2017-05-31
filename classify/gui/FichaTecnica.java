@@ -4,12 +4,17 @@ import classify.jerarquia.Multimedia;
 import classify.jerarquia.Pelicula;
 import classify.jerarquia.Serie;
 
+/**
+ * Clase que se encarga de mostrar la ficha tecnica
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class FichaTecnica extends PlantillaAnnadir {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana de la ficha tecnica
 	 */
 	public FichaTecnica(Multimedia multimedia) {
 		setBounds(100, 100, 720, 788);

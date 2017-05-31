@@ -10,6 +10,11 @@ import classify.jerarquia.Pelicula;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+/**
+ * Clase que se encarga de gestionar las peliculas
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class PrincipalPeliculas extends PlantillaPrincipal {
 
 	private static final long serialVersionUID = 1L;
@@ -21,7 +26,7 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 	
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana para gestionar las peliculas
 	 */
 	public PrincipalPeliculas() {
 		btnListarPorNumeroVisualizaciones.setLocation(33, 436);

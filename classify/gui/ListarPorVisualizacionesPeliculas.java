@@ -12,7 +12,11 @@ import classify.jerarquia.Multimedia;
 import classify.jerarquia.Pelicula;
 import javax.swing.JLabel;
 
-
+/**
+ * Clase que muestra las peliculas ordenadas por visualizaciones
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class ListarPorVisualizacionesPeliculas extends PlantillaListarPorGenero {
 
 	private static final long serialVersionUID = 1L;
@@ -20,7 +24,7 @@ public class ListarPorVisualizacionesPeliculas extends PlantillaListarPorGenero 
 	private DefaultListModel<Multimedia> modelo = new DefaultListModel<Multimedia>();
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana que muestra las peliculas ordenadas por visualizaciones
 	 */
 	public ListarPorVisualizacionesPeliculas(Videoteca videoteca) {
 		setModal(true);

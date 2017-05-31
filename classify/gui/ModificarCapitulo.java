@@ -9,16 +9,17 @@ import javax.swing.JOptionPane;
 
 import classify.Capitulo;
 import classify.excepciones.TituloNoValidoException;
-
+/**
+ * Clase que modifica los valores de los capitulos
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class ModificarCapitulo extends PlantillaAnnadirTemporadaCapitulo {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana para modificar el capitulo
 	 * @param capitulo 
 	 * @param modeloCapitulos 
 	 * @param jlistCapitulos 

@@ -13,13 +13,18 @@ import classify.enumeraciones.PremioSerie;
 import classify.jerarquia.Multimedia;
 import javax.swing.JComboBox;
 
+/**
+ * Clase que modifica los valores de una serie
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class ModificarSerie extends PlantillaAnnadir {
 
 	private static final long serialVersionUID = 1L;
 	
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana donde se modificaran los valores de la serie
 	 */
 	public ModificarSerie(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo, Multimedia multimedia) {
 		setTitle("Modificar Serie: " + multimedia.getTitulo());

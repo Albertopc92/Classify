@@ -11,12 +11,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 
+/**
+ * Clase que se encarga de añadir una pelicula a la videoteca
+ * @author alber
+ *
+ */
 public class AnnadirPelicula extends PlantillaAnnadir {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana para añadir la pelicula
 	 * @param modelo 
 	 * @param jlist 
 	 * @param jlist 

@@ -8,13 +8,39 @@ import classify.excepciones.NotaNoValidaException;
 import classify.excepciones.TituloNoValidoException;
 import classify.excepciones.ValorNoValidoException;
 
-
+/**
+ * Clase que gestiona las peliculas
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class Pelicula extends Multimedia implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private int numVisualizaciones;
 	private PremioPelicula premios;
 	
+	/**
+	 * Constructor que inicializa el estado de la pelicula
+	 * @param titulo
+	 * @param tituloOriginal
+	 * @param anyo
+	 * @param duracion
+	 * @param pais
+	 * @param director
+	 * @param guion
+	 * @param musica
+	 * @param fotografia
+	 * @param reparto
+	 * @param productora
+	 * @param genero
+	 * @param sinopsis
+	 * @param notaUsuario
+	 * @param premios
+	 * @throws TituloNoValidoException
+	 * @throws DuracionNoValidaException
+	 * @throws NotaNoValidaException
+	 * @throws ValorNoValidoException
+	 */
 	public Pelicula(String titulo, String tituloOriginal, int anyo, int duracion, String pais, String director,
 			String guion, String musica, String fotografia, String[][] reparto, String productora, Genero genero,
 			String sinopsis, float notaUsuario, PremioPelicula premios) throws TituloNoValidoException, DuracionNoValidaException, NotaNoValidaException, ValorNoValidoException {
@@ -24,22 +50,43 @@ public class Pelicula extends Multimedia implements Serializable{
 		setPremios(premios);
 	}
 	
+	/**
+	 * Constructor qeu incializa por titulo
+	 * @param titulo
+	 * @throws TituloNoValidoException
+	 */
 	public Pelicula(String titulo) throws TituloNoValidoException {
 		super(titulo);
 	}
 	
+	/**
+	 * Obtiene el numero de visualizaciones de la pelicula
+	 * @return numero de visualizaciones
+	 */
 	public int getNumVisualizaciones() {
 		return numVisualizaciones;
 	}
-
+	
+	/**
+	 * Establece el numero de visualizaciones
+	 * @param numVisualizaciones
+	 */
 	private void setNumVisualizaciones(int numVisualizaciones) {
 		this.numVisualizaciones = numVisualizaciones;
 	}
 
+	/**
+	 * Obtiene el premio de la pelicula
+	 * @return premio de la pelicula
+	 */
 	public PremioPelicula getPremios() {
 		return premios;
 	}
 
+	/**
+	 * Establece el premio de la pelicula
+	 * @param premios
+	 */
 	public void setPremios(PremioPelicula premios) {
 		this.premios = premios;
 	}

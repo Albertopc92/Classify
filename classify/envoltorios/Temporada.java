@@ -9,6 +9,11 @@ import classify.excepciones.ListaVaciaException;
 import classify.excepciones.TituloNoValidoException;
 import classify.excepciones.YaExisteException;
 
+/**
+ * Clase que gestiona las temporadas de las series
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class Temporada implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -18,24 +23,51 @@ public class Temporada implements Serializable{
 	private int IDTemporada;
 	private static int incID = 1;
 	
+	/**
+	 * Comstructor temporadas por titulo
+	 * @param titulo
+	 * 				Titulo de la temporada
+	 * @throws TituloNoValidoException
+	 * 				Se lanza cuando el titulo no es valido
+	 */
 	public Temporada(String titulo) throws TituloNoValidoException {
 		setTitulo(titulo);
 		this.temporada = new ArrayList<Capitulo>();
 		setIDTemporada(incID++);
 	}
 	
-	public boolean isModificado() {
-		return modificado;
-	}
-
-	public void setModificado(boolean modificado) {
-		this.modificado = modificado;
-	}
-	
+	/**
+	 * Constructor de temporadas por ID
+	 * @param iDTemporada
+	 * 				ID de la temporada
+	 */
 	public Temporada(int iDTemporada) {
 		setIDTemporada(iDTemporada);
 	}
+	
+	/**
+	 * Comprueba si la temporada ha sido modificada
+	 * @return True si se ha modificado
+	 * 			False si no se ha modificado
+	 */
+	public boolean isModificado() {
+		return modificado;
+	}
+	
+	/**
+	 * Modifica el estado de modificado
+	 * @param modificado
+	 * 				Estado de modificado
+	 */
+	public void setModificado(boolean modificado) {
+		this.modificado = modificado;
+	}
 
+	/**
+	 * Obtiene el ID de la temporada
+	 * @return
+	 * 			ID de la temporada
+	 */
 	public int getIDTemporada() {
 		return IDTemporada;
 	}
@@ -43,11 +75,23 @@ public class Temporada implements Serializable{
 	private void setIDTemporada(int iDTemporada) {
 		this.IDTemporada = iDTemporada;
 	}
-
+	
+	/**
+	 * Devuelve el titulo de la temporada
+	 * @return
+	 * 			Titulo de la temporada
+	 */
 	public String getTitulo() {
 		return titulo;
 	}
-
+	
+	/**
+	 * Establece el titulo de la temporada
+	 * @param titulo
+	 * 				Titulo de la temporada
+	 * @throws TituloNoValidoException
+	 * 				Se lanza cuando el titulo no es valido
+	 */
 	public void setTitulo(String titulo) throws TituloNoValidoException {
 		Matcher matcherTitulo = Patron.PATRON_TITULO.matcher(titulo);
 		
@@ -55,7 +99,12 @@ public class Temporada implements Serializable{
 			throw new TituloNoValidoException("Titulo no valido.");
 		this.titulo = titulo;
 	}
-
+	
+	/**
+	 * Devuelve el numero de capitulos de la temporada
+	 * @return
+	 * 			Numero de capitulos de la temporada
+	 */
 	public int getNumCapitulos() {
 		return temporada.size();
 	}
@@ -64,8 +113,11 @@ public class Temporada implements Serializable{
 	/**
 	 * Da de alta un capitulo
 	 * @param titulo
-	 * @throws TituloNoValidoException 
+	 * 				Titulo del capitulo
+	 * @throws TituloNoValidoException
+	 * 				Se lanza cuando el titulo no es valido
 	 * @throws CapituloYaExisteException
+	 * 				Se lanza cuando el capitulo ya existe
 	 */
 	public boolean altaCapitulo(String titulo) throws YaExisteException, TituloNoValidoException{
 		Capitulo capitulo = new Capitulo(titulo);
@@ -81,6 +133,7 @@ public class Temporada implements Serializable{
 	/**
 	 * De de baja un capitulo
 	 * @param IDCapitulo
+	 * 			ID del capitulo
 	 */
 	public void bajaCapitulo(int IDCapitulo) {
 		Capitulo capitulo = new Capitulo(IDCapitulo);
@@ -91,8 +144,11 @@ public class Temporada implements Serializable{
 	}
 	
 	/**
-	 * Lista todos los capitulos de la temporada
+	 * Devuelve los capitulos de la temporada
+	 * @return
+	 * 			Capitulos de la temporada
 	 * @throws ListaVaciaException
+	 * 			Se lanza cuando la temporada no tiene capitulos
 	 */
 	public ArrayList<Capitulo> listarCapitulos() throws ListaVaciaException {
 		if(temporada.isEmpty())
@@ -104,6 +160,7 @@ public class Temporada implements Serializable{
 		
 		return capitulos;
 	}
+	
 
 	@Override
 	public String toString() {

@@ -11,12 +11,17 @@ import classify.enumeraciones.PremioPelicula;
 import classify.jerarquia.Multimedia;
 import javax.swing.JComboBox;
 
+/**
+ * Clase que modifica los valores de una pelicula
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class ModificarPelicula extends PlantillaAnnadir {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana donde se modificara la pelicula
 	 */
 	public ModificarPelicula(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo, Multimedia multimedia) {
 		setTitle("Modificar Pel\u00edcula: " + multimedia.getTitulo());

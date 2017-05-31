@@ -4,6 +4,11 @@ import java.util.Comparator;
 
 import classify.jerarquia.Pelicula;
 
+/**
+ * Clase que ordena por numero de visualizaciones
+ * @author Alberto Perez Cano
+ *
+ */
 public class OrdenarVisualizaciones implements Comparator<Pelicula>{
 	
 	public OrdenarVisualizaciones() {}

@@ -10,12 +10,17 @@ import javax.swing.JOptionPane;
 import classify.envoltorios.Temporada;
 import classify.excepciones.TituloNoValidoException;
 
+/**
+ * Clase que modifica los valores de una temporada
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class ModificarTemporada extends PlantillaAnnadirTemporadaCapitulo {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana donde se modificaran los valores de la temporada
 	 * @param temporada 
 	 * @param modeloTemporadas 
 	 * @param jlistTemporadas 

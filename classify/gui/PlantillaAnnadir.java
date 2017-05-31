@@ -43,11 +43,6 @@ public class PlantillaAnnadir extends JDialog {
 	Checkbox checkbox;
 	JLabel lblPuntuacin;
 	
-
-
-	/**
-	 * Create the dialog.
-	 */
 	public PlantillaAnnadir() {
 		setModal(true);
 		setResizable(false);

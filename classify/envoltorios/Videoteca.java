@@ -19,20 +19,43 @@ import classify.jerarquia.Multimedia;
 import classify.jerarquia.Pelicula;
 import classify.jerarquia.Serie;
 
+/**
+ * Clase que se encarga de gestionar toda la videoteca
+ * @author Alberto Perez Cano
+ * @version 1.0
+ *
+ */
 public class Videoteca implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	/**
+	 * Contiene todas las peliculas y series de la aplicacion
+	 */
 	public ArrayList<Multimedia> videoteca;
 	private boolean modificado;
 	
+	/**
+	 * Constructor de la videoteca
+	 */
 	public Videoteca() {
 		this.videoteca = new ArrayList<Multimedia>();
 	}
 	
+	/**
+	 * Comprueba si la videoteca se ha modificado
+	 * @return
+	 * 			True si se he modificado
+	 * 			False si no se ha modificado
+	 */
 	public boolean isModificado() {
 		return modificado;
 	}
-
+	
+	/**
+	 * Establece el estado de modificado
+	 * @param modificado
+	 * 			Estado de modificado
+	 */
 	public void setModificado(boolean modificado) {
 		this.modificado = modificado;
 	}
@@ -132,7 +155,9 @@ public class Videoteca implements Serializable{
 	}
 	
 	/**
-	 * Lista las series
+	 * Devuelve las series de la videoteca
+	 * @return
+	 * 			Las series de la videoteca
 	 * @throws ListaVaciaException
 	 * 					Salta la excepcion si videoteca esta vacia
 	 */
@@ -147,9 +172,11 @@ public class Videoteca implements Serializable{
 	}
 	
 	/**
-	 * Lista las peliculas
+	 * Devuelve las peliculas de la videoteca
+	 * @return
+	 * 			Las peliculas de la videoteca
 	 * @throws ListaVaciaException
-	 *  					Si videoteca esta vacia
+	 *  		Si videoteca esta vacia
 	 */
 	public ArrayList<Multimedia> listarPeliculas() {
 		ArrayList<Multimedia> peliculas = new ArrayList<Multimedia>();
@@ -164,8 +191,11 @@ public class Videoteca implements Serializable{
 	/**
 	 * Busca un elemento multimedia por su nombre
 	 * @param titulo
+	 * 			Titulo del elemento que se busca
 	 * @return
-	 * @throws ListaVaciaException 
+	 * 			Elemento que se ha encontrado
+	 * @throws ListaVaciaException
+	 * 			Se lanza cuando la videoteca esta vacia
 	 */
 	public Multimedia buscar(String titulo) throws ListaVaciaException, TituloNoValidoException{
 		isEmpty();
@@ -178,7 +208,10 @@ public class Videoteca implements Serializable{
 	/**
 	 * Lista series por genero indicado
 	 * @param genero
-	 * @throws ListaVaciaException 
+	 * @return
+	 * 			Series del genero indicado
+	 * @throws ListaVaciaException
+	 * 			Se lanza cuando la videoteca esta vacia
 	 */
 	public ArrayList<Multimedia> listarSeriesGenero(Genero genero) throws ListaVaciaException {
 		isEmpty();
@@ -195,7 +228,10 @@ public class Videoteca implements Serializable{
 	
 	/**
 	 * Lista las series por puntuacion
-	 * @throws ListaVaciaException 
+	 * @return
+	 * 			Series ordendas por puntuacion
+	 * @throws ListaVaciaException
+	 * 			Se lanza cuando la videoteca esta vacia
 	 */
 	public ArrayList<Multimedia> listarSeriesPuntuacion() throws ListaVaciaException{
 		isEmpty();
@@ -212,7 +248,10 @@ public class Videoteca implements Serializable{
 	/**
 	 * Lista peliculas por genero indicado
 	 * @param genero
-	 * @throws ListaVaciaException 
+	 * @return
+	 * 			Peliculas del genero indicado
+	 * @throws ListaVaciaException
+	 * 			Se lanza cuando la videoteca esta vacia
 	 */
 	public ArrayList<Multimedia> listarPeliculasGenero(Genero genero) throws ListaVaciaException {
 		isEmpty();
@@ -229,7 +268,10 @@ public class Videoteca implements Serializable{
 	
 	/**
 	 * Lista las peliculas por puntuacion
-	 * @throws ListaVaciaException 
+	 * @return
+	 * 			Peliculas ordenadas por puntuacion
+	 * @throws ListaVaciaException
+	 * 			Se lanza cuando la videoteca esta vacia
 	 */
 	public ArrayList<Multimedia> listarPeliculasPuntuacion() throws ListaVaciaException{
 		isEmpty();
@@ -245,7 +287,10 @@ public class Videoteca implements Serializable{
 	
 	/**
 	 * Lista las peliculas por numero de visualizaciones
-	 * @throws ListaVaciaException 
+	 * @return
+	 * 			Peliculas ordenadas por numero de visualizaciones
+	 * @throws ListaVaciaException
+	 * 			Se lanza cuando la videoteca esta vacia
 	 */
 	public ArrayList<Pelicula> listarPeliculasVisualizaciones() throws ListaVaciaException{
 		isEmpty();
@@ -260,7 +305,13 @@ public class Videoteca implements Serializable{
 		return peliculas;
 	}
 	
-	//TODO
+	/**
+	 * Marca como visualizado un elemento
+	 * @param titulo
+	 * 			Titulo del elemento
+	 * @throws TituloNoValidoException
+	 * 			Se lanza cunado el titulo no es valido
+	 */
 	public void marcarVisualizado(String titulo) throws TituloNoValidoException{
 		Pelicula pelicula = new Pelicula(titulo);
 		pelicula.marcarVisualizado();
@@ -270,6 +321,7 @@ public class Videoteca implements Serializable{
 	/**
 	 * Comprueba si la lista esta vacia
 	 * @throws ListaVaciaException
+	 * 			Se lanza cuando la videoteca esta vacia
 	 */
 	public void isEmpty() throws ListaVaciaException {
 		if(videoteca.isEmpty())

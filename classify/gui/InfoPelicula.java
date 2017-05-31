@@ -7,6 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import classify.jerarquia.Pelicula;
 
+/**
+ * Clase que se encarga de mostrar la informacion de una pelicula
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class InfoPelicula extends JDialog {
 
 	private static final long serialVersionUID = 1L;
@@ -15,7 +20,7 @@ public class InfoPelicula extends JDialog {
 	private JTextField textField_ultimaVisualizacion;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana donde se muestra la informacion de una pelicula
 	 * @param pelicula 
 	 */
 	public InfoPelicula(Pelicula pelicula) {

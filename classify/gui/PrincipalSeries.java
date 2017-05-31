@@ -9,7 +9,11 @@ import classify.jerarquia.Multimedia;
 import classify.jerarquia.Serie;
 
 import javax.swing.ImageIcon;
-
+/**
+ * Clase que se encarga de gestionar las series
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class PrincipalSeries extends PlantillaPrincipal {
 
 	private static final long serialVersionUID = 1L;
@@ -19,7 +23,7 @@ public class PrincipalSeries extends PlantillaPrincipal {
 	private PrincipalTemporada principalTemporada;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana donde se gestionaran las series
 	 */
 	public PrincipalSeries() {
 		setTitle("Series");

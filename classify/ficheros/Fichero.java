@@ -9,15 +9,22 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.regex.Pattern;
 
+/**
+ * Clase qeu se encarga de gestionar los flujos de datos
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class Fichero implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private static final Pattern patron = Pattern.compile("^((\\w)+(\\.obj))$");
+	/**
+	 * Fichero por defecto
+	 */
 	public static File fichero = new File("SinTitulo");
 
 	/**
-	 * Metodo set
-	 * 
+	 * Establece el fichero
 	 * @param fichero
 	 */
 	public static void setFichero(String fichero) {
@@ -25,13 +32,14 @@ public class Fichero implements Serializable{
 	}
 
 	/**
-	 * Metodo get
-	 * 
+	 * Devuelve el fichero
 	 * @return
+	 * 			Fichero
 	 */
 	public static File getFichero() {
 		return fichero;
 	}
+	
 	/**
 	 * Crear un nuevo fichero
 	 */

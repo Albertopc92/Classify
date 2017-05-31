@@ -10,6 +10,11 @@ import classify.excepciones.ListaVaciaException;
 import classify.jerarquia.Multimedia;
 import javax.swing.JLabel;
 
+/**
+ * Clase que muestra las series ordenadas por puntuacion
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class ListarPorPuntuacionSeries extends PlantillaListarPorGenero {
 
 	private static final long serialVersionUID = 1L;
@@ -17,7 +22,7 @@ public class ListarPorPuntuacionSeries extends PlantillaListarPorGenero {
 	private DefaultListModel<Multimedia> modelo = new DefaultListModel<Multimedia>();
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana que muestra las series ordenadas por puntuacion
 	 */
 	public ListarPorPuntuacionSeries(Videoteca videoteca) {
 		setModal(true);

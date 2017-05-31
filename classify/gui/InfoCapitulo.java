@@ -7,7 +7,11 @@ import javax.swing.JTextField;
 
 import classify.Capitulo;
 import javax.swing.JCheckBox;
-
+/**
+ * Clase que se encarga de mostrar la informacion del capitulo
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class InfoCapitulo extends JDialog {
 
 	private static final long serialVersionUID = 1L;
@@ -16,7 +20,7 @@ public class InfoCapitulo extends JDialog {
 	private JTextField textField_ultimaVisualizacion;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana de la informacion del capitulo
 	 */
 	public InfoCapitulo(Capitulo capitulo) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(InfoTemporada.class.getResource("/classify/gui/recursos/icon.png")));

@@ -5,6 +5,11 @@ import javax.swing.JEditorPane;
 import javax.swing.JScrollPane;
 import java.awt.Toolkit;
 
+/**
+ * Clase que se encarga de mostra la ayuda de la aplicacion
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class Ayuda extends JDialog {
 
 	private static final long serialVersionUID = 1L;
@@ -13,7 +18,7 @@ public class Ayuda extends JDialog {
 	JEditorPane jep;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana de ayuda
 	 */
 	public Ayuda() {
 		setTitle("Ayuda");

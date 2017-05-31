@@ -36,7 +36,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * Clase qeu se encarga que arranca la aplicacion y gestina la ventana principal de la misma.
+ * Clase que se encarga que arranca la aplicacion y gestina la ventana principal de la misma.
  * @author Alberto Perez Cano
  * @version 1.0
  */

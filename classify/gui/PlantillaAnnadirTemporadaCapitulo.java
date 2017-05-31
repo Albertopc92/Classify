@@ -15,9 +15,6 @@ public class PlantillaAnnadirTemporadaCapitulo extends JDialog {
 	JButton btnAccion;
 	JButton btnSalir;
 
-	/**
-	 * Create the dialog.
-	 */
 	public PlantillaAnnadirTemporadaCapitulo() {
 		setTitle("A\u00f1adir");
 		setResizable(false);
@@ -55,6 +52,9 @@ public class PlantillaAnnadirTemporadaCapitulo extends JDialog {
 
 	}
 	
+	/**
+	 * Resetea los campos
+	 */
 	void reset(){
 		textField_Temporada.setText("");
 	}

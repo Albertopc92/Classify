@@ -4,6 +4,11 @@ import java.util.Comparator;
 
 import classify.jerarquia.Multimedia;
 
+/**
+ * Clase que se encarga de ordenaar por puntuacion
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class OrdenarPuntuacion implements Comparator<Multimedia>{
 
 	public OrdenarPuntuacion() {}

@@ -12,7 +12,11 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
 import java.awt.event.ActionEvent;
-
+/**
+ * Clase que se encarga de gestionar las temporadas
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class PrincipalTemporada extends PlantillaPrincipal {
 
 	private static final long serialVersionUID = 1L;
@@ -24,13 +28,12 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 	private DefaultListModel<Temporada> modeloTemporadas = new DefaultListModel<Temporada>();
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana donde se gestionaran las temporadas
 	 */
 	public PrincipalTemporada(Serie serie) {
 		setBounds(100, 100, 720, 788);
 		setTitle("Temporadas");
 		setModal(true);
-		btnVerFichaTecnica.setVisible(false);
 		btnListarPorNumeroVisualizaciones.setVisible(false);
 		lblLista.setText("Temporadas");
 		btnVerFichaTecnica.setText("Informaci\u00f3n");

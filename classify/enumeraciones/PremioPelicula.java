@@ -1,5 +1,10 @@
 package classify.enumeraciones;
 
+/**
+ * Clase de premios que se pueden otorgar a una pelicula
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public enum PremioPelicula {
 	
 	OSCAR,

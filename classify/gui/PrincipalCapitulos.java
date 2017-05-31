@@ -13,7 +13,11 @@ import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
+/**
+ * Clase que se encargar de gestionar los capitulos
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class PrincipalCapitulos extends PlantillaPrincipal {
 
 	private static final long serialVersionUID = 1L;
@@ -24,7 +28,8 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 	private ModificarCapitulo modificarCapitulo;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana de gestion de capitulos
+	 * @param temporada
 	 */
 	public PrincipalCapitulos(Temporada temporada) {
 		setBounds(100, 100, 720, 788);

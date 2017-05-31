@@ -6,7 +6,11 @@ import classify.envoltorios.Temporada;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
+/**
+ * Clase que se encarga de mostrar la informacion de una temporada
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class InfoTemporada extends JDialog {
 
 	private static final long serialVersionUID = 1L;
@@ -14,7 +18,7 @@ public class InfoTemporada extends JDialog {
 	private JTextField textField_titulo;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana que muestra la informacion de una temporada
 	 */
 	public InfoTemporada(Temporada temporada) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(InfoTemporada.class.getResource("/classify/gui/recursos/icon.png")));

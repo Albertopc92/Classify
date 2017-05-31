@@ -11,12 +11,17 @@ import classify.enumeraciones.Genero;
 import classify.enumeraciones.PremioSerie;
 import classify.jerarquia.Multimedia;
 
+/**
+ * Clase que se encarga de añadir una serie
+ * @author Alberto Perez Cano
+ *
+ */
 public class AnnadirSerie extends PlantillaAnnadir {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana para añadir la serie
 	 */
 	public AnnadirSerie(JList<Multimedia> jlist, DefaultListModel<Multimedia> modelo) {
 		setTitle("A\u00f1adir Serie");

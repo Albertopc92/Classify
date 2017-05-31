@@ -9,13 +9,18 @@ import javax.swing.JOptionPane;
 
 import classify.Capitulo;
 import classify.envoltorios.Temporada;
-
+/**
+ * Clase que se encarga de añadir un capitulo a la temporada
+ * @author Alberto Perez Cano
+ * @version 1.0
+ *
+ */
 public class AnnadirCapitulo extends PlantillaAnnadirTemporadaCapitulo {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana para añadir un capitulo
 	 * @param modeloCapitulos 
 	 * @param jlistCapitulos 
 	 * @param temporada 

@@ -10,6 +10,11 @@ import classify.excepciones.ListaVaciaException;
 import classify.jerarquia.Multimedia;
 import javax.swing.JLabel;
 
+/**
+ * Clase que se encarga de mostrar las peliculas ordenadas por puntuacion
+ * @author alber
+ *
+ */
 public class ListarPorPuntuacionPeliculas extends PlantillaListarPorGenero {
 
 	private static final long serialVersionUID = 1L;
@@ -18,7 +23,7 @@ public class ListarPorPuntuacionPeliculas extends PlantillaListarPorGenero {
 	
 
 	/**
-	 * Create the dialog.
+	 * Crea la ventana donde se mostraran las peliculas ordenadas por puntuacion
 	 */
 	public ListarPorPuntuacionPeliculas(Videoteca videoteca) {
 		setModal(true);

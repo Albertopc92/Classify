@@ -12,15 +12,41 @@ import classify.excepciones.TituloNoValidoException;
 import classify.excepciones.ValorNoValidoException;
 import classify.excepciones.YaExisteException;
 
-
+/**
+ * Clase que se encarga de gestionar las series
+ * @author alber
+ *
+ */
 public class Serie extends Multimedia implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Temporada> serie;
 	private PremioSerie premios;
 	private boolean emitiendo;
-	private boolean modificado;
 	
+	/**
+	 * Constructor que inicializa los estados de la serie
+	 * @param titulo
+	 * @param tituloOriginal
+	 * @param anyo
+	 * @param duracion
+	 * @param pais
+	 * @param director
+	 * @param guion
+	 * @param musica
+	 * @param fotografia
+	 * @param reparto
+	 * @param productora
+	 * @param genero
+	 * @param sinopsis
+	 * @param notaUsuario
+	 * @param emitiendo
+	 * @param premios
+	 * @throws TituloNoValidoException
+	 * @throws DuracionNoValidaException
+	 * @throws NotaNoValidaException
+	 * @throws ValorNoValidoException
+	 */
 	public Serie(String titulo, String tituloOriginal, int anyo, int duracion, String pais, String director,
 			String guion, String musica, String fotografia, String[][] reparto, String productora, Genero genero,
 			String sinopsis, float notaUsuario, boolean emitiendo, PremioSerie premios) throws TituloNoValidoException, DuracionNoValidaException, NotaNoValidaException, ValorNoValidoException {
@@ -31,30 +57,43 @@ public class Serie extends Multimedia implements Serializable{
 		this.serie = new ArrayList<Temporada>();
 	}
 	
-	public boolean isModificado() {
-		return modificado;
-	}
-
-	public void setModificado(boolean modificado) {
-		this.modificado = modificado;
-	}
-
+	/**
+	 * Obtiene el numero de temporadas de la serie
+	 * @return numero de temporadas
+	 */
 	private int getNumTemporadas() {
 		return serie.size();
 	}
-
+	
+	/**
+	 * Obtiene el premio de la serie
+	 * @return premio de la serie
+	 */
 	public PremioSerie getPremios() {
 		return premios;
 	}
-
+	
+	/**
+	 * Establece el premio d el aserie
+	 * @param premios
+	 */
 	public void setPremios(PremioSerie premios) {
 		this.premios = premios;
 	}
-
+	
+	/**
+	 * Obtiene si se esta emitioendo la serie o no
+	 * @return True si se esta emitiendo
+	 * 			False si no se esta emitiendo
+	 */
 	public boolean isEmitiendo() {
 		return emitiendo;
 	}
-
+	
+	/**
+	 * Establece si se esta emitiendo o no
+	 * @param emitiendo
+	 */
 	public void setEmitiendo(boolean emitiendo) {
 		this.emitiendo = emitiendo;
 	}
@@ -90,6 +129,7 @@ public class Serie extends Multimedia implements Serializable{
 	
 	/**
 	 * Lista las temporadas
+	 * @return temporadas
 	 * @throws ListaVaciaException
 	 */
 	public ArrayList<Temporada> listarTemporadas() throws ListaVaciaException {
@@ -102,7 +142,10 @@ public class Serie extends Multimedia implements Serializable{
 		
 		return temporadas;
 	}
-
+	
+	/**
+	 * Calcula la puntuacion de una Serie
+	 */
 	@Override
 	public float puntuable() {
 		float puntuacion = 0;
