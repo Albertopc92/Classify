@@ -2,15 +2,14 @@ package classify.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-
 import classify.enumeraciones.Genero;
 import classify.enumeraciones.PremioSerie;
 import classify.jerarquia.Multimedia;
+import classify.jerarquia.Serie;
 import javax.swing.JComboBox;
 
 /**
@@ -48,12 +47,31 @@ public class ModificarSerie extends PlantillaAnnadir {
 		textField_productora.setText(multimedia.getProductora());
 		textArea_sinopsis.setText(multimedia.getSinopsis());
 		comboBox_genero.setSelectedItem(multimedia.getGenero());
-		//comboBox_premio.setSelectedItem(); TODO
-		//checkbox.setState(); TODO
+		//comboBox_premio.setSelectedItem(multimedia); TODO
 		textField_notaUsuario.setText(Float.toString(multimedia.getNotaUsuario()));
 		textField_puntuacion.setText(Float.toString(multimedia.puntuable()));
 		//textField_principales.setText(); TODO
 		//textField_secundarioss.setText(); TODO
+		
+		// Emitiendo Serie
+		if(multimedia instanceof Serie) {
+			Serie serie = (Serie) multimedia;
+			checkbox.setState(serie.isEmitiendo());
+		}
+		
+		// Premio Serie
+		if(multimedia instanceof Serie) {
+			Serie serie = (Serie) multimedia;
+			comboBox_premio.setSelectedItem(serie.getPremios());
+		}
+		
+		// Reparto
+		for (int i = 0; i < multimedia.getReparto().length; i++) {
+			for (int j = 0; j < multimedia.getReparto().length; j++) {
+				textField_principales.setText(multimedia.getReparto()[i].toString());
+				textField_secundarios.setText(multimedia.getReparto()[j].toString());
+			}
+		}
 		
 		btnAccion.setText("Modificar");
 		btnAccion.addActionListener(new ActionListener() {
@@ -74,6 +92,12 @@ public class ModificarSerie extends PlantillaAnnadir {
 					multimedia.setSinopsis(textArea_sinopsis.getText());
 					multimedia.setNotaUsuario((float)(Float.parseFloat(textField_notaUsuario.getText())));
 					//PREMIO TODO
+					//Cambiar estado de emitiendo
+					if(multimedia instanceof Serie) {
+						Serie serie = (Serie) multimedia;
+						serie.setEmitiendo(checkbox.getState());
+					}
+					
 					
 					JOptionPane.showMessageDialog(getContentPane(), "La serie se ha modificado correctamente.","Serie modificada", JOptionPane.INFORMATION_MESSAGE);
 					jlist.setModel(modelo);

@@ -27,7 +27,7 @@ public class FichaTecnica extends PlantillaAnnadir {
 		}else if(multimedia instanceof Pelicula) {
 			checkbox.setVisible(false);
 		}
-
+		
 		textField_titulo.setEnabled(false);
 		textField_titulo.setText(multimedia.getTitulo());
 		

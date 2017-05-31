@@ -261,6 +261,6 @@ public class PlantillaAnnadir extends JDialog {
 		comboBox_premioPrincipal.setSelectedIndex(-1);
 		textArea_sinopsis.setText(""); 
 		textField_notaUsuario.setText("");
-		comboBox_premioPrincipal.setSelectedItem(-1);
+		checkbox.setState(false);
 	}
 }
