@@ -23,21 +23,21 @@ public class InfoCapitulo extends JDialog {
 		setModal(true);
 		setResizable(false);
 		setTitle(capitulo.getTitulo());
-		setBounds(100, 100, 367, 282);
+		setBounds(100, 100, 420, 282);
 		getContentPane().setLayout(null);
 		
 		JLabel lblTtulo = new JLabel("T\u00edtulo");
-		lblTtulo.setBounds(41, 34, 46, 14);
+		lblTtulo.setBounds(41, 34, 142, 14);
 		getContentPane().add(lblTtulo);
 		
-		JLabel lblNDeVisualizaciones = new JLabel("Nº de visualizaciones");
-		lblNDeVisualizaciones.setBounds(41, 77, 114, 14);
+		JLabel lblNDeVisualizaciones = new JLabel("Nï¿½ de visualizaciones");
+		lblNDeVisualizaciones.setBounds(41, 77, 142, 14);
 		getContentPane().add(lblNDeVisualizaciones);
 		
 		textField_nvisualizaciones = new JTextField();
 		textField_nvisualizaciones.setEnabled(false);
 		textField_nvisualizaciones.setEditable(false);
-		textField_nvisualizaciones.setBounds(161, 74, 46, 20);
+		textField_nvisualizaciones.setBounds(193, 74, 46, 20);
 		getContentPane().add(textField_nvisualizaciones);
 		textField_nvisualizaciones.setColumns(10);
 		textField_nvisualizaciones.setText(String.valueOf(capitulo.getNumVisualizaciones()));
@@ -45,25 +45,25 @@ public class InfoCapitulo extends JDialog {
 		textField_titulo = new JTextField();
 		textField_titulo.setEnabled(false);
 		textField_titulo.setEditable(false);
-		textField_titulo.setBounds(161, 31, 160, 20);
+		textField_titulo.setBounds(193, 31, 160, 20);
 		getContentPane().add(textField_titulo);
 		textField_titulo.setColumns(10);
 		textField_titulo.setText(capitulo.getTitulo());
 		
 		JCheckBox chckbx_visualizado = new JCheckBox("Visualizado");
 		chckbx_visualizado.setEnabled(false);
-		chckbx_visualizado.setBounds(122, 185, 97, 23);
+		chckbx_visualizado.setBounds(142, 185, 97, 23);
 		getContentPane().add(chckbx_visualizado);
 		
 		chckbx_visualizado.setSelected(capitulo.isVisualizado());
 		
 		JLabel lblUltimaVisualizacion = new JLabel("Ultima visualizacion");
-		lblUltimaVisualizacion.setBounds(41, 123, 114, 14);
+		lblUltimaVisualizacion.setBounds(41, 123, 142, 14);
 		getContentPane().add(lblUltimaVisualizacion);
 		
 		textField_ultimaVisualizacion = new JTextField();
 		textField_ultimaVisualizacion.setEditable(false);
-		textField_ultimaVisualizacion.setBounds(161, 120, 160, 20);
+		textField_ultimaVisualizacion.setBounds(193, 120, 160, 20);
 		getContentPane().add(textField_ultimaVisualizacion);
 		textField_ultimaVisualizacion.setColumns(10);
 		

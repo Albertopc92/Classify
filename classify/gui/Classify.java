@@ -35,6 +35,11 @@ import java.awt.event.InputEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/**
+ * Clase qeu se encarga que arranca la aplicacion y gestina la ventana principal de la misma.
+ * @author Alberto Perez Cano
+ * @version 1.0
+ */
 public class Classify {
 
 	private JFrame frmClassify;
@@ -54,7 +59,7 @@ public class Classify {
 	}
 
 	/**
-	 * Launch the application.
+	 * Lanza la aplicacion
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -70,14 +75,14 @@ public class Classify {
 	}
 
 	/**
-	 * Create the application.
+	 * Crea la aplicacion
 	 */
 	public Classify() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Inicializa el contenido del Frame
 	 */
 	private void initialize() {
 		generar();
@@ -251,7 +256,7 @@ public class Classify {
 	 */
 	private void nuevo() {
 		if (videoteca.isModificado()) {
-			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea Guardar?", "NO HAS GUARDADO",
+			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ï¿½Desea Guardar?", "NO HAS GUARDADO",
 					JOptionPane.YES_NO_CANCEL_OPTION)) {
 			case JOptionPane.YES_OPTION:
 				guardarComo();

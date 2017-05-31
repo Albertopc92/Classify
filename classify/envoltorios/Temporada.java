@@ -3,7 +3,6 @@ package classify.envoltorios;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import classify.Capitulo;
 import classify.Patron;
 import classify.excepciones.ListaVaciaException;
@@ -68,15 +67,15 @@ public class Temporada implements Serializable{
 	 * @throws TituloNoValidoException 
 	 * @throws CapituloYaExisteException
 	 */
-	public Capitulo altaCapitulo(String titulo) throws YaExisteException, TituloNoValidoException{
+	public boolean altaCapitulo(String titulo) throws YaExisteException, TituloNoValidoException{
 		Capitulo capitulo = new Capitulo(titulo);
 		if(!temporada.contains(capitulo)) {
 			temporada.add(capitulo);
-			setModificado(true);
-			return capitulo;
+			capitulo.setModificado(true);
+			return true;
+		}else {
+			throw new YaExisteException("El capitulo ya existe.");
 		}
-		
-		throw new YaExisteException("El capitulo ya existe.");
 	}
 	
 	/**
@@ -87,7 +86,7 @@ public class Temporada implements Serializable{
 		Capitulo capitulo = new Capitulo(IDCapitulo);
 		if(temporada.contains(capitulo)) {
 			temporada.remove(capitulo);
-			setModificado(true);
+			capitulo.setModificado(true);
 		}
 	}
 	
@@ -115,7 +114,7 @@ public class Temporada implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + IDTemporada;
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
 
@@ -128,7 +127,10 @@ public class Temporada implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Temporada other = (Temporada) obj;
-		if (IDTemporada != other.IDTemporada)
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equalsIgnoreCase(other.titulo))
 			return false;
 		return true;
 	}

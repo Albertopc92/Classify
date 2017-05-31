@@ -300,11 +300,6 @@ public abstract class Multimedia implements Serializable{
 
 	@Override
 	public String toString() {
-//		return getClass().getSimpleName() + "[ ID=" + ID + " titulo=" + titulo + ", tituloOriginal=" + tituloOriginal + ", anyo=" + anyo + ", duracion="
-//				+ duracion + ", pais=" + pais + ", director=" + director + ", guion=" + guion + ", musica=" + musica
-//				+ ", fotografía=" + fotografía + ", reparto=" + Arrays.toString(reparto) + ", productora=" + productora
-//				+ ", genero=" + genero + ", sinopsis=" + sinopsis + ", notaUsuario=" + notaUsuario + ", visualizado="
-//				+ visualizado + ", ultimaVisualizacion=" + ultimaVisualizacion + " puntuacion =" + puntuable() + "]";
 		return getTitulo();
 	}
 

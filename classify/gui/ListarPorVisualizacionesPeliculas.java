@@ -10,6 +10,7 @@ import classify.envoltorios.Videoteca;
 import classify.excepciones.ListaVaciaException;
 import classify.jerarquia.Multimedia;
 import classify.jerarquia.Pelicula;
+import javax.swing.JLabel;
 
 
 public class ListarPorVisualizacionesPeliculas extends PlantillaListarPorGenero {
@@ -26,6 +27,14 @@ public class ListarPorVisualizacionesPeliculas extends PlantillaListarPorGenero 
 		setTitle("Listar por Visualizaciones");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaListarPorGenero.class.getResource("/classify/gui/recursos/icon.png")));
 		setBounds(100, 100, 564, 370);
+		
+		JLabel lblMasVista = new JLabel("Mas vista");
+		lblMasVista.setBounds(34, 57, 128, 14);
+		getContentPane().add(lblMasVista);
+		
+		JLabel lblMenosVista = new JLabel("Menos vista");
+		lblMenosVista.setBounds(34, 269, 191, 14);
+		getContentPane().add(lblMenosVista);
 		lblGenero.setVisible(false);
 		comboBox_genero.setVisible(false);
 		

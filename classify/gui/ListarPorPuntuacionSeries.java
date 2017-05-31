@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import classify.envoltorios.Videoteca;
 import classify.excepciones.ListaVaciaException;
 import classify.jerarquia.Multimedia;
+import javax.swing.JLabel;
 
 public class ListarPorPuntuacionSeries extends PlantillaListarPorGenero {
 
@@ -23,6 +24,14 @@ public class ListarPorPuntuacionSeries extends PlantillaListarPorGenero {
 		setTitle("Listar por Puntuacion");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaListarPorGenero.class.getResource("/classify/gui/recursos/icon.png")));
 		setBounds(100, 100, 564, 370);
+		
+		JLabel lblMayorPuntuacion = new JLabel("Mayor Puntuacion");
+		lblMayorPuntuacion.setBounds(37, 57, 177, 14);
+		getContentPane().add(lblMayorPuntuacion);
+		
+		JLabel lblMenorPuntuacion = new JLabel("Menor Puntuacion");
+		lblMenorPuntuacion.setBounds(37, 267, 158, 14);
+		getContentPane().add(lblMenorPuntuacion);
 		lblGenero.setVisible(false);
 		comboBox_genero.setVisible(false);
 		
@@ -38,5 +47,4 @@ public class ListarPorPuntuacionSeries extends PlantillaListarPorGenero {
 		
 
 	}
-
 }

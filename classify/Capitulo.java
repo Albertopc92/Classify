@@ -15,6 +15,8 @@ public class Capitulo implements Serializable{
 	private LocalDate ultimaVisualizacion;
 	private int IDCapitulo;
 	private static int incID = 1;
+	private boolean modificado;
+
 
 	public Capitulo(String titulo) throws TituloNoValidoException {
 		setTitulo(titulo);
@@ -27,6 +29,14 @@ public class Capitulo implements Serializable{
 
 	public int getIDCapitulo() {
 		return IDCapitulo;
+	}
+	
+	public boolean isModificado() {
+		return modificado;
+	}
+
+	public void setModificado(boolean modificado) {
+		this.modificado = modificado;
 	}
 
 	private void setIDCapitulo(int IDCapitulo) {
@@ -95,12 +105,12 @@ public class Capitulo implements Serializable{
 	public String toString() {
 		return getTitulo();
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + IDCapitulo;
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
 
@@ -113,7 +123,10 @@ public class Capitulo implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Capitulo other = (Capitulo) obj;
-		if (IDCapitulo != other.IDCapitulo)
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equalsIgnoreCase(other.titulo))
 			return false;
 		return true;
 	}
