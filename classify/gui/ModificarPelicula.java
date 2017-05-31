@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import classify.enumeraciones.Genero;
 import classify.enumeraciones.PremioPelicula;
 import classify.jerarquia.Multimedia;
+import classify.jerarquia.Pelicula;
 import javax.swing.JComboBox;
 
 /**
@@ -46,11 +47,16 @@ public class ModificarPelicula extends PlantillaAnnadir {
 		textField_productora.setText(multimedia.getProductora());
 		textArea_sinopsis.setText(multimedia.getSinopsis());
 		comboBox_genero.setSelectedItem(multimedia.getGenero());
-		//comboBox_premio.setSelectedItem(); TODO
 		textField_notaUsuario.setText(Float.toString(multimedia.getNotaUsuario()));
 		textField_puntuacion.setText(Float.toString(multimedia.puntuable()));
-		//textField__principales.setText(); TODO
-		//textField_secundarioss.setText(); TODO
+		
+		// Reparto
+				for (int i = 0; i < multimedia.getReparto().length; i++) {
+					for (int j = 0; j < multimedia.getReparto().length; j++) {
+						textField_principales.setText(multimedia.getReparto()[i].toString());
+						textField_secundarios.setText(multimedia.getReparto()[j].toString());
+					}
+				}
 		
 		
 		btnAccion.setText("Modificar");
@@ -71,7 +77,11 @@ public class ModificarPelicula extends PlantillaAnnadir {
 					multimedia.setGenero((Genero)comboBox_genero.getSelectedItem());
 					multimedia.setSinopsis(textArea_sinopsis.getText());
 					multimedia.setNotaUsuario((float)(Float.parseFloat(textField_notaUsuario.getText())));
-					//PREMIO TODO
+					//PREMIO
+					if(multimedia instanceof Pelicula) {
+						Pelicula pelicula = (Pelicula) multimedia;
+						pelicula.setPremios((PremioPelicula) comboBox_premio.getSelectedItem());
+					}
 					
 					JOptionPane.showMessageDialog(getContentPane(), "La pel\u00edcula se ha modificado correctamente.","Pelicula modificada", JOptionPane.INFORMATION_MESSAGE);
 					jlist.setModel(modelo);

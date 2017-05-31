@@ -47,11 +47,8 @@ public class ModificarSerie extends PlantillaAnnadir {
 		textField_productora.setText(multimedia.getProductora());
 		textArea_sinopsis.setText(multimedia.getSinopsis());
 		comboBox_genero.setSelectedItem(multimedia.getGenero());
-		//comboBox_premio.setSelectedItem(multimedia); TODO
 		textField_notaUsuario.setText(Float.toString(multimedia.getNotaUsuario()));
 		textField_puntuacion.setText(Float.toString(multimedia.puntuable()));
-		//textField_principales.setText(); TODO
-		//textField_secundarioss.setText(); TODO
 		
 		// Emitiendo Serie
 		if(multimedia instanceof Serie) {
@@ -91,7 +88,11 @@ public class ModificarSerie extends PlantillaAnnadir {
 					multimedia.setGenero((Genero)comboBox_genero.getSelectedItem());
 					multimedia.setSinopsis(textArea_sinopsis.getText());
 					multimedia.setNotaUsuario((float)(Float.parseFloat(textField_notaUsuario.getText())));
-					//PREMIO TODO
+					//PREMIO 
+					if(multimedia instanceof Serie) {
+						Serie serie = (Serie) multimedia;
+						serie.setPremios((PremioSerie) comboBox_premio.getSelectedItem());
+					}
 					//Cambiar estado de emitiendo
 					if(multimedia instanceof Serie) {
 						Serie serie = (Serie) multimedia;
