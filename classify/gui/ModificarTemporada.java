@@ -8,6 +8,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 import classify.envoltorios.Temporada;
+import classify.envoltorios.Videoteca;
 import classify.excepciones.TituloNoValidoException;
 
 /**
@@ -24,8 +25,9 @@ public class ModificarTemporada extends PlantillaAnnadirTemporadaCapitulo {
 	 * @param temporada 
 	 * @param modeloTemporadas 
 	 * @param jlistTemporadas 
+	 * @param videoteca 
 	 */
-	public ModificarTemporada(JList<Temporada> jlistTemporadas, DefaultListModel<Temporada> modeloTemporadas, Temporada temporada) {
+	public ModificarTemporada(JList<Temporada> jlistTemporadas, DefaultListModel<Temporada> modeloTemporadas, Temporada temporada, Videoteca videoteca) {
 		setBounds(100, 100, 380, 209);
 		btnAccion.setText("Modificar");
 		textField_Temporada.setText(temporada.getTitulo());
@@ -34,6 +36,7 @@ public class ModificarTemporada extends PlantillaAnnadirTemporadaCapitulo {
 				try {
 					temporada.setTitulo(textField_Temporada.getText());
 					JOptionPane.showMessageDialog(getContentPane(), "La serie se ha modificado correctamente.","Serie modificada", JOptionPane.INFORMATION_MESSAGE);
+					videoteca.setModificado(true);
 					jlistTemporadas.setModel(modeloTemporadas);
 				} catch (TituloNoValidoException exception) {
 					JOptionPane.showMessageDialog(getContentPane(), "La temporada no se ha podido modificar: " + exception.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);

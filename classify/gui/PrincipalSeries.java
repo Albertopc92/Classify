@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import classify.envoltorios.Videoteca;
 import classify.jerarquia.Multimedia;
 import classify.jerarquia.Serie;
 
@@ -24,8 +25,9 @@ public class PrincipalSeries extends PlantillaPrincipal {
 
 	/**
 	 * Crea la ventana donde se gestionaran las series
+	 * @param videoteca 
 	 */
-	public PrincipalSeries() {
+	public PrincipalSeries(Videoteca videoteca) {
 		setTitle("Series");
 		setModal(true);
 		setBounds(100, 100, 720, 788);
@@ -73,7 +75,7 @@ public class PrincipalSeries extends PlantillaPrincipal {
 					return;
 				}
 				Serie serie = (Serie) multimedia;
-				principalTemporada = new PrincipalTemporada(serie);
+				principalTemporada = new PrincipalTemporada(serie, videoteca);
 				principalTemporada.setVisible(true);
 			}
 		});

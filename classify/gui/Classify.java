@@ -106,7 +106,7 @@ public class Classify {
 		JButton btnSeries = new JButton("Series");
 		btnSeries.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				principalSeries = new PrincipalSeries();
+				principalSeries = new PrincipalSeries(videoteca);
 				principalSeries.setVisible(true);
 			}
 		});

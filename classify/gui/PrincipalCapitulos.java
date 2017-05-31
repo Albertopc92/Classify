@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import classify.Capitulo;
 import classify.envoltorios.Temporada;
+import classify.envoltorios.Videoteca;
 import classify.excepciones.ListaVaciaException;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
@@ -30,8 +31,9 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 	/**
 	 * Crea la ventana de gestion de capitulos
 	 * @param temporada
+	 * @param videoteca 
 	 */
-	public PrincipalCapitulos(Temporada temporada) {
+	public PrincipalCapitulos(Temporada temporada, Videoteca videoteca) {
 		setBounds(100, 100, 720, 788);
 		setResizable(false);
 		setTitle("Cap\u00edtulos");
@@ -80,7 +82,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 		// A�ADIR CAPITULO
 		btnAnnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				annadirCapitulo = new AnnadirCapitulo(temporada, jlistCapitulos, modeloCapitulos);
+				annadirCapitulo = new AnnadirCapitulo(temporada, jlistCapitulos, modeloCapitulos, videoteca);
 				annadirCapitulo.setVisible(true);
 			}
 		});
@@ -98,6 +100,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 				Capitulo capitulo = jlistCapitulos.getSelectedValue();
 				comprobarSiSeleccionado(capitulo);
 				capitulo.marcarVisualizado();
+				videoteca.setModificado(true);
 				JOptionPane.showMessageDialog(getContentPane(), "Marcado como visualizado.");
 			}
 		});
@@ -117,6 +120,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 				comprobarSiSeleccionado(capitulo);
 				capitulo.visualizar();
 				capitulo.setUltimaVisualizacion(LocalDate.now());
+				videoteca.setModificado(true);
 				JOptionPane.showMessageDialog(getContentPane(), "Cap\u00edtulo Visualizado.");
 			}
 		});
@@ -137,6 +141,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + capitulo.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
 			case 0:
 				temporada.bajaCapitulo(capitulo.getIDCapitulo());
+				videoteca.setModificado(true);
 				break;
 			default:
 				return;
@@ -163,7 +168,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 	private void modificarCapitulo(){
 		Capitulo capitulo = jlistCapitulos.getSelectedValue();
 		comprobarSiSeleccionado(capitulo);
-		modificarCapitulo = new ModificarCapitulo(jlistCapitulos, modeloCapitulos, capitulo);
+		modificarCapitulo = new ModificarCapitulo(jlistCapitulos, modeloCapitulos, capitulo, videoteca);
 		modificarCapitulo.setVisible(true);
 	}
 }

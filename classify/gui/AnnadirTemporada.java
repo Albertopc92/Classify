@@ -6,6 +6,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import classify.envoltorios.Temporada;
+import classify.envoltorios.Videoteca;
 import classify.jerarquia.Serie;
 
 /**
@@ -22,8 +23,9 @@ public class AnnadirTemporada extends PlantillaAnnadirTemporadaCapitulo {
 	 * 
 	 * @param modeloTemporadas
 	 * @param jlistTemporadas
+	 * @param videoteca 
 	 */
-	public AnnadirTemporada(Serie serie, JList<Temporada> jlistTemporadas, DefaultListModel<Temporada> modeloTemporadas) {
+	public AnnadirTemporada(Serie serie, JList<Temporada> jlistTemporadas, DefaultListModel<Temporada> modeloTemporadas, Videoteca videoteca) {
 		setTitle("A\u00f1adir Temporada");
 		setBounds(100, 100, 380, 209);
 		btnAccion.setText("A\u00f1adir");
@@ -35,6 +37,7 @@ public class AnnadirTemporada extends PlantillaAnnadirTemporadaCapitulo {
 					serie.altaTemporada(textField_Temporada.getText());
 					JOptionPane.showMessageDialog(getContentPane(), "La temporada se a\u00f1adio correctamente.",
 							"Temporada a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
+					videoteca.setModificado(true);
 					reset();
 					// Recargar Jlist
 					modeloTemporadas.clear();

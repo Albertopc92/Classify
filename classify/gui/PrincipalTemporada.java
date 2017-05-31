@@ -1,6 +1,7 @@
 package classify.gui;
 
 import classify.envoltorios.Temporada;
+import classify.envoltorios.Videoteca;
 import classify.excepciones.ListaVaciaException;
 import classify.jerarquia.Serie;
 import java.awt.event.ActionListener;
@@ -29,8 +30,9 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 
 	/**
 	 * Crea la ventana donde se gestionaran las temporadas
+	 * @param videoteca 
 	 */
-	public PrincipalTemporada(Serie serie) {
+	public PrincipalTemporada(Serie serie, Videoteca videoteca) {
 		setBounds(100, 100, 720, 788);
 		setTitle("Temporadas");
 		setModal(true);
@@ -77,7 +79,7 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 		// AÑADIR TEMPORADA
 		btnAnnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				annadirTemporada = new AnnadirTemporada(serie, jlistTemporadas, modeloTemporadas);
+				annadirTemporada = new AnnadirTemporada(serie, jlistTemporadas, modeloTemporadas, videoteca);
 				annadirTemporada.setVisible(true);
 			}
 		});
@@ -106,7 +108,7 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 					return;
 				}
 
-				principalCapitulos = new PrincipalCapitulos(temporada);
+				principalCapitulos = new PrincipalCapitulos(temporada, videoteca);
 				principalCapitulos.setVisible(true);
 			}
 		});
@@ -119,7 +121,7 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 	private void modificar(){
 		Temporada temporada = jlistTemporadas.getSelectedValue();
 		comprobarSiSeleccionado(temporada);
-		modificarTemporada = new ModificarTemporada(jlistTemporadas, modeloTemporadas, temporada);
+		modificarTemporada = new ModificarTemporada(jlistTemporadas, modeloTemporadas, temporada, videoteca);
 		modificarTemporada.setVisible(true);
 	}
 	
@@ -136,6 +138,7 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + temporada.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
 			case 0:
 				serie.bajaTemporada(temporada.getIDTemporada());
+				videoteca.setModificado(true);
 				break;
 			default:
 				return;

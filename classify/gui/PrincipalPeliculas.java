@@ -89,6 +89,7 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 				Pelicula pelicula = (Pelicula)jlist.getSelectedValue();
 				comprobarSiSeleccionado(pelicula);
 				pelicula.marcarVisualizado();
+				videoteca.setModificado(true);
 				JOptionPane.showMessageDialog(getContentPane(), "Marcada como visualizada.");
 			}
 		});
@@ -101,6 +102,7 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 				comprobarSiSeleccionado(pelicula);
 				pelicula.visualizar();
 				pelicula.setUltimaVisualizacion(LocalDate.now());
+				videoteca.setModificado(true);
 				JOptionPane.showMessageDialog(getContentPane(), "Pelicula Visualizada.");
 			}
 		});

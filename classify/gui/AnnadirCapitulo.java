@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import classify.Capitulo;
 import classify.envoltorios.Temporada;
+import classify.envoltorios.Videoteca;
 /**
  * Clase que se encarga de añadir un capitulo a la temporada
  * @author Alberto Perez Cano
@@ -24,8 +25,9 @@ public class AnnadirCapitulo extends PlantillaAnnadirTemporadaCapitulo {
 	 * @param modeloCapitulos 
 	 * @param jlistCapitulos 
 	 * @param temporada 
+	 * @param videoteca 
 	 */
-	public AnnadirCapitulo(Temporada temporada, JList<Capitulo> jlistCapitulos, DefaultListModel<Capitulo> modeloCapitulos) {
+	public AnnadirCapitulo(Temporada temporada, JList<Capitulo> jlistCapitulos, DefaultListModel<Capitulo> modeloCapitulos, Videoteca videoteca) {
 		setTitle("A\u00f1adir Temporada");
 		setBounds(100, 100, 380, 209);
 		btnAccion.setText("A\u00f1adir");
@@ -37,6 +39,7 @@ public class AnnadirCapitulo extends PlantillaAnnadirTemporadaCapitulo {
 					temporada.altaCapitulo(textField_Temporada.getText());
 					JOptionPane.showMessageDialog(getContentPane(), "El cap\u00edtulo se a\u00f1adio correctamente.",
 							"Temporada a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
+					videoteca.setModificado(true);
 					reset();
 					// Recargar Jlist
 					modeloCapitulos.clear();
