@@ -104,7 +104,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 				comprobarSiSeleccionado(capitulo);
 				capitulo.visualizar();
 				capitulo.setUltimaVisualizacion(LocalDate.now());
-				JOptionPane.showMessageDialog(getContentPane(), "Capitulo Visualizado.");
+				JOptionPane.showMessageDialog(getContentPane(), "Cap\u00edtulo Visualizado.");
 			}
 		});
 		btnVisualizar.setBounds(34, 158, 183, 23);
