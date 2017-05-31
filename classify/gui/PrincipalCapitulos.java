@@ -1,6 +1,7 @@
 package classify.gui;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -11,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 public class PrincipalCapitulos extends PlantillaPrincipal {
 
@@ -26,6 +28,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 	 */
 	public PrincipalCapitulos(Temporada temporada) {
 		setBounds(100, 100, 720, 788);
+		setResizable(false);
 		setTitle("Cap\u00edtulos");
 		setModal(true);
 		lblLista.setText("cap\u00edtulos");
@@ -45,13 +48,18 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 		jlistCapitulos.setBounds(287, 71, 380, 579);
 		getContentPane().add(jlistCapitulos);
 		
+		JLabel icono = new JLabel("");
+		icono.setIcon(new ImageIcon(PrincipalSeries.class.getResource("/classify/gui/recursos/principalSerie.png")));
+		icono.setBounds(87, 68, 64, 64);
+		getContentPane().add(icono);
+		
 		
 		try {
 			for (Capitulo capitulo: temporada.listarCapitulos()) {
 				modeloCapitulos.addElement(capitulo);
 			}
 		} catch (ListaVaciaException e) {
-			JOptionPane.showMessageDialog(getContentPane(), "No hay cap\u00edtulos que mostrar para esta temporada. A\u00f1ada alguna.","No hay capitulos", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(getContentPane(), "No hay cap\u00edtulos que mostrar para esta temporada. A\u00f1ada alguno.","No hay capitulos", JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 		// INFORMACION CAPITULO
@@ -64,7 +72,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 			}
 		});
 		
-		// AÑADIR CAPITULO
+		// Aï¿½ADIR CAPITULO
 		btnAnnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				annadirCapitulo = new AnnadirCapitulo(temporada, jlistCapitulos, modeloCapitulos);

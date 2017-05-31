@@ -46,6 +46,8 @@ public class Classify {
 	private JTextField textField_Buscar;
 	private PrincipalPeliculas principalPeliculas;
 	private PrincipalSeries principalSeries;
+	static final Ayuda ayuda = new Ayuda();
+	private Sobre sobre;
 	static Videoteca videoteca = new Videoteca();
 	private FichaTecnica fichaTecnica;
 	private static JFileChooser fileChooser;
@@ -223,11 +225,25 @@ public class Classify {
 		JMenu mnAyuda = new JMenu("Ayuda");
 		mnAyuda.setMnemonic('H');
 		menuBar.add(mnAyuda);
-
+		
+		// AYUDA
 		JMenuItem mntmAyuda = new JMenuItem("Ayuda");
+		mntmAyuda.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0));
+		mntmAyuda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ayuda.setVisible(true);
+			}
+		});
 		mnAyuda.add(mntmAyuda);
-
+		
+		// SOBRE 
 		JMenuItem mntmSobreClassify = new JMenuItem("Sobre Classify...");
+		mntmSobreClassify.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sobre = new Sobre();
+				sobre.setVisible(true);
+			}
+		});
 		mnAyuda.add(mntmSobreClassify);
 	}
 

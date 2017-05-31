@@ -42,6 +42,7 @@ public class PlantillaPrincipal extends JDialog {
 	 */
 	public PlantillaPrincipal() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaPrincipal.class.getResource("/classify/gui/recursos/icon.png")));
+		setResizable(false);
 		setBounds(100, 100, 720, 788);
 		getContentPane().setLayout(null);
 		

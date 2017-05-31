@@ -20,6 +20,7 @@ public class PlantillaAnnadirTemporadaCapitulo extends JDialog {
 	 */
 	public PlantillaAnnadirTemporadaCapitulo() {
 		setTitle("A\u00f1adir");
+		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaAnnadirTemporadaCapitulo.class.getResource("/classify/gui/recursos/icon.png")));
 		setModal(true);
 		setBounds(100, 100, 380, 209);

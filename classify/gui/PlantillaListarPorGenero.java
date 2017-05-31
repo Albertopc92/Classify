@@ -25,6 +25,7 @@ public class PlantillaListarPorGenero extends JDialog {
 	 */
 	public PlantillaListarPorGenero() {
 		setModal(true);
+		setResizable(false);
 		setTitle("Listar por Genero");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaListarPorGenero.class.getResource("/classify/gui/recursos/icon.png")));
 		setBounds(100, 100, 564, 370);

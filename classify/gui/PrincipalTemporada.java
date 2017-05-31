@@ -5,6 +5,8 @@ import classify.excepciones.ListaVaciaException;
 import classify.jerarquia.Serie;
 import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -28,6 +30,7 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 		setBounds(100, 100, 720, 788);
 		setTitle("Temporadas");
 		setModal(true);
+		btnVerFichaTecnica.setVisible(false);
 		btnListarPorNumeroVisualizaciones.setVisible(false);
 		lblLista.setText("Temporadas");
 		btnVerFichaTecnica.setText("Informaci\u00f3n");
@@ -44,6 +47,11 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 		jlistTemporadas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jlistTemporadas.setBounds(287, 71, 380, 579);
 		getContentPane().add(jlistTemporadas);
+		
+		JLabel icono = new JLabel("");
+		icono.setIcon(new ImageIcon(PrincipalSeries.class.getResource("/classify/gui/recursos/principalSerie.png")));
+		icono.setBounds(87, 68, 64, 64);
+		getContentPane().add(icono);
 		
 		try {
 			for (Temporada temporada: serie.listarTemporadas()) {

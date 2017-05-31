@@ -50,6 +50,7 @@ public class PlantillaAnnadir extends JDialog {
 	 */
 	public PlantillaAnnadir() {
 		setModal(true);
+		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaAnnadir.class.getResource("/classify/gui/recursos/icon.png")));
 		setBounds(100, 100, 720, 788);
 		getContentPane().setLayout(null);
