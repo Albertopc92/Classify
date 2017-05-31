@@ -1,8 +1,8 @@
 package classify;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import classify.excepciones.TituloNoValidoException;
 
@@ -12,6 +12,7 @@ public class Capitulo implements Serializable{
 	private String titulo;
 	private int numVisualizaciones;
 	private boolean visualizado;
+	private LocalDate ultimaVisualizacion;
 	private int IDCapitulo;
 	private static int incID = 1;
 
@@ -20,8 +21,8 @@ public class Capitulo implements Serializable{
 		setIDCapitulo(incID++);
 	}
 	
-	public Capitulo(int iDCapitulo) {
-		setIDCapitulo(iDCapitulo);
+	public Capitulo(int IDCapitulo) {
+		setIDCapitulo(IDCapitulo);
 	}
 
 	public int getIDCapitulo() {
@@ -36,7 +37,7 @@ public class Capitulo implements Serializable{
 		return titulo;
 	}
 
-	private void setTitulo(String titulo) throws TituloNoValidoException {
+	public void setTitulo(String titulo) throws TituloNoValidoException {
 		Matcher matcherTitulo = Patron.PATRON_TITULO.matcher(titulo);
 		
 		if(!matcherTitulo.matches()) 
@@ -52,12 +53,26 @@ public class Capitulo implements Serializable{
 		this.numVisualizaciones = numVisualizaciones;
 	}
 
-	private boolean isVisualizado() {
+	public boolean isVisualizado() {
 		return visualizado;
 	}
 
 	private void setVisualizado(boolean visualizado) {
 		this.visualizado = visualizado;
+	}
+	
+	/**
+	 * @return the ultimaVisualizacion
+	 */
+	public LocalDate getUltimaVisualizacion() {
+		return ultimaVisualizacion;
+	}
+
+	/**
+	 * @param ultimaVisualizacion the ultimaVisualizacion to set
+	 */
+	public void setUltimaVisualizacion(LocalDate ultimaVisualizacion) {
+		this.ultimaVisualizacion = ultimaVisualizacion;
 	}
 	
 	/**
@@ -72,7 +87,7 @@ public class Capitulo implements Serializable{
 	 * Marca como visualizado un capitulo
 	 */
 	public void marcarVisualizado() {
-		if(isVisualizado())
+		if(!isVisualizado())
 			setVisualizado(true);
 	}
 

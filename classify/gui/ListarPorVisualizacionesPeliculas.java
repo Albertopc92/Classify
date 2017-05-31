@@ -23,7 +23,7 @@ public class ListarPorVisualizacionesPeliculas extends PlantillaListarPorGenero 
 	 */
 	public ListarPorVisualizacionesPeliculas(Videoteca videoteca) {
 		setModal(true);
-		setTitle("Listar por Puntuacion");
+		setTitle("Listar por Visualizaciones");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaListarPorGenero.class.getResource("/classify/gui/recursos/icon.png")));
 		setBounds(100, 100, 564, 370);
 		lblGenero.setVisible(false);

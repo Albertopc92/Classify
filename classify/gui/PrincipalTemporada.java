@@ -29,6 +29,7 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 		setTitle("Temporadas");
 		setModal(true);
 		btnListarPorNumeroVisualizaciones.setVisible(false);
+		lblLista.setText("Temporadas");
 		btnVerFichaTecnica.setText("Informaci\u00f3n");
 		btnAnnadir.setText("A\u00f1adir Temporada");
 		btnBorrar.setText("Borrar Temporada");

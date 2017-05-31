@@ -28,14 +28,14 @@ public class InfoTemporada extends JDialog {
 		lblTtulo.setBounds(41, 34, 46, 14);
 		getContentPane().add(lblTtulo);
 		
-		JLabel lblNDeCaptulos = new JLabel("Nº de cap\u00edtulos");
-		lblNDeCaptulos.setBounds(41, 77, 91, 14);
+		JLabel lblNDeCaptulos = new JLabel("N\u00BA de cap\u00EDtulos");
+		lblNDeCaptulos.setBounds(41, 77, 115, 14);
 		getContentPane().add(lblNDeCaptulos);
 		
 		textField_ncapitulos = new JTextField();
 		textField_ncapitulos.setEnabled(false);
 		textField_ncapitulos.setEditable(false);
-		textField_ncapitulos.setBounds(129, 74, 46, 20);
+		textField_ncapitulos.setBounds(137, 74, 46, 20);
 		getContentPane().add(textField_ncapitulos);
 		textField_ncapitulos.setColumns(10);
 		textField_ncapitulos.setText(String.valueOf(temporada.getNumCapitulos()));
@@ -43,7 +43,7 @@ public class InfoTemporada extends JDialog {
 		textField_titulo = new JTextField();
 		textField_titulo.setEnabled(false);
 		textField_titulo.setEditable(false);
-		textField_titulo.setBounds(129, 31, 160, 20);
+		textField_titulo.setBounds(137, 31, 160, 20);
 		getContentPane().add(textField_titulo);
 		textField_titulo.setColumns(10);
 		textField_titulo.setText(temporada.getTitulo());

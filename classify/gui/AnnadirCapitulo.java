@@ -32,6 +32,7 @@ public class AnnadirCapitulo extends PlantillaAnnadirTemporadaCapitulo {
 					temporada.altaCapitulo(textField_Temporada.getText());
 					JOptionPane.showMessageDialog(getContentPane(), "El cap\u00edtulo se a\u00f1adio correctamente.",
 							"Temporada a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
+					reset();
 					// Recargar Jlist
 					modeloCapitulos.clear();
 					jlistCapitulos.setModel(modeloCapitulos);
@@ -47,5 +48,4 @@ public class AnnadirCapitulo extends PlantillaAnnadirTemporadaCapitulo {
 		});
 
 	}
-
 }

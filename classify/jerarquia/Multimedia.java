@@ -3,8 +3,6 @@ package classify.jerarquia;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import classify.Patron;
 import classify.enumeraciones.Genero;
 import classify.excepciones.DuracionNoValidaException;
@@ -274,13 +272,13 @@ public abstract class Multimedia implements Serializable{
 
 
 
-	protected LocalDate getUltimaVisualizacion() {
+	public LocalDate getUltimaVisualizacion() {
 		return ultimaVisualizacion;
 	}
 
 
 
-	protected void setUltimaVisualizacion(LocalDate ultimaVisualizacion) {
+	public void setUltimaVisualizacion(LocalDate ultimaVisualizacion) {
 		this.ultimaVisualizacion = ultimaVisualizacion;
 	}
 

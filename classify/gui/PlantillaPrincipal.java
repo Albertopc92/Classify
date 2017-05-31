@@ -34,6 +34,7 @@ public class PlantillaPrincipal extends JDialog {
 	JList<Multimedia> jlist;
 	DefaultListModel<Multimedia> modelo = new DefaultListModel<Multimedia>();
 	JButton btnTemporadas;
+	JLabel lblLista;
 	
 
 	/**
@@ -59,8 +60,8 @@ public class PlantillaPrincipal extends JDialog {
 		btnSalir.setBounds(532, 684, 89, 23);
 		getContentPane().add(btnSalir);
 		
-		JLabel lblLista = new JLabel("Lista");
-		lblLista.setBounds(287, 46, 46, 14);
+		lblLista = new JLabel("Lista");
+		lblLista.setBounds(287, 46, 230, 14);
 		getContentPane().add(lblLista);
 		
 		// VER FICHA TÉCNICA

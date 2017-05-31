@@ -251,7 +251,7 @@ public class Classify {
 	 */
 	private void nuevo() {
 		if (videoteca.isModificado()) {
-			switch (JOptionPane.showConfirmDialog(null, "No has guardado, Â¿Desea Guardar?", "NO HAS GUARDADO",
+			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea Guardar?", "NO HAS GUARDADO",
 					JOptionPane.YES_NO_CANCEL_OPTION)) {
 			case JOptionPane.YES_OPTION:
 				guardarComo();

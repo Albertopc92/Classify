@@ -9,7 +9,9 @@ import classify.envoltorios.Temporada;
 import classify.excepciones.ListaVaciaException;
 
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
+import javax.swing.JButton;
 
 public class PrincipalCapitulos extends PlantillaPrincipal {
 
@@ -18,14 +20,16 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 	private DefaultListModel<Capitulo> modeloCapitulos = new DefaultListModel<Capitulo>();
 	private InfoCapitulo infoCapitulo;
 	private AnnadirCapitulo annadirCapitulo;
+	private ModificarCapitulo modificarCapitulo;
 
 	/**
 	 * Create the dialog.
 	 */
 	public PrincipalCapitulos(Temporada temporada) {
 		setBounds(100, 100, 720, 788);
-		setTitle("Capitulos");
+		setTitle("Cap\u00edtulos");
 		setModal(true);
+		lblLista.setText("cap\u00edtulos");
 		btnVerFichaTecnica.setText("Informaci\u00f3n");
 		btnAnnadir.setText("A\u00f1adir Capitulo");
 		btnBorrar.setText("Borrar Capitulo");
@@ -41,6 +45,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 		jlistCapitulos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jlistCapitulos.setBounds(287, 71, 380, 579);
 		getContentPane().add(jlistCapitulos);
+		
 		
 		try {
 			for (Capitulo capitulo: temporada.listarCapitulos()) {
@@ -60,7 +65,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 			}
 		});
 		
-		// AÃ‘ADIR CAPITULO
+		// AÑADIR CAPITULO
 		btnAnnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				annadirCapitulo = new AnnadirCapitulo(temporada, jlistCapitulos, modeloCapitulos);
@@ -75,6 +80,34 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 			}
 		});
 		
+		// MARCAR COMO VISUALIZADO
+		btnMarcaComoVisualizado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Capitulo capitulo = jlistCapitulos.getSelectedValue();
+				comprobarSiSeleccionado(capitulo);
+				capitulo.marcarVisualizado();
+			}
+		});
+		
+		// MODIFICAR CAPITULO
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modificarCapitulo();
+			}
+		});
+		
+		// VISUALIZAR
+		JButton btnVisualizar = new JButton("Visualizar");
+		btnVisualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Capitulo capitulo = jlistCapitulos.getSelectedValue();
+				comprobarSiSeleccionado(capitulo);
+				capitulo.visualizar();
+				capitulo.setUltimaVisualizacion(LocalDate.now());
+			}
+		});
+		btnVisualizar.setBounds(34, 158, 183, 23);
+		getContentPane().add(btnVisualizar);
 
 	}
 	
@@ -110,5 +143,13 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 		}
 	}
 	
-	
+	/**
+	 * Modifica un capitulo
+	 */
+	private void modificarCapitulo(){
+		Capitulo capitulo = jlistCapitulos.getSelectedValue();
+		comprobarSiSeleccionado(capitulo);
+		modificarCapitulo = new ModificarCapitulo(jlistCapitulos, modeloCapitulos, capitulo);
+		modificarCapitulo.setVisible(true);
+	}
 }

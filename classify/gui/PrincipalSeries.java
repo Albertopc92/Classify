@@ -26,6 +26,8 @@ public class PrincipalSeries extends PlantillaPrincipal {
 		setModal(true);
 		setBounds(100, 100, 720, 788);
 		btnListarPorNumeroVisualizaciones.setVisible(false);
+		btnMarcaComoVisualizado.setVisible(false);
+		lblLista.setText("Series");
 		
 		rellenarJlist(videoteca.listarSeries());
 		

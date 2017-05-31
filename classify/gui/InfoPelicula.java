@@ -1,14 +1,13 @@
 package classify.gui;
 
 import java.awt.Toolkit;
+import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import classify.jerarquia.Pelicula;
 
-import classify.Capitulo;
-import javax.swing.JCheckBox;
-
-public class InfoCapitulo extends JDialog {
+public class InfoPelicula extends JDialog {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField textField_nvisualizaciones;
@@ -17,12 +16,13 @@ public class InfoCapitulo extends JDialog {
 
 	/**
 	 * Create the dialog.
+	 * @param pelicula 
 	 */
-	public InfoCapitulo(Capitulo capitulo) {
+	public InfoPelicula(Pelicula pelicula) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(InfoTemporada.class.getResource("/classify/gui/recursos/icon.png")));
 		setModal(true);
 		setResizable(false);
-		setTitle(capitulo.getTitulo());
+		setTitle(pelicula.getTitulo());
 		setBounds(100, 100, 367, 282);
 		getContentPane().setLayout(null);
 		
@@ -40,7 +40,7 @@ public class InfoCapitulo extends JDialog {
 		textField_nvisualizaciones.setBounds(161, 74, 46, 20);
 		getContentPane().add(textField_nvisualizaciones);
 		textField_nvisualizaciones.setColumns(10);
-		textField_nvisualizaciones.setText(String.valueOf(capitulo.getNumVisualizaciones()));
+		textField_nvisualizaciones.setText(String.valueOf(pelicula.getNumVisualizaciones()));
 		
 		textField_titulo = new JTextField();
 		textField_titulo.setEnabled(false);
@@ -48,14 +48,14 @@ public class InfoCapitulo extends JDialog {
 		textField_titulo.setBounds(161, 31, 160, 20);
 		getContentPane().add(textField_titulo);
 		textField_titulo.setColumns(10);
-		textField_titulo.setText(capitulo.getTitulo());
+		textField_titulo.setText(pelicula.getTitulo());
 		
 		JCheckBox chckbx_visualizado = new JCheckBox("Visualizado");
 		chckbx_visualizado.setEnabled(false);
 		chckbx_visualizado.setBounds(122, 185, 97, 23);
 		getContentPane().add(chckbx_visualizado);
 		
-		chckbx_visualizado.setSelected(capitulo.isVisualizado());
+		chckbx_visualizado.setSelected(pelicula.isVisualizado());
 		
 		JLabel lblUltimaVisualizacion = new JLabel("Ultima visualizacion");
 		lblUltimaVisualizacion.setBounds(41, 123, 114, 14);
@@ -67,12 +67,13 @@ public class InfoCapitulo extends JDialog {
 		getContentPane().add(textField_ultimaVisualizacion);
 		textField_ultimaVisualizacion.setColumns(10);
 		
-		if (capitulo.getUltimaVisualizacion() == null) {
-			textField_ultimaVisualizacion.setText("No visualizado");
+		if(pelicula.getUltimaVisualizacion() == null){
+			textField_ultimaVisualizacion.setText("No visualizada");
 		}else{
-			textField_ultimaVisualizacion.setText(capitulo.getUltimaVisualizacion().toString());
+			textField_ultimaVisualizacion.setText(pelicula.getUltimaVisualizacion().toString());
 		}
 		
 
 	}
+
 }

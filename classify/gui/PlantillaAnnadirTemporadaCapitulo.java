@@ -35,6 +35,11 @@ public class PlantillaAnnadirTemporadaCapitulo extends JDialog {
 		textField_Temporada.setColumns(10);
 		
 		btnAccion = new JButton("Accion");
+		btnAccion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reset();
+			}
+		});
 		btnAccion.setBounds(159, 118, 89, 23);
 		getContentPane().add(btnAccion);
 		
@@ -47,5 +52,9 @@ public class PlantillaAnnadirTemporadaCapitulo extends JDialog {
 			}
 		});
 
+	}
+	
+	void reset(){
+		textField_Temporada.setText("");
 	}
 }

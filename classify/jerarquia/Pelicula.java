@@ -48,7 +48,7 @@ public class Pelicula extends Multimedia implements Serializable{
 	 * Marca como visualizada una pelicula
 	 */
 	public void marcarVisualizado() {
-		if(isVisualizado())
+		if(!isVisualizado())
 			setVisualizado(true);
 	}
 	

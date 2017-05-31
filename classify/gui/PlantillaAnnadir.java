@@ -4,20 +4,17 @@ import java.time.LocalDate;
 import java.util.Vector;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
 import classify.enumeraciones.Genero;
-import classify.enumeraciones.PremioPelicula;
 import classify.envoltorios.Videoteca;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
-import java.awt.BorderLayout;
 import java.awt.Checkbox;
 
 public class PlantillaAnnadir extends JDialog {

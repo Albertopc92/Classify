@@ -5,19 +5,12 @@ import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
 import classify.enumeraciones.Genero;
-import classify.envoltorios.Videoteca;
-import classify.excepciones.ListaVaciaException;
 import classify.jerarquia.Multimedia;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.ItemListener;
-import java.util.ArrayList;
-import java.awt.event.ItemEvent;
 
 public class PlantillaListarPorGenero extends JDialog {
 
