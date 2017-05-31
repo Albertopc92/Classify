@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import classify.jerarquia.Pelicula;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -82,6 +84,7 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 				Pelicula pelicula = (Pelicula)jlist.getSelectedValue();
 				comprobarSiSeleccionado(pelicula);
 				pelicula.marcarVisualizado();
+				JOptionPane.showMessageDialog(getContentPane(), "Marcada como visualizada.");
 			}
 		});
 		
@@ -93,6 +96,7 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 				comprobarSiSeleccionado(pelicula);
 				pelicula.visualizar();
 				pelicula.setUltimaVisualizacion(LocalDate.now());
+				JOptionPane.showMessageDialog(getContentPane(), "Pelicula Visualizada.");
 			}
 		});
 		btnVisualizar.setBounds(33, 470, 183, 23);

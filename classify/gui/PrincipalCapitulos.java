@@ -7,7 +7,6 @@ import javax.swing.ListSelectionModel;
 import classify.Capitulo;
 import classify.envoltorios.Temporada;
 import classify.excepciones.ListaVaciaException;
-
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
@@ -86,6 +85,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 				Capitulo capitulo = jlistCapitulos.getSelectedValue();
 				comprobarSiSeleccionado(capitulo);
 				capitulo.marcarVisualizado();
+				JOptionPane.showMessageDialog(getContentPane(), "Marcado como visualizado.");
 			}
 		});
 		
@@ -104,6 +104,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 				comprobarSiSeleccionado(capitulo);
 				capitulo.visualizar();
 				capitulo.setUltimaVisualizacion(LocalDate.now());
+				JOptionPane.showMessageDialog(getContentPane(), "Capitulo Visualizado.");
 			}
 		});
 		btnVisualizar.setBounds(34, 158, 183, 23);
