@@ -80,15 +80,17 @@ public class FichaTecnica extends PlantillaAnnadir {
 		textField_puntuacion.setText(Float.toString(multimedia.puntuable()));
 		
 		
-		textField_principales.setEnabled(true);
-		textField_secundarios.setEnabled(true);
+		textField_principales.setEnabled(false);
+		textField_secundarios.setEnabled(false);
+		textField_principales.setText("");
+		textField_secundarios.setText("");
 		
-		for (int i = 0; i < multimedia.getReparto().length; i++) {
-			for (int j = 0; j < multimedia.getReparto().length; j++) {
-				textField_principales.setText(multimedia.getReparto()[i].toString());
-				textField_secundarios.setText(multimedia.getReparto()[j].toString());
-			}
-		}
+//		for (int i = 0; i < multimedia.getReparto().length; i++) {
+//			for (int j = 0; j < multimedia.getReparto().length; j++) {
+//				textField_principales.setText(multimedia.getReparto()[i].toString()); // PEDIENTE DE MEJORA
+//				textField_secundarios.setText(multimedia.getReparto()[j].toString()); // PEDIENTE DE MEJORA
+//			}
+//		}
 		
 	}
 

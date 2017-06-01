@@ -8,15 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
-import classify.enumeraciones.Genero;
-import classify.enumeraciones.PremioPelicula;
-import classify.enumeraciones.PremioSerie;
 import classify.envoltorios.Videoteca;
-import classify.excepciones.DuracionNoValidaException;
-import classify.excepciones.NotaNoValidaException;
-import classify.excepciones.TituloNoValidoException;
-import classify.excepciones.ValorNoValidoException;
-import classify.excepciones.YaExisteException;
 import classify.jerarquia.Multimedia;
 import classify.ficheros.Fichero;
 import classify.ficheros.Filtro;
@@ -87,7 +79,6 @@ public class Classify {
 	 * Inicializa el contenido del Frame
 	 */
 	private void initialize() {
-		generar();
 		frmClassify = new JFrame();
 		frmClassify.addWindowListener(new WindowAdapter() {
 			@Override
@@ -259,9 +250,7 @@ public class Classify {
 	 * Crea una nueva videoteca
 	 */
 	private void crearNuevaVideoteca() {
-		String titulo = JOptionPane.showInputDialog(null, "Introduce el nombre de la nueva videoteca",
-				"Nombre de la Videoteca", JOptionPane.QUESTION_MESSAGE);
-		Fichero.setFichero(titulo);
+		Fichero.setFichero("SinTitulo");
 		videoteca = new Videoteca();
 		frmClassify.setTitle(Fichero.fichero.getName());
 		videoteca.setModificado(false);
@@ -387,47 +376,6 @@ public class Classify {
 			}
 		} else {
 			System.exit(0);
-		}
-	}
-
-	private void generar() {
-		try {
-			videoteca.altaPelicula("Titanic", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica",
-					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.DRAMA, "sinopsis", 7.0f,
-					PremioPelicula.BAFTA);
-			videoteca.altaPelicula("Piratas del caribe", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion",
-					"Musica", "fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.ACCION,
-					"sinopsis", 4.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("300", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica",
-					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.ACCION, "sinopsis",
-					5.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("El señor de los anillos", "Peliculaoriginal", 2000, 200, "Spain", "director",
-					"guion", "Musica", "fotografia", new String[][] { { "fff" }, { "fff" } }, "productora",
-					Genero.CIENCIA_FICCION, "sinopsis", 9.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("El hobbit", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion", "Musica",
-					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.CIENCIA_FICCION,
-					"sinopsis", 1.0f, PremioPelicula.BAFTA);
-			videoteca.altaPelicula("Una mente maravillosa", "Peliculaoriginal", 2000, 200, "Spain", "director", "guion",
-					"Musica", "fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.DRAMA,
-					"sinopsis", 10.0f, PremioPelicula.BAFTA);
-			videoteca.altaSerie("Juego de tronos", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica",
-					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.FANTASIA, "sinopsis",
-					9f, false, PremioSerie.GLOBO_DE_ORO);
-			videoteca.altaSerie("Breaking bad", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica",
-					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.DRAMA, "sinopsis", 10f,
-					false, PremioSerie.GLOBO_DE_ORO);
-			videoteca.altaSerie("Prison break", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica",
-					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.DRAMA, "sinopsis", 8f,
-					true, PremioSerie.GLOBO_DE_ORO);
-			videoteca.altaSerie("Los Simpsons", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica",
-					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.COMEDIA, "sinopsis", 7f,
-					false, PremioSerie.GLOBO_DE_ORO);
-			videoteca.altaSerie("Perdidos", "titulo original", 2000, 200, "Spain", "director", "guion", "Musica",
-					"fotografia", new String[][] { { "fff" }, { "fff" } }, "productora", Genero.CIENCIA_FICCION,
-					"sinopsis", 5f, false, PremioSerie.GLOBO_DE_ORO);
-		} catch (YaExisteException | TituloNoValidoException | DuracionNoValidaException | NotaNoValidaException
-				| ValorNoValidoException e) {
-			e.printStackTrace();
 		}
 	}
 }
