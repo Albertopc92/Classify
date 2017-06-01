@@ -261,7 +261,7 @@ public class Classify {
 	 */
 	private void nuevo() {
 		if (videoteca.isModificado()) {
-			switch (JOptionPane.showConfirmDialog(null, "No has guardado, �Desea Guardar?", "NO HAS GUARDADO",
+			switch (JOptionPane.showConfirmDialog(null, "No has guardado, \u00BFDesea Guardar\u003F", "NO HAS GUARDADO",
 					JOptionPane.YES_NO_CANCEL_OPTION)) {
 			case JOptionPane.YES_OPTION:
 				guardarComo();
@@ -285,7 +285,7 @@ public class Classify {
 		if (JFileChooser.APPROVE_OPTION == fileChooser.showDialog(fileChooser, "Guardar videoteca")) {
 			Fichero.comprobarFichero(fileChooser.getSelectedFile());
 			if (Fichero.getFichero().exists()) {
-				switch (JOptionPane.showConfirmDialog(null, "El archivo ya existe, ¿Desea Sobreescribir?", "Guardando",
+				switch (JOptionPane.showConfirmDialog(null, "El archivo ya existe, \u00BFDesea Sobreescribir\u003F", "Guardando",
 						JOptionPane.YES_NO_CANCEL_OPTION)) {
 				case JOptionPane.YES_OPTION:
 					try {
@@ -334,7 +334,7 @@ public class Classify {
 	 */
 	private void abrir() throws ClassNotFoundException, IOException {
 		if (videoteca.isModificado()) {
-			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea guardar?", "NO HAS GUARDADO",
+			switch (JOptionPane.showConfirmDialog(null, "No has guardado, \u00BFDesea Guardar\u003F", "NO HAS GUARDADO",
 					JOptionPane.YES_NO_CANCEL_OPTION)) {
 			case JOptionPane.YES_OPTION:
 				guardarComo();
@@ -364,7 +364,7 @@ public class Classify {
 	 */
 	private void salir() {
 		if (videoteca.isModificado()) {
-			switch (JOptionPane.showConfirmDialog(null, "No has guardado, ¿Desea guardar?", "NO HAS GUARDADO",
+			switch (JOptionPane.showConfirmDialog(null, "No has guardado, \u00BFDesea Guardar\u003F", "NO HAS GUARDADO",
 					JOptionPane.YES_NO_CANCEL_OPTION)) {
 			case JOptionPane.YES_OPTION:
 				guardarComo();

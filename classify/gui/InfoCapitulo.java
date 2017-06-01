@@ -34,7 +34,7 @@ public class InfoCapitulo extends JDialog {
 		lblTtulo.setBounds(41, 34, 142, 14);
 		getContentPane().add(lblTtulo);
 		
-		JLabel lblNDeVisualizaciones = new JLabel("N� de visualizaciones");
+		JLabel lblNDeVisualizaciones = new JLabel("N\u00BA de visualizaciones");
 		lblNDeVisualizaciones.setBounds(41, 77, 142, 14);
 		getContentPane().add(lblNDeVisualizaciones);
 		
@@ -61,7 +61,7 @@ public class InfoCapitulo extends JDialog {
 		
 		chckbx_visualizado.setSelected(capitulo.isVisualizado());
 		
-		JLabel lblUltimaVisualizacion = new JLabel("Ultima visualizacion");
+		JLabel lblUltimaVisualizacion = new JLabel("\u00daltima visualizaci\u00f3n");
 		lblUltimaVisualizacion.setBounds(41, 123, 142, 14);
 		getContentPane().add(lblUltimaVisualizacion);
 		

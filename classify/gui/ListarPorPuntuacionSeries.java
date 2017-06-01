@@ -26,15 +26,15 @@ public class ListarPorPuntuacionSeries extends PlantillaListarPorGenero {
 	 */
 	public ListarPorPuntuacionSeries(Videoteca videoteca) {
 		setModal(true);
-		setTitle("Listar por Puntuacion");
+		setTitle("Listar por Puntuaci\u00f3n");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaListarPorGenero.class.getResource("/classify/gui/recursos/icon.png")));
 		setBounds(100, 100, 564, 370);
 		
-		JLabel lblMayorPuntuacion = new JLabel("Mayor Puntuacion");
+		JLabel lblMayorPuntuacion = new JLabel("Mayor Puntuaci\u00f3n");
 		lblMayorPuntuacion.setBounds(37, 57, 177, 14);
 		getContentPane().add(lblMayorPuntuacion);
 		
-		JLabel lblMenorPuntuacion = new JLabel("Menor Puntuacion");
+		JLabel lblMenorPuntuacion = new JLabel("Menor Puntuaci\u00f3n");
 		lblMenorPuntuacion.setBounds(37, 267, 158, 14);
 		getContentPane().add(lblMenorPuntuacion);
 		lblGenero.setVisible(false);

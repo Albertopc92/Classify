@@ -196,7 +196,7 @@ public abstract class Multimedia implements Serializable{
 		Matcher matcherPais = Patron.PATRON_NO_BLANCO.matcher(pais);
 		
 		if(!matcherPais.matches()) 
-			throw new ValorNoValidoException("Pa\\u00eds no v\u00e1lido.");
+			throw new ValorNoValidoException("Pa\u00eds no v\u00e1lido.");
 		this.pais = pais.trim();
 	}
 
@@ -290,7 +290,7 @@ public abstract class Multimedia implements Serializable{
 		Matcher matcherFotografia = Patron.PATRON_NO_BLANCO.matcher(fotografia);
 		
 		if(!matcherFotografia.matches()) 
-			throw new ValorNoValidoException("Valor no v\u00e1lido.");
+			throw new ValorNoValidoException("Valor Fotograf\u00eda no v\u00e1lido.");
 		this.fotografia = fotografia.trim();
 	}
 
@@ -334,7 +334,7 @@ public abstract class Multimedia implements Serializable{
 		Matcher matcherProductora = Patron.PATRON_NO_BLANCO.matcher(productora);
 		
 		if(!matcherProductora.matches()) 
-			throw new ValorNoValidoException("Valor no v\u00e1lido.");
+			throw new ValorNoValidoException("Valor Productora no v\u00e1lido.");
 		this.productora = productora.trim();
 	}
 

@@ -26,12 +26,12 @@ public class PlantillaListarPorGenero extends JDialog {
 	public PlantillaListarPorGenero() {
 		setModal(true);
 		setResizable(false);
-		setTitle("Listar por Genero");
+		setTitle("Listar por G\u00e9nero");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaListarPorGenero.class.getResource("/classify/gui/recursos/icon.png")));
 		setBounds(100, 100, 564, 370);
 		getContentPane().setLayout(null);
 		
-		lblGenero = new JLabel("Genero");
+		lblGenero = new JLabel("G\u00e9nero");
 		lblGenero.setBounds(59, 42, 46, 14);
 		getContentPane().add(lblGenero);
 		

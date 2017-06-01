@@ -104,14 +104,14 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 				pelicula.visualizar();
 				pelicula.setUltimaVisualizacion(LocalDate.now());
 				videoteca.setModificado(true);
-				JOptionPane.showMessageDialog(getContentPane(), "Pelicula Visualizada.");
+				JOptionPane.showMessageDialog(getContentPane(), "Pel\u00edcula Visualizada.");
 			}
 		});
 		btnVisualizar.setBounds(33, 470, 183, 23);
 		getContentPane().add(btnVisualizar);
 		
 		// INFORMACION
-		JButton btnInformacion = new JButton("Informacion");
+		JButton btnInformacion = new JButton("Informaci\u00f3n");
 		btnInformacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Pelicula pelicula = (Pelicula)jlist.getSelectedValue();
@@ -142,7 +142,7 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 		comprobarSiSeleccionado(multimedia);
 		try {
 			String[] opciones = {"Si", "No"};
-			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + multimedia.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
+			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + multimedia.getTitulo() + "\u00BFEst\u00e1s seguro\u003F", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
 			case 0:
 				videoteca.borrar(multimedia.getTitulo());
 				break;

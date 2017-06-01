@@ -83,7 +83,7 @@ public class ModificarPelicula extends PlantillaAnnadir {
 						pelicula.setPremios((PremioPelicula) comboBox_premio.getSelectedItem());
 					}
 					
-					JOptionPane.showMessageDialog(getContentPane(), "La pel\u00edcula se ha modificado correctamente.","Pelicula modificada", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(getContentPane(), "La pel\u00edcula se ha modificado correctamente.","Pel\u00edcula modificada", JOptionPane.INFORMATION_MESSAGE);
 					videoteca.setModificado(true);
 					jlist.setModel(modelo);
 				}catch (Exception exception) {

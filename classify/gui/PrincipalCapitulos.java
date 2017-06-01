@@ -42,9 +42,9 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 		lblLista.setText("cap\u00edtulos");
 		btnVerFichaTecnica.setEnabled(false);
 		btnVerFichaTecnica.setVisible(false);
-		btnAnnadir.setText("A\u00f1adir Capitulo");
+		btnAnnadir.setText("A\u00f1adir Cap\u00edtulo");
 		btnBorrar.setText("Borrar Capitulo");
-		btnModificar.setText("Modificar Capitulo");
+		btnModificar.setText("Modificar Cap\u00edtulo");
 		btnMarcaComoVisualizado.setVisible(true);
 		btnListarPorGenero.setVisible(false);
 		btnListarPorPuntuacion.setVisible(false);
@@ -57,7 +57,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 		jlistCapitulos.setBounds(287, 71, 380, 579);
 		getContentPane().add(jlistCapitulos);
 		
-		JButton btnInformacion = new JButton("Informacion");
+		JButton btnInformacion = new JButton("Informaci\u00f3n");
 		btnInformacion.setBounds(34, 192, 183, 23);
 		getContentPane().add(btnInformacion);
 		
@@ -72,7 +72,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 				modeloCapitulos.addElement(capitulo);
 			}
 		} catch (ListaVaciaException e) {
-			JOptionPane.showMessageDialog(getContentPane(), "No hay cap\u00edtulos que mostrar para esta temporada. A\u00f1ada alguno.","No hay capitulos", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(getContentPane(), "No hay cap\u00edtulos que mostrar para esta temporada. A\u00f1ada alguno.","No hay cap\u00edtulos", JOptionPane.INFORMATION_MESSAGE);
 		}
 		
 		// INFORMACION CAPITULO
@@ -85,7 +85,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 			}
 		});
 		
-		// AÑADIR CAPITULO
+		// Aï¿½ADIR CAPITULO
 		btnAnnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				annadirCapitulo = new AnnadirCapitulo(temporada, jlistCapitulos, modeloCapitulos, videoteca);

@@ -32,7 +32,7 @@ public class ListarPorVisualizacionesPeliculas extends PlantillaListarPorGenero 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PlantillaListarPorGenero.class.getResource("/classify/gui/recursos/icon.png")));
 		setBounds(100, 100, 564, 370);
 		
-		JLabel lblMasVista = new JLabel("Mas vista");
+		JLabel lblMasVista = new JLabel("M\u00e1s vista");
 		lblMasVista.setBounds(34, 57, 128, 14);
 		getContentPane().add(lblMasVista);
 		

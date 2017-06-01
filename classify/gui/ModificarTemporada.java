@@ -35,7 +35,7 @@ public class ModificarTemporada extends PlantillaAnnadirTemporadaCapitulo {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					temporada.setTitulo(textField_Temporada.getText());
-					JOptionPane.showMessageDialog(getContentPane(), "La serie se ha modificado correctamente.","Serie modificada", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(getContentPane(), "La temporada se ha modificado correctamente.","Temporada modificada", JOptionPane.INFORMATION_MESSAGE);
 					videoteca.setModificado(true);
 					jlistTemporadas.setModel(modeloTemporadas);
 				} catch (TituloNoValidoException exception) {

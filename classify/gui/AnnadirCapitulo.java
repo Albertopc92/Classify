@@ -37,7 +37,7 @@ public class AnnadirCapitulo extends PlantillaAnnadirTemporadaCapitulo {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					temporada.altaCapitulo(textField_Temporada.getText());
-					JOptionPane.showMessageDialog(getContentPane(), "El cap\u00edtulo se a\u00f1adio correctamente.",
+					JOptionPane.showMessageDialog(getContentPane(), "El cap\u00edtulo se a\u00f1adi\u00f3 correctamente.",
 							"Temporada a\u00f1adida", JOptionPane.INFORMATION_MESSAGE);
 					videoteca.setModificado(true);
 					reset();

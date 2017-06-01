@@ -97,7 +97,7 @@ public class PrincipalSeries extends PlantillaPrincipal {
 		comprobarSiSeleccionado(multimedia);
 		try {
 			String[] opciones = {"Si", "No"};
-			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + multimedia.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
+			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + multimedia.getTitulo() + "\u00BFEst\u00e1s seguro\u003F", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
 			case 0:
 				videoteca.borrar(multimedia.getTitulo());
 				break;

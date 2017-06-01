@@ -34,11 +34,11 @@ public class ModificarCapitulo extends PlantillaAnnadirTemporadaCapitulo {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					capitulo.setTitulo(textField_Temporada.getText());
-					JOptionPane.showMessageDialog(getContentPane(), "La serie se ha modificado correctamente.","Serie modificada", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(getContentPane(), "El cap\u00ed se ha modificado correctamente.","Cap\u00edtulo modificado", JOptionPane.INFORMATION_MESSAGE);
 					videoteca.setModificado(true);
 					jlistCapitulos.setModel(modeloCapitulos);
 				} catch (TituloNoValidoException exception) {
-					JOptionPane.showMessageDialog(getContentPane(), "La temporada no se ha podido modificar: " + exception.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(getContentPane(), "El cap\\u00ed no se ha podido modificar: " + exception.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
