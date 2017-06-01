@@ -148,22 +148,58 @@ public class Temporada implements Serializable{
 		return getTitulo();
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + IDTemporada;
 		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
 		Temporada other = (Temporada) obj;
+		if (IDTemporada != other.IDTemporada)
+			return false;
 		if (titulo == null) {
 			if (other.titulo != null)
-				return false;
-		} else if (!titulo.equalsIgnoreCase(other.titulo))
+				return true;
+		} else if (!titulo.equals(other.titulo))
 			return false;
 		return true;
 	}
+
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = 1;
+//		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+//		return result;
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		Temporada other = (Temporada) obj;
+//		if (titulo == null) {
+//			if (other.titulo != null)
+//				return false;
+//		} else if (!titulo.equalsIgnoreCase(other.titulo))
+//			return false;
+//		return true;
+//	}
+	
+	
 }
