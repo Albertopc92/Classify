@@ -118,6 +118,8 @@ public class Pelicula extends Multimedia implements Serializable{
 			puntuacion += 10 * 0.3f;
 		if(getNumVisualizaciones() > 5)
 			puntuacion += getNumVisualizaciones() *0.5f;
+		if(puntuacion > 10)
+			return 10;
 		return puntuacion;
 	}
 }

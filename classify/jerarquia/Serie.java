@@ -152,6 +152,8 @@ public class Serie extends Multimedia implements Serializable{
 			puntuacion += 10 * 0.3f;
 		if(getNumTemporadas() > 4)
 			puntuacion += getNumTemporadas() * 0.2f;
+		if(puntuacion > 10)
+			return 10;
 		return puntuacion;
 	}
 	
