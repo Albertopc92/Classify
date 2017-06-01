@@ -80,6 +80,41 @@ public class PrincipalSeries extends PlantillaPrincipal {
 			}
 		});
 		
+		// BORAR SERIE
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				borrarSerie();
+			}
+		});
+		
+	}
+	
+	/**
+	 * Borra una serie
+	 */
+	private void borrarSerie(){
+		Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
+		comprobarSiSeleccionado(multimedia);
+		try {
+			String[] opciones = {"Si", "No"};
+			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + multimedia.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
+			case 0:
+				videoteca.borrar(multimedia.getTitulo());
+				break;
+			default:
+				return;
+			}
+			JOptionPane.showMessageDialog(null, "Se ha borrado: " + multimedia.getTitulo());
+			jlist.setModel(modelo);
+		} catch (Exception exception) {
+			JOptionPane.showMessageDialog(null, "No se ha podido borrar: " + exception.getMessage());
+		}
+		
+		modelo.clear();
+		for (Multimedia elemento : videoteca.listarSeries()) {
+			modelo.addElement(elemento);
+		}
+		
 	}
 
 }

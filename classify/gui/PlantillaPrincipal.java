@@ -11,6 +11,8 @@ import classify.envoltorios.Videoteca;
 import classify.excepciones.TituloNoValidoException;
 import classify.jerarquia.Multimedia;
 import classify.jerarquia.Pelicula;
+import classify.jerarquia.Serie;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -81,7 +83,6 @@ public class PlantillaPrincipal extends JDialog {
 		btnBorrar = new JButton("Borrar");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				borrar();
 			}
 		});
 		btnBorrar.setBounds(34, 260, 183, 23);
@@ -100,7 +101,6 @@ public class PlantillaPrincipal extends JDialog {
 		btnMarcaComoVisualizado = new JButton("Marca como visualizado");
 		btnMarcaComoVisualizado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//TODO
 				Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
 				try {
 					videoteca.marcarVisualizado(multimedia.getTitulo());
@@ -136,35 +136,6 @@ public class PlantillaPrincipal extends JDialog {
 	}
 	
 	/**
-	 * Borra un elemento de la videoteca
-	 */
-	private void borrar() {
-		Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
-		comprobarSiSeleccionado(multimedia);
-		try {
-			String[] opciones = {"Si", "No"};
-			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + multimedia.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
-			case 0:
-				videoteca.borrar(multimedia.getTitulo());
-				break;
-			default:
-				return;
-			}
-			JOptionPane.showMessageDialog(null, "Se ha borrado: " + multimedia.getTitulo());
-			jlist.setModel(modelo);
-		} catch (Exception exception) {
-			JOptionPane.showMessageDialog(null, "No se ha podido borrar: " + exception.getMessage());
-		}
-		
-		modelo.clear();
-		for (Multimedia elemento : videoteca.listarPeliculas()) {
-			modelo.addElement(elemento);
-		}
-		
-	}
-
-	
-	/**
 	 * Muestra la ficha tecnica del elemento seleccionado
 	 */
 	private void mostrarFichaTecnica() {
@@ -184,7 +155,7 @@ public class PlantillaPrincipal extends JDialog {
 		if(multimedia instanceof Pelicula) {
 			modificarPelicula = new ModificarPelicula(jlist, modelo, multimedia);
 			modificarPelicula.setVisible(true);
-		}else {
+		}else if(multimedia instanceof Serie){
 			modificarSerie = new ModificarSerie(jlist, modelo, multimedia);
 			modificarSerie.setVisible(true);
 		}

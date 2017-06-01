@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import classify.jerarquia.Multimedia;
 import classify.jerarquia.Pelicula;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -122,6 +123,42 @@ public class PrincipalPeliculas extends PlantillaPrincipal {
 		btnInformacion.setBounds(33, 164, 183, 23);
 		getContentPane().add(btnInformacion);
 		
+		
+		// BORRAR
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				borrarPelicula();
+			}
+		});
+		
+		
+	}
+	
+	/**
+	 * Borra una pelicula
+	 */
+	private void borrarPelicula(){
+		Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
+		comprobarSiSeleccionado(multimedia);
+		try {
+			String[] opciones = {"Si", "No"};
+			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + multimedia.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
+			case 0:
+				videoteca.borrar(multimedia.getTitulo());
+				break;
+			default:
+				return;
+			}
+			JOptionPane.showMessageDialog(null, "Se ha borrado: " + multimedia.getTitulo());
+			jlist.setModel(modelo);
+		} catch (Exception exception) {
+			JOptionPane.showMessageDialog(null, "No se ha podido borrar: " + exception.getMessage());
+		}
+		
+		modelo.clear();
+		for (Multimedia elemento : videoteca.listarPeliculas()) {
+			modelo.addElement(elemento);
+		}
 		
 	}
 }

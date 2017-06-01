@@ -84,6 +84,7 @@ public class ModificarPelicula extends PlantillaAnnadir {
 					}
 					
 					JOptionPane.showMessageDialog(getContentPane(), "La pel\u00edcula se ha modificado correctamente.","Pelicula modificada", JOptionPane.INFORMATION_MESSAGE);
+					videoteca.setModificado(true);
 					jlist.setModel(modelo);
 				}catch (Exception exception) {
 					JOptionPane.showMessageDialog(getContentPane(), "La pel\u00edcula no se ha podido modificar: " + exception.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);

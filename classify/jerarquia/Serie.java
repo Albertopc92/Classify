@@ -108,7 +108,6 @@ public class Serie extends Multimedia implements Serializable{
 		Temporada temporada = new Temporada(titulo);
 		if(!serie.contains(serie)) {
 			serie.add(temporada);
-			temporada.setModificado(true);
 			return true;
 		}else {
 			throw new YaExisteException("La temporada ya existe.");
@@ -123,7 +122,6 @@ public class Serie extends Multimedia implements Serializable{
 		Temporada temporada = new Temporada(IDTemporada);
 		if(serie.contains(temporada)) {
 			serie.remove(temporada);
-			temporada.setModificado(true);
 		}
 	}
 	

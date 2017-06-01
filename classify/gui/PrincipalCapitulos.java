@@ -34,12 +34,14 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 	 * @param videoteca 
 	 */
 	public PrincipalCapitulos(Temporada temporada, Videoteca videoteca) {
+		btnVerFichaTecnica.setEnabled(false);
 		setBounds(100, 100, 720, 788);
 		setResizable(false);
 		setTitle("Cap\u00edtulos");
 		setModal(true);
 		lblLista.setText("cap\u00edtulos");
-		btnVerFichaTecnica.setText("Informaci\u00f3n");
+		btnVerFichaTecnica.setEnabled(false);
+		btnVerFichaTecnica.setVisible(false);
 		btnAnnadir.setText("A\u00f1adir Capitulo");
 		btnBorrar.setText("Borrar Capitulo");
 		btnModificar.setText("Modificar Capitulo");
@@ -54,6 +56,10 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 		jlistCapitulos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jlistCapitulos.setBounds(287, 71, 380, 579);
 		getContentPane().add(jlistCapitulos);
+		
+		JButton btnInformacion = new JButton("Informacion");
+		btnInformacion.setBounds(34, 192, 183, 23);
+		getContentPane().add(btnInformacion);
 		
 		JLabel icono = new JLabel("");
 		icono.setIcon(new ImageIcon(PrincipalSeries.class.getResource("/classify/gui/recursos/principalSerie.png")));
@@ -70,7 +76,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 		}
 		
 		// INFORMACION CAPITULO
-		btnVerFichaTecnica.addActionListener(new ActionListener() {
+		btnInformacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Capitulo capitulo = jlistCapitulos.getSelectedValue();
 				comprobarSiSeleccionado(capitulo);
@@ -79,7 +85,7 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 			}
 		});
 		
-		// Aï¿½ADIR CAPITULO
+		// AÑADIR CAPITULO
 		btnAnnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				annadirCapitulo = new AnnadirCapitulo(temporada, jlistCapitulos, modeloCapitulos, videoteca);
@@ -126,6 +132,8 @@ public class PrincipalCapitulos extends PlantillaPrincipal {
 		});
 		btnVisualizar.setBounds(34, 158, 183, 23);
 		getContentPane().add(btnVisualizar);
+		
+		
 
 	}
 	

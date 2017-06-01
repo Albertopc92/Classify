@@ -101,6 +101,7 @@ public class ModificarSerie extends PlantillaAnnadir {
 					
 					
 					JOptionPane.showMessageDialog(getContentPane(), "La serie se ha modificado correctamente.","Serie modificada", JOptionPane.INFORMATION_MESSAGE);
+					videoteca.setModificado(true);
 					jlist.setModel(modelo);
 				}catch (Exception exception) {
 					JOptionPane.showMessageDialog(getContentPane(), "La serie no se ha podido modificar: " + exception.getMessage(),"Error", JOptionPane.ERROR_MESSAGE);

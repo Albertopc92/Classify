@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
 import java.awt.event.ActionEvent;
+import javax.swing.JButton;
 /**
  * Clase que se encarga de gestionar las temporadas
  * @author Alberto Perez Cano
@@ -33,12 +34,14 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 	 * @param videoteca 
 	 */
 	public PrincipalTemporada(Serie serie, Videoteca videoteca) {
+		btnVerFichaTecnica.setEnabled(false);
 		setBounds(100, 100, 720, 788);
 		setTitle("Temporadas");
 		setModal(true);
 		btnListarPorNumeroVisualizaciones.setVisible(false);
 		lblLista.setText("Temporadas");
-		btnVerFichaTecnica.setText("Informaci\u00f3n");
+		btnVerFichaTecnica.setEnabled(false);
+		btnVerFichaTecnica.setVisible(false);
 		btnAnnadir.setText("A\u00f1adir Temporada");
 		btnBorrar.setText("Borrar Temporada");
 		btnModificar.setText("Modificar Temporada");
@@ -58,6 +61,10 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 		icono.setBounds(87, 68, 64, 64);
 		getContentPane().add(icono);
 		
+		JButton btnInformacion = new JButton("Informaci\u00f3n");
+		btnInformacion.setBounds(34, 192, 183, 23);
+		getContentPane().add(btnInformacion);
+		
 		try {
 			for (Temporada temporada: serie.listarTemporadas()) {
 				modeloTemporadas.addElement(temporada);
@@ -67,7 +74,7 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 		}
 		
 		// INFORMACION DE LA TEMPORADA
-		btnVerFichaTecnica.addActionListener(new ActionListener() {
+		btnInformacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Temporada temporada = jlistTemporadas.getSelectedValue();
 				comprobarSiSeleccionado(temporada);
@@ -135,7 +142,7 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 		comprobarSiSeleccionado(temporada);
 		try {
 			String[] opciones = {"Si", "No"};
-			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + temporada.getTitulo() + " Â¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
+			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + temporada.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
 			case 0:
 				serie.bajaTemporada(temporada.getIDTemporada());
 				videoteca.setModificado(true);
@@ -158,5 +165,4 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 
 		}
 	}
-
 }

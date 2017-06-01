@@ -19,7 +19,6 @@ public class Temporada implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Capitulo> temporada;
 	private String titulo;
-	private boolean modificado;
 	private int IDTemporada;
 	private static int incID = 1;
 	
@@ -41,26 +40,8 @@ public class Temporada implements Serializable{
 	 * @param iDTemporada
 	 * 				ID de la temporada
 	 */
-	public Temporada(int iDTemporada) {
-		setIDTemporada(iDTemporada);
-	}
-	
-	/**
-	 * Comprueba si la temporada ha sido modificada
-	 * @return True si se ha modificado
-	 * 			False si no se ha modificado
-	 */
-	public boolean isModificado() {
-		return modificado;
-	}
-	
-	/**
-	 * Modifica el estado de modificado
-	 * @param modificado
-	 * 				Estado de modificado
-	 */
-	public void setModificado(boolean modificado) {
-		this.modificado = modificado;
+	public Temporada(int IDTemporada) {
+		setIDTemporada(IDTemporada);
 	}
 
 	/**
@@ -177,12 +158,6 @@ public class Temporada implements Serializable{
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
 		Temporada other = (Temporada) obj;
 		if (titulo == null) {
 			if (other.titulo != null)
