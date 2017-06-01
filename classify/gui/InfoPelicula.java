@@ -1,6 +1,8 @@
 package classify.gui;
 
 import java.awt.Toolkit;
+import java.time.format.DateTimeFormatter;
+
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -75,7 +77,8 @@ public class InfoPelicula extends JDialog {
 		if(pelicula.getUltimaVisualizacion() == null){
 			textField_ultimaVisualizacion.setText("No visualizada");
 		}else{
-			textField_ultimaVisualizacion.setText(pelicula.getUltimaVisualizacion().toString());
+			DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyy");
+			textField_ultimaVisualizacion.setText(pelicula.getUltimaVisualizacion().format(formato));
 		}
 		
 

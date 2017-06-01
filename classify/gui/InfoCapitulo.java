@@ -1,10 +1,10 @@
 package classify.gui;
 
 import java.awt.Toolkit;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
 import classify.Capitulo;
 import javax.swing.JCheckBox;
 /**
@@ -74,7 +74,8 @@ public class InfoCapitulo extends JDialog {
 		if (capitulo.getUltimaVisualizacion() == null) {
 			textField_ultimaVisualizacion.setText("No visualizado");
 		}else{
-			textField_ultimaVisualizacion.setText(capitulo.getUltimaVisualizacion().toString());
+			DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyy");
+			textField_ultimaVisualizacion.setText(capitulo.getUltimaVisualizacion().format(formato));
 		}
 		
 

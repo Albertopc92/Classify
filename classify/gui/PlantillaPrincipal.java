@@ -8,11 +8,9 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import classify.envoltorios.Videoteca;
-import classify.excepciones.TituloNoValidoException;
 import classify.jerarquia.Multimedia;
 import classify.jerarquia.Pelicula;
 import classify.jerarquia.Serie;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -99,16 +97,6 @@ public class PlantillaPrincipal extends JDialog {
 		getContentPane().add(btnModificar);
 		
 		btnMarcaComoVisualizado = new JButton("Marca como visualizado");
-		btnMarcaComoVisualizado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Multimedia multimedia = (Multimedia)jlist.getSelectedValue();
-				try {
-					videoteca.marcarVisualizado(multimedia.getTitulo());
-				} catch (TituloNoValidoException e) {
-					
-				}
-			}
-		});
 		btnMarcaComoVisualizado.setBounds(34, 328, 183, 23);
 		getContentPane().add(btnMarcaComoVisualizado);
 		

@@ -144,6 +144,7 @@ public class PrincipalTemporada extends PlantillaPrincipal {
 			String[] opciones = {"Si", "No"};
 			switch (JOptionPane.showOptionDialog(getContentPane(), "Se va a borrar " + temporada.getTitulo() + " ¿Estas seguro?", "Borrar", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opciones, opciones[0])) {
 			case 0:
+				//serie.bajaTemporada(temporada.getIDTemporada());
 				serie.bajaTemporada(temporada.getIDTemporada());
 				videoteca.setModificado(true);
 				break;
